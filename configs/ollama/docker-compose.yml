@@ -1,0 +1,124 @@
+# ============================================================================
+# 🧠 AI-HomeLab: Ollama + Open WebUI
+# ============================================================================
+# Локальна ШІ-лабораторія в один клік.
+#
+# Запуск (CPU-only):
+#   docker compose up -d
+#
+# Запуск з GPU (Nvidia):
+#   docker compose --profile gpu up -d
+#
+# Документація: https://github.com/weby-homelab/ai
+# ============================================================================
+
+services:
+  # --------------------------------------------------------------------------
+  # Ollama — локальний інференс LLM (CPU-only)
+  # --------------------------------------------------------------------------
+  ollama-cpu:
+    image: ollama/ollama:latest
+    container_name: ai-ollama
+    restart: unless-stopped
+    profiles: ["", "cpu"]
+    environment:
+      - TZ=${TZ:-Europe/Kyiv}
+      # Обмеження кількості потоків CPU (за замовчуванням — всі ядра)
+      - OLLAMA_NUM_PARALLEL=${OLLAMA_NUM_PARALLEL:-2}
+      - OLLAMA_MAX_LOADED_MODELS=${OLLAMA_MAX_LOADED_MODELS:-1}
+    volumes:
+      - ollama_data:/root/.ollama
+    healthcheck:
+      test: ["CMD-SHELL", "curl -sf http://localhost:11434/api/tags || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 15s
+    networks:
+      - ai-network
+
+  # --------------------------------------------------------------------------
+  # Ollama — локальний інференс LLM (GPU Nvidia)
+  # --------------------------------------------------------------------------
+  ollama-gpu:
+    image: ollama/ollama:latest
+    container_name: ai-ollama
+    restart: unless-stopped
+    profiles: ["gpu"]
+    environment:
+      - TZ=${TZ:-Europe/Kyiv}
+      - OLLAMA_NUM_PARALLEL=${OLLAMA_NUM_PARALLEL:-2}
+      - OLLAMA_MAX_LOADED_MODELS=${OLLAMA_MAX_LOADED_MODELS:-2}
+      # Обмеження VRAM (в байтах). 0 = автоматично
+      - OLLAMA_GPU_MEMORY=${OLLAMA_GPU_MEMORY:-0}
+    volumes:
+      - ollama_data:/root/.ollama
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    healthcheck:
+      test: ["CMD-SHELL", "curl -sf http://localhost:11434/api/tags || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 15s
+    networks:
+      - ai-network
+
+  # --------------------------------------------------------------------------
+  # Open WebUI — веб-інтерфейс для взаємодії з моделями
+  # --------------------------------------------------------------------------
+  open-webui:
+    image: ghcr.io/open-webui/open-webui:main
+    container_name: ai-webui
+    restart: unless-stopped
+    ports:
+      # 127.0.0.1 = доступний ТІЛЬКИ з цієї машини (безпечно)
+      # Замініть на 0.0.0.0 якщо потрібен доступ з мережі
+      - "${WEBUI_HOST:-127.0.0.1}:${WEBUI_PORT:-3000}:8080"
+    environment:
+      - TZ=${TZ:-Europe/Kyiv}
+      - OLLAMA_BASE_URL=http://ai-ollama:11434
+      - WEBUI_SECRET_KEY=${WEBUI_SECRET_KEY:?Встановіть WEBUI_SECRET_KEY у .env}
+      - WEBUI_AUTH=${WEBUI_AUTH:-true}
+      # Вимкнути телеметрію
+      - SCARF_NO_ANALYTICS=true
+      - DO_NOT_TRACK=true
+    volumes:
+      - webui_data:/app/backend/data
+    depends_on:
+      ollama-cpu:
+        condition: service_healthy
+        required: false
+      ollama-gpu:
+        condition: service_healthy
+        required: false
+    healthcheck:
+      test: ["CMD-SHELL", "curl -sf http://localhost:8080/health || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 30s
+    networks:
+      - ai-network
+
+# ==============================================================================
+# Мережа
+# ==============================================================================
+networks:
+  ai-network:
+    driver: bridge
+    name: ai-network
+
+# ==============================================================================
+# Томи (persist між перезапусками)
+# ==============================================================================
+volumes:
+  ollama_data:
+    name: ai-ollama-data
+  webui_data:
+    name: ai-webui-data
