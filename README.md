@@ -46,16 +46,34 @@
 
 Ми вчимося розгортати ШІ локально (через Ollama/vLLM), забезпечуючи повну автономність від сторонніх серверів:
 
-```
-┌─────────────────────────────────────────────┐
-│              Ваш Домашній Сервер             │
-│                                             │
-│  ┌─────────┐  ┌──────────┐  ┌───────────┐  │
-│  │  Ollama  │  │ Open     │  │   Ваші    │  │
-│  │  (LLM)  │──│ WebUI    │──│   Дані    │  │
-│  └─────────┘  └──────────┘  └───────────┘  │
-│         Дані НІКОЛИ не залишають цей блок   │
-└─────────────────────────────────────────────┘
+```mermaid
+flowchart LR
+    subgraph SECURE["🏠 Ваш Домашній Сервер — Безпечний Периметр"]
+        direction LR
+        USER["🧑‍💻 Користувач"]
+        UI["🖥️ Open WebUI"]
+        LLM["🧠 Ollama / vLLM"]
+        DATA["📁 Ваші Дані"]
+        EMB["🔗 Embeddings"]
+
+        USER -->|Запит| UI
+        UI -->|Інференс| LLM
+        LLM -->|Відповідь| UI
+        UI -->|Відповідь| USER
+        DATA -->|RAG| EMB
+        EMB -->|Контекст| LLM
+    end
+
+    CLOUD["☁️ Зовнішні Сервери"]
+    SECURE -.-x|"🚫 Дані НІКОЛИ\nне залишають периметр"| CLOUD
+
+    style SECURE fill:#0d1117,stroke:#58a6ff,stroke-width:3px,color:#c9d1d9
+    style USER fill:#1f6feb,stroke:#58a6ff,color:#ffffff
+    style UI fill:#238636,stroke:#2ea043,color:#ffffff
+    style LLM fill:#8957e5,stroke:#a371f7,color:#ffffff
+    style DATA fill:#d29922,stroke:#e3b341,color:#0d1117
+    style EMB fill:#f778ba,stroke:#f778ba,color:#0d1117
+    style CLOUD fill:#da3633,stroke:#f85149,color:#ffffff
 ```
 
 ### 3. ⚡ Економічність та Енергоефективність
