@@ -61,10 +61,7 @@ class AnthropicProvider:
         max_tokens: int = 4096,
         base_url: str | None = None,
     ) -> None:
-        api_key = os.environ.get("ANTHROPIC_API_KEY") or os.environ.get("ANTHROPIC_AUTH_TOKEN")
-        if not api_key:
-            # Fallback check for DeepSeek base URL setup
-            api_key = os.environ.get("DEEPSEEK_API_KEY") or "mock-key-for-local"
+        api_key = os.environ.get("ANTHROPIC_API_KEY") or os.environ.get("ANTHROPIC_AUTH_TOKEN") or "mock-key-for-local"
 
         self.model = model
         self.max_tokens = max_tokens
