@@ -1,4 +1,8 @@
 <p align="center">
+  <strong>🇺🇦 Українська</strong> | <a href="./README_ENG.md">🇬🇧 English</a>
+</p>
+
+<p align="center">
   <img src="https://img.shields.io/badge/🇺🇦_Made_in-Ukraine-FFD700?style=for-the-badge&labelColor=0057B8" alt="Made in Ukraine">
   <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" alt="License MIT">
   <img src="https://img.shields.io/badge/AI-Local_First-blueviolet?style=for-the-badge" alt="AI Local First">
