@@ -212,12 +212,17 @@ Open `http://localhost:3000` — your local ChatGPT is ready! 🎉
 │&nbsp;&nbsp;&nbsp;├── ✅ [**`ollama/`**](./configs/ollama/) — *One-click Ollama + Open WebUI*<br>
 │&nbsp;&nbsp;&nbsp;├── 🔌 [**`production-agent-stack/`**](./configs/production-agent-stack/) — *Comprehensive Stack (Ollama, LiteLLM, Qdrant, n8n, Open WebUI)*<br>
 │&nbsp;&nbsp;&nbsp;├── ⏳ **`vllm/`** — `(coming soon)` *vLLM for production-grade inference*<br>
-│&nbsp;&nbsp;&nbsp;└── ⏳ **`dify/`** — `(coming soon)` *Dify AI — no-code agent platform*<br>
+│&nbsp;&nbsp;&nbsp;├── ⏳ **`dify/`** — `(coming soon)` *Dify AI — no-code orchestration & RAG platform*<br>
+│&nbsp;&nbsp;&nbsp;├── ⏳ **`offline-knowledge/`** — `(coming soon)` *Offline Kiwix + Wikipedia stack*<br>
+│&nbsp;&nbsp;&nbsp;├── ⏳ **`mcp-stack/`** — `(coming soon)` *Local MCP servers stack (Filesystem, SQLite, Fetch)*<br>
+│&nbsp;&nbsp;&nbsp;└── ⏳ **`dashboard/`** — `(coming soon)` *Starter AI-HomeLab Dashboard*<br>
 │<br>
 ├── 📁 [**`templates/`**](./templates/) — *Templates and code examples*<br>
 │&nbsp;&nbsp;&nbsp;├── 🧠 [**`langgraph_rag_agent.py`**](./templates/langgraph_rag_agent.py) — *Corrective RAG Agent (LangGraph + Qdrant)*<br>
 │&nbsp;&nbsp;&nbsp;├── 🤖 [**`agent-code-cli/`**](./templates/agent-code-cli/) — *Claude Code Style Agent CLI (Ollama + Claude)*<br>
 │&nbsp;&nbsp;&nbsp;├── 💾 [**`agent_persistent_memory.py`**](./templates/agent_persistent_memory.py) — *Long-term agent memory (SQLite + Ollama)*<br>
+│&nbsp;&nbsp;&nbsp;├── ⏳ **`local_deep_research_agent.py`** — `(coming soon)` *Autonomous deep research agent (SearXNG/DuckDuckGo)*<br>
+│&nbsp;&nbsp;&nbsp;├── ⏳ **`offline_wikipedia_rag.py`** — `(coming soon)` *RAG search template for local Kiwix (.zim) databases*<br>
 │&nbsp;&nbsp;&nbsp;└── 📦 [**`requirements.txt`**](./templates/requirements.txt) — *Shared dependencies for out-of-the-box template usage*<br>
 │<br>
 ├── 📁 **`projects/`** — `(coming soon)` *Ideas and implementations of pet projects*<br>
@@ -228,6 +233,7 @@ Open `http://localhost:3000` — your local ChatGPT is ready! 🎉
 ├── 📁 [**`docs/`**](./docs/) — *Documentation and guides*<br>
 │&nbsp;&nbsp;&nbsp;├── 📁 [**`research/`**](./docs/research/) — *AI landscape research*<br>
 │&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├── 🔬 [**`ai-landscape-june-2026.md`**](./docs/research/ai-landscape-june-2026.md) — *AI models and stack report*<br>
+│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├── 🔬 [**`nomad-odysseus-analysis.md`**](./docs/research/nomad-odysseus-analysis.md) — *Comparative analysis of N.O.M.A.D. and Odysseus*<br>
 │&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;└── 🚀 [**`free-ai-tools-lifehacks_ENG.md`**](./docs/research/free-ai-tools-lifehacks_ENG.md) — *Free AI Tools and Lifehacks*<br>
 │&nbsp;&nbsp;&nbsp;├── 📁 [**`setup/`**](./docs/setup/) — *Step-by-step guides for each OS*<br>
 │&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├── ⏱️ [**`first-model-15-min.md`**](./docs/setup/first-model-15-min.md) — *Quick start of the first model*<br>
