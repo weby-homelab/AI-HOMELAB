@@ -232,7 +232,7 @@ Open `http://localhost:3000` — your local ChatGPT is ready! 🎉
 │&nbsp;&nbsp;&nbsp;├── 📁 [**`security/`**](./docs/security/) — *Security policies, audits, and model isolation*<br>
 │&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├── 🛡️ [**`model_isolation.md`**](./docs/security/model_isolation.md) — *Runtime isolation & TEE*<br>
 │&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├── 🛡️ [**`advanced_hardening.md`**](./docs/security/advanced_hardening.md) — *Deep isolation (VLAN, nftables, Gitleaks)*<br>
-│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;└── ⏳ **`model-vetting.md`** — `(coming soon)` *Model vetting criteria*<br>
+│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;└── 🛡️ [**`model-vetting.md`**](./docs/security/model-vetting.md) — *Model vetting criteria*<br>
 │&nbsp;&nbsp;&nbsp;└── ⏳ **`quantization/`** — `(coming soon)` *Quantization guide (Q4/Q8/GGUF)*<br>
 │<br>
 ├── 📄 [**`README.md`**](./README.md) — *Ukrainian version*<br>
@@ -273,6 +273,7 @@ For convenience, all learning and practical materials in the repository are divi
 | :--- | :--- | :--- | :--- |
 | 🛡️ [**Advanced Hardening**](./docs/security/advanced_hardening.md) | VLAN isolation of the IoT segment, nftables firewall for Proxmox host, Docker daemon security, and Gitleaks pre-commit linter. | [`advanced_hardening.md`](./docs/security/advanced_hardening.md) | ✅ Done |
 | 🛡️ [**Model Isolation**](./docs/security/model_isolation.md) | Model execution isolation using gVisor, Firecracker, WASM, Trusted Execution Environments (TEE), and Zero-Trust networks. | [`model_isolation.md`](./docs/security/model_isolation.md) | ✅ Done |
+| 🛡️ [**Model Vetting**](./docs/security/model-vetting.md) | Model vetting criteria (model hygiene, inference privacy, safe formats GGUF/Safetensors, and licensing compliance). | [`model-vetting.md`](./docs/security/model-vetting.md) | ✅ Done |
 | 🔐 [**Security Policy**](./SECURITY.md) | Overall project security policies, model hygiene, sensitive data isolation, and credential management. | [`SECURITY.md`](./SECURITY.md) | ✅ Done |
 
 ### 🔬 5. Strategy, Roadmap & Community
