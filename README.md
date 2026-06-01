@@ -177,7 +177,8 @@ ai/
 │
 ├── 📁 docs/               # Документація та гайди
 │   ├── research/          # 🔬 Дослідження AI-ландшафту
-│   ├── setup/             # (coming soon) Крок-за-кроком для кожної ОС
+│   ├── setup/             # Крок-за-кроком для кожної ОС
+│   │   └── first-model-15-min.md  # ⏱️ Швидкий запуск першої моделі
 │   ├── security/          # (coming soon) Best practices з ізоляції моделей
 │   └── quantization/      # (coming soon) Гайд по квантизації (Q4/Q8/GGUF)
 │
@@ -198,6 +199,7 @@ ai/
 
 | Модуль | Опис | Статус |
 |---|---|---|
+| ⏱️ [**15-Min Setup**](./docs/setup/first-model-15-min.md) | Швидкий покроковий гайд: встановлення Ollama, запуск Open WebUI через Docker, вибір та чат з першою моделлю | ✅ Готово |
 | 🧠 [**CRAG Agent**](./templates/langgraph_rag_agent.py) | Corrective RAG агент на LangGraph + Qdrant. Циклічний граф: пошук → оцінка → переформулювання → генерація | ✅ Готово |
 | 🛡️ [**Advanced Hardening**](./security/advanced_hardening.md) | VLAN-ізоляція від IoT, nftables фаєрвол, Docker безпека, Gitleaks + pre-commit | ✅ Готово |
 | ⚡ [**Hardware Benchmarks**](./benchmarks/hardware_efficiency.md) | GPU vs Apple Silicon (t/s/W), Cold Start аналіз, VRAM contention, рекомендації по тієрах | ✅ Готово |
@@ -215,7 +217,7 @@ ai/
 - [x] Меморандум та філософія проєкту
 - [x] Docker-compose для Ollama + Open WebUI
 - [x] Бенчмарки RTX 3060/4060/5060 з квантизованими моделями
-- [ ] Гайд: "Перша модель за 15 хвилин"
+- [x] Гайд: "Перша модель за 15 хвилин"
 - [x] Шаблон RAG-пайплайну на LangGraph (CRAG Agent)
 - [x] Глибока ізоляція домашньої лаби (Advanced Hardening)
 - [x] Бенчмарки енергоефективності (t/s/W)
