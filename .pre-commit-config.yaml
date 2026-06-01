@@ -1,0 +1,55 @@
+# ==============================================================
+# AI-HomeLab — Pre-commit Hook Configuration
+# Docs: https://pre-commit.com
+#
+# Встановлення:
+#   pip install pre-commit
+#   pre-commit install
+#   pre-commit run --all-files   # перша перевірка всіх файлів
+# ==============================================================
+
+default_language_version:
+  python: python3
+
+repos:
+  # ────────────────────────────────────────────────────────────
+  # 1. Загальні перевірки (trailing whitespace, EOF, YAML, etc.)
+  # ────────────────────────────────────────────────────────────
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-toml
+      - id: check-added-large-files
+        args: ["--maxkb=500"]
+      - id: check-merge-conflict
+      - id: detect-private-key
+
+  # ────────────────────────────────────────────────────────────
+  # 2. Python linting та форматування (ruff)
+  # ────────────────────────────────────────────────────────────
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.11.12
+    hooks:
+      - id: ruff
+        args: ["--fix", "--exit-non-zero-on-fix"]
+      - id: ruff-format
+
+  # ────────────────────────────────────────────────────────────
+  # 3. Виявлення секретів (Gitleaks)
+  # ────────────────────────────────────────────────────────────
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.27.2
+    hooks:
+      - id: gitleaks
+
+  # ────────────────────────────────────────────────────────────
+  # 4. Markdown лінтер
+  # ────────────────────────────────────────────────────────────
+  - repo: https://github.com/igorshubovych/markdownlint-cli
+    rev: v0.45.0
+    hooks:
+      - id: markdownlint
+        args: ["--config", ".markdownlint.yaml"]

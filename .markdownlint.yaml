@@ -1,0 +1,23 @@
+# ==============================================================
+# Markdownlint configuration for AI-HomeLab
+# Docs: https://github.com/DavidAnson/markdownlint
+# ==============================================================
+
+# MD013 — Line length: вимикаємо, бо README містить довгі HTML-рядки для дерева
+MD013: false
+
+# MD033 — Allow inline HTML (потрібен для <br> у tree-view та <img> badges)
+MD033:
+  allowed_elements:
+    - br
+    - img
+    - details
+    - summary
+    - a
+
+# MD041 — First line must be top-level heading (вимикаємо для файлів без заголовку)
+MD041: false
+
+# MD024 — Multiple headings with same content (allow in different sections)
+MD024:
+  siblings_only: true
