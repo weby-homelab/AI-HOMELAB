@@ -1,0 +1,28 @@
+# ============================================================
+# AI-HomeLab Templates — Shared Requirements
+# Встановлення: pip install -r templates/requirements.txt
+# ============================================================
+
+# --- Core / Type Safety ---
+pydantic>=2.0
+
+# --- HTTP / API ---
+requests>=2.31
+
+# --- CLI Agent (templates/agent-code-cli/) ---
+click>=8.1
+prompt_toolkit>=3.0
+rich>=13.0
+
+# --- Corrective RAG Agent (templates/langgraph_rag_agent.py) ---
+langgraph>=0.2
+langchain-core>=0.3
+langchain-ollama>=0.2
+langchain-qdrant>=0.2
+qdrant-client>=1.9
+
+# --- Agent Persistent Memory (templates/agent_persistent_memory.py) ---
+# (relies on stdlib: sqlite3, json, logging — no extra packages needed)
+
+# --- Optional: Ollama Python client (alternative to raw requests) ---
+# ollama>=0.3

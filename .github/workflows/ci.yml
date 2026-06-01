@@ -1,0 +1,88 @@
+name: CI
+
+on:
+  push:
+    branches: ["main", "feature/**", "fix/**"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  # ────────────────────────────────────────────────────────────
+  # Job 1: Secret Detection (Gitleaks)
+  # ────────────────────────────────────────────────────────────
+  secrets-scan:
+    name: 🔐 Gitleaks Secret Scan
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Run Gitleaks
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  # ────────────────────────────────────────────────────────────
+  # Job 2: Python Linting (ruff)
+  # ────────────────────────────────────────────────────────────
+  python-lint:
+    name: 🐍 Python Lint (ruff)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install ruff
+        run: pip install ruff
+
+      - name: Run ruff linter
+        run: ruff check . --output-format=github
+
+      - name: Run ruff formatter check
+        run: ruff format --check .
+
+  # ────────────────────────────────────────────────────────────
+  # Job 3: Markdown Linting (markdownlint-cli)
+  # ────────────────────────────────────────────────────────────
+  markdown-lint:
+    name: 📝 Markdown Lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install markdownlint-cli
+        run: npm install -g markdownlint-cli
+
+      - name: Run markdownlint
+        run: markdownlint "**/*.md" --config .markdownlint.yaml --ignore node_modules
+
+  # ────────────────────────────────────────────────────────────
+  # Job 4: Link Verification
+  # ────────────────────────────────────────────────────────────
+  verify-links:
+    name: 🔗 Verify Internal Links
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Run link verification script
+        run: python scripts/verify_links.py

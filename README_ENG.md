@@ -215,7 +215,9 @@ Open `http://localhost:3000` — your local ChatGPT is ready! 🎉
 │<br>
 ├── 📁 [**`templates/`**](./templates/) — *Templates and code examples*<br>
 │&nbsp;&nbsp;&nbsp;├── 🧠 [**`langgraph_rag_agent.py`**](./templates/langgraph_rag_agent.py) — *Corrective RAG Agent (LangGraph + Qdrant)*<br>
-│&nbsp;&nbsp;&nbsp;└── 🤖 [**`agent-code-cli/`**](./templates/agent-code-cli/) — *Claude Code Style Agent CLI (Ollama + Claude)*<br>
+│&nbsp;&nbsp;&nbsp;├── 🤖 [**`agent-code-cli/`**](./templates/agent-code-cli/) — *Claude Code Style Agent CLI (Ollama + Claude)*<br>
+│&nbsp;&nbsp;&nbsp;├── 💾 [**`agent_persistent_memory.py`**](./templates/agent_persistent_memory.py) — *Long-term agent memory (SQLite + Ollama)*<br>
+│&nbsp;&nbsp;&nbsp;└── 📦 [**`requirements.txt`**](./templates/requirements.txt) — *Shared dependencies for out-of-the-box template usage*<br>
 │<br>
 ├── 📁 **`projects/`** — `(coming soon)` *Ideas and implementations of pet projects*<br>
 │&nbsp;&nbsp;&nbsp;├── ⏳ **`local-osint/`** — `(coming soon)` *Local OSINT assistants*<br>
