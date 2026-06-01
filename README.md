@@ -161,42 +161,42 @@ docker run -d \
 
 ## 🛠️ СТРУКТУРА РЕПОЗИТОРІЮ
 
-📂 [**`ai/`**](./)
-├── 📁 [**`benchmarks/`**](./benchmarks/) — *Бенчмарки заліза та енергоефективність*
-│   └── ⚡ [**`hardware_efficiency.md`**](./benchmarks/hardware_efficiency.md) — *GPU vs Apple Silicon (t/s/W)*
-│
-├── 📁 [**`configs/`**](./configs/) — *Готові Docker-compose конфігурації*
-│   ├── ✅ [**`ollama/`**](./configs/ollama/) — *Ollama + Open WebUI в один клік*
-│   ├── ⏳ **`vllm/`** — `(coming soon)` *vLLM для production-grade інференсу*
-│   └── ⏳ **`dify/`** — `(coming soon)` *Dify AI — no-code агентна платформа*
-│
-├── 📁 [**`templates/`**](./templates/) — *Шаблони та приклади коду*
-│   ├── 🧠 [**`langgraph_rag_agent.py`**](./templates/langgraph_rag_agent.py) — *Corrective RAG Agent (LangGraph + Qdrant)*
-│   └── 🤖 [**`agent-code-cli/`**](./templates/agent-code-cli/) — *Claude Code Style Agent CLI (Ollama + Claude)*
-│
-├── 📁 **`projects/`** — `(coming soon)` *Ідеї та реалізації пет-проєктів*
-│   ├── ⏳ **`local-osint/`** — `(coming soon)` *Локальні OSINT-помічники*
-│   ├── ⏳ **`biz-automation/`** — `(coming soon)` *Автоматизатори бізнес-рутини*
-│   └── ⏳ **`rag-pipeline/`** — `(coming soon)` *RAG-пайплайн по власним документам*
-│
-├── 📁 [**`docs/`**](./docs/) — *Документація та гайди*
-│   ├── 📁 [**`research/`**](./docs/research/) — *Дослідження AI-ландшафту*
-│   │   └── 🔬 [**`ai-landscape-may-2026.md`**](./docs/research/ai-landscape-may-2026.md) — *Звіт по ШІ-моделях та стеку*
-│   ├── 📁 [**`setup/`**](./docs/setup/) — *Крок-за-кроком для кожної ОС*
-│   │   ├── ⏱️ [**`first-model-15-min.md`**](./docs/setup/first-model-15-min.md) — *Швидкий запуск першої моделі*
-│   │   └── 🔋 [**`blackout-guide.md`**](./docs/setup/blackout-guide.md) — *Гайд з енергоефективності під час блекаутів*
-│   ├── ⏳ **`security/`** — `(coming soon)` *Best practices з ізоляції моделей*
-│   └── ⏳ **`quantization/`** — `(coming soon)` *Гайд по квантизації (Q4/Q8/GGUF)*
-│
-├── 📁 [**`security/`**](./security/) — *Політики безпеки та аудити*
-│   ├── 🛡️ [**`advanced_hardening.md`**](./security/advanced_hardening.md) — *Глибока ізоляція (VLAN, nftables, Gitleaks)*
-│   └── ⏳ **`model-vetting.md`** — `(coming soon)` *Критерії перевірки моделей*
-│
-├── 📄 [**`README.md`**](./README.md) — *Цей файл (UA)*
-├── 📄 [**`README_ENG.md`**](./README_ENG.md) — *English version*
-├── 📄 [**`CONTRIBUTING.md`**](./CONTRIBUTING.md) — *Гайд для контриб'юторів*
-├── 📄 [**`SECURITY.md`**](./SECURITY.md) — *Політика безпеки*
-├── 📄 [**`LICENSE`**](./LICENSE) — *MIT ліцензія*
+📂 [**`ai/`**](./)<br>
+├── 📁 [**`benchmarks/`**](./benchmarks/) — *Бенчмарки заліза та енергоефективність*<br>
+│&nbsp;&nbsp;&nbsp;└── ⚡ [**`hardware_efficiency.md`**](./benchmarks/hardware_efficiency.md) — *GPU vs Apple Silicon (t/s/W)*<br>
+│<br>
+├── 📁 [**`configs/`**](./configs/) — *Готові Docker-compose конфігурації*<br>
+│&nbsp;&nbsp;&nbsp;├── ✅ [**`ollama/`**](./configs/ollama/) — *Ollama + Open WebUI в один клік*<br>
+│&nbsp;&nbsp;&nbsp;├── ⏳ **`vllm/`** — `(coming soon)` *vLLM для production-grade інференсу*<br>
+│&nbsp;&nbsp;&nbsp;└── ⏳ **`dify/`** — `(coming soon)` *Dify AI — no-code агентна платформа*<br>
+│<br>
+├── 📁 [**`templates/`**](./templates/) — *Шаблони та приклади коду*<br>
+│&nbsp;&nbsp;&nbsp;├── 🧠 [**`langgraph_rag_agent.py`**](./templates/langgraph_rag_agent.py) — *Corrective RAG Agent (LangGraph + Qdrant)*<br>
+│&nbsp;&nbsp;&nbsp;└── 🤖 [**`agent-code-cli/`**](./templates/agent-code-cli/) — *Claude Code Style Agent CLI (Ollama + Claude)*<br>
+│<br>
+├── 📁 **`projects/`** — `(coming soon)` *Ідеї та реалізації пет-проєктів*<br>
+│&nbsp;&nbsp;&nbsp;├── ⏳ **`local-osint/`** — `(coming soon)` *Локальні OSINT-помічники*<br>
+│&nbsp;&nbsp;&nbsp;├── ⏳ **`biz-automation/`** — `(coming soon)` *Автоматизатори бізнес-рутини*<br>
+│&nbsp;&nbsp;&nbsp;└── ⏳ **`rag-pipeline/`** — `(coming soon)` *RAG-пайплайн по власним документам*<br>
+│<br>
+├── 📁 [**`docs/`**](./docs/) — *Документація та гайди*<br>
+│&nbsp;&nbsp;&nbsp;├── 📁 [**`research/`**](./docs/research/) — *Дослідження AI-ландшафту*<br>
+│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;└── 🔬 [**`ai-landscape-may-2026.md`**](./docs/research/ai-landscape-may-2026.md) — *Звіт по ШІ-моделях та стеку*<br>
+│&nbsp;&nbsp;&nbsp;├── 📁 [**`setup/`**](./docs/setup/) — *Крок-за-кроком для кожної ОС*<br>
+│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├── ⏱️ [**`first-model-15-min.md`**](./docs/setup/first-model-15-min.md) — *Швидкий запуск першої моделі*<br>
+│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;└── 🔋 [**`blackout-guide.md`**](./docs/setup/blackout-guide.md) — *Гайд з енергоефективності під час блекаутів*<br>
+│&nbsp;&nbsp;&nbsp;├── ⏳ **`security/`** — `(coming soon)` *Best practices з ізоляції моделей*<br>
+│&nbsp;&nbsp;&nbsp;└── ⏳ **`quantization/`** — `(coming soon)` *Гайд по квантизації (Q4/Q8/GGUF)*<br>
+│<br>
+├── 📁 [**`security/`**](./security/) — *Політики безпеки та аудити*<br>
+│&nbsp;&nbsp;&nbsp;├── 🛡️ [**`advanced_hardening.md`**](./security/advanced_hardening.md) — *Глибока ізоляція (VLAN, nftables, Gitleaks)*<br>
+│&nbsp;&nbsp;&nbsp;└── ⏳ **`model-vetting.md`** — `(coming soon)` *Критерії перевірки моделей*<br>
+│<br>
+├── 📄 [**`README.md`**](./README.md) — *Цей файл (UA)*<br>
+├── 📄 [**`README_ENG.md`**](./README_ENG.md) — *English version*<br>
+├── 📄 [**`CONTRIBUTING.md`**](./CONTRIBUTING.md) — *Гайд для контриб'юторів*<br>
+├── 📄 [**`SECURITY.md`**](./SECURITY.md) — *Політика безпеки*<br>
+├── 📄 [**`LICENSE`**](./LICENSE) — *MIT ліцензія*<br>
 └── 📄 [**`ROADMAP.md`**](./ROADMAP.md) — *Дорожня карта проєкту*
 
 ---
