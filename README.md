@@ -24,6 +24,20 @@
 
 ---
 
+## 📌 ЗМІСТ (TABLE OF CONTENTS)
+
+* [📜 Меморандум та Філософія Проєкту](#-меморандум-та-філософія-проєкту)
+* [⚡ Швидкий Старт (Quick Start)](#-швидкий-старт-quick-start)
+* [💻 Мінімальні Вимоги](#-мінімальні-вимоги)
+* [🛠️ Структура Репозиторію](#️-структура-репозиторію)
+* [📚 Модулі та Навігація](#-модулі-та-навігація)
+* [🗺️ Дорожня Карта (Roadmap)](#️-дорожня-карта-roadmap)
+* [🔐 Безпека](#-безпека)
+* [🤝 Приєднуйтесь до Спільноти](#-приєднуйтесь-до-спільноти)
+* [📄 Ліцензія](#-ліцензія)
+
+---
+
 ## 📜 МЕМОРАНДУМ ТА ФІЛОСОФІЯ ПРОЄКТУ
 
 Кожен учасник спільноти AI-HomeLab та контриб'ютор цього репозиторію поділяє чотири фундаментальні принципи:
@@ -232,45 +246,68 @@ docker run -d \
 
 ## 📚 МОДУЛІ ТА НАВІГАЦІЯ
 
-| Модуль | Опис | Статус |
-|---|---|---|
-| ⏱️ [**15-Min Setup**](./docs/setup/first-model-15-min.md) | Швидкий покроковий гайд: встановлення Ollama, запуск Open WebUI через Docker, вибір та чат з першою моделлю | ✅ Готово |
-| 🔋 [**Blackout Guide**](./docs/setup/blackout-guide.md) | Практичний гайд з мінімізації споживання енергії (Nvidia Power Limit, обмеження потоків CPU, вибір заліза) під час відключень світла | ✅ Готово |
-| 🧠 [**CRAG Agent**](./templates/langgraph_rag_agent.py) | Corrective RAG агент на LangGraph + Qdrant. Циклічний граф: пошук → оцінка → переформулювання → генерація | ✅ Готово |
-| 🤖 [**Agent CLI**](./templates/agent-code-cli/) | Claude Code style консольний ШІ-агент у Harness оболонці (безпечний CWD, права на запуск bash, diff-попередній перегляд латок) | ✅ Готово |
-| 🛡️ [**Advanced Hardening**](./docs/security/advanced_hardening.md) | VLAN-ізоляція від IoT, nftables фаєрвол, Docker безпека, Gitleaks + pre-commit | ✅ Готово |
-| 🛡️ [**Model Isolation**](./docs/security/model_isolation.md) | Гайд по ізоляції моделей та пісочницях (gVisor, Firecracker, WASM, TEE, Zero-Trust network) | ✅ Готово |
-| ⚡ [**Hardware Benchmarks**](./benchmarks/hardware_efficiency.md) | GPU vs Apple Silicon (t/s/W), Cold Start аналіз, VRAM contention, рекомендації по тієрах | ✅ Готово |
-| 🐳 [**Ollama + Open WebUI**](./configs/ollama/) | Docker Compose: CPU/GPU профілі, безпечна конфігурація, `.env.example` | ✅ Готово |
-| 🔬 [**AI Landscape 2026**](./docs/research/ai-landscape-june-2026.md) | Дослідження: моделі, API, фреймворки, RAG, MCP, залізо, бюджети, а також аналіз автономних локальних агентів (пам'ять, stealth-браузери, голосові/відео асистенти) | ✅ Готово |
-| 🚀 [**Free AI Tools & Hacks**](./docs/research/free-ai-tools-lifehacks.md) | Стек найкращих безкоштовних інструментів та 7 практичних лайфхаків для підвищення якості відповідей | ✅ Готово |
-| 🗺️ [**Roadmap**](./ROADMAP.md) | Дорожня карта проєкту: Фаза 1 (Фундамент), Фаза 2 (Практика), Фаза 3 (Спільнота) | ✅ Готово |
-| 🔐 [**Security Policy**](./SECURITY.md) | Модельна гігієна, ізоляція даних, облікові дані | ✅ Готово |
-| 🤝 [**Contributing**](./CONTRIBUTING.md) | Гайд для контриб'юторів: Issues → Branch → PR → Merge | ✅ Готово |
+Для зручності всі навчальні та практичні матеріали репозиторію розділені на тематичні блоки:
+
+### 🚀 1. Швидкий Старт та Базова Інфраструктура
+| Модуль та Посилання | Опис | Головні Файли | Статус |
+| :--- | :--- | :--- | :--- |
+| ⏱️ [**15-Min Setup**](./docs/setup/first-model-15-min.md) | Швидкий покроковий запуск Ollama, завантаження першої моделі та чат через Docker-контейнер Open WebUI. | [`first-model-15-min.md`](./docs/setup/first-model-15-min.md) | ✅ Готово |
+| 🐳 [**Ollama + Open WebUI**](./configs/ollama/) | Конфігурація Docker Compose для спільного запуску сервісів (CPU/GPU профілі, безпечна прив'язка портів). | [`docker-compose.yml`](./configs/ollama/docker-compose.yml) | ✅ Готово |
+| 🚀 [**Free AI Tools & Hacks**](./docs/research/free-ai-tools-lifehacks.md) | Перелік безкоштовних інструментів розробки та 7 лайфхаків для покращення якості відповідей. | [`free-ai-tools-lifehacks.md`](./docs/research/free-ai-tools-lifehacks.md) | ✅ Готово |
+
+### 🧠 2. Розробка, Шаблони та Агенти
+| Модуль та Посилання | Опис | Головні Файли | Статус |
+| :--- | :--- | :--- | :--- |
+| 🤖 [**Agent CLI**](./templates/agent-code-cli/) | Консольний ШІ-агент у Claude Code стилі (безпечна робоча директорія, виконання bash з вашого дозволу, інтерактивний diff-перегляд). | [`cli.py`](./templates/agent-code-cli/agent_code/cli.py) | ✅ Готово |
+| 🧠 [**CRAG Agent**](./templates/langgraph_rag_agent.py) | Corrective RAG (CRAG) агент на LangGraph + Qdrant із циклічним графом оцінки та переформулювання запитів. | [`langgraph_rag_agent.py`](./templates/langgraph_rag_agent.py) | ✅ Готово |
+| 🧠 [**Agent Memory**](./templates/agent_persistent_memory.py) | Шаблон довготривалої сесійної пам'яті (SQLite + Ollama nomic-embed-text) для збереження фактів та рішень між сесіями. | [`agent_persistent_memory.py`](./templates/agent_persistent_memory.py) | ✅ Готово |
+
+### ⚡ 3. Апаратне Забезпечення та Енергоефективність
+| Модуль та Посилання | Опис | Головні Файли | Статус |
+| :--- | :--- | :--- | :--- |
+| 🔋 [**Blackout Guide**](./docs/setup/blackout-guide.md) | Налаштування лаби для роботи під час відключень світла (Nvidia Power Limit, обмеження потоків CPU, робота від EcoFlow). | [`blackout-guide.md`](./docs/setup/blackout-guide.md) | ✅ Готово |
+| ⚡ [**Hardware Benchmarks**](./benchmarks/hardware_efficiency.md) | Детальний аналіз GPU vs Apple Silicon (tokens/second/Watt), аналіз холодного старту та VRAM contention. | [`hardware_efficiency.md`](./benchmarks/hardware_efficiency.md) | ✅ Готово |
+
+### 🛡️ 4. Безпека, Харденінг та Ізоляція Моделей
+| Модуль та Посилання | Опис | Головні Файли | Статус |
+| :--- | :--- | :--- | :--- |
+| 🛡️ [**Advanced Hardening**](./docs/security/advanced_hardening.md) | VLAN-ізоляція IoT-сегменту, nftables фаєрвол для хоста Proxmox, безпека Docker daemon та Gitleaks pre-commit лінтер. | [`advanced_hardening.md`](./docs/security/advanced_hardening.md) | ✅ Готово |
+| 🛡️ [**Model Isolation**](./docs/security/model_isolation.md) | Ізоляція виконання моделей: пісочниці gVisor, Firecracker, WASM, довірені середовища виконання (TEE) та Zero-Trust. | [`model_isolation.md`](./docs/security/model_isolation.md) | ✅ Готово |
+| 🔐 [**Security Policy**](./SECURITY.md) | Загальні політики безпеки проєкту, модельна гігієна, ізоляція чутливих даних та управління секретами. | [`SECURITY.md`](./SECURITY.md) | ✅ Готово |
+
+### 🔬 5. Стратегія, Дорожня Карта та Спільнота
+| Модуль та Посилання | Опис | Головні Файли | Статус |
+| :--- | :--- | :--- | :--- |
+| 🔬 [**AI Landscape 2026**](./docs/research/ai-landscape-june-2026.md) | Аналіз ринку ШІ станом на червень 2026 року: моделі, API, фреймворки, RAG, MCP, а також stealth-браузери та асистенти. | [`ai-landscape-june-2026.md`](./docs/research/ai-landscape-june-2026.md) | ✅ Готово |
+| 🗺️ [**Roadmap**](./ROADMAP.md) | Детальний план розвитку проєкту: Фаза 1 (Фундамент), Фаза 2 (Практика), Фаза 3 (Спільнота). | [`ROADMAP.md`](./ROADMAP.md) | ✅ Готово |
+| 🤝 [**Contributing**](./CONTRIBUTING.md) | Гайд для контриб'юторів: як створювати Issues, розробляти у гілках та оформлювати Pull Requests. | [`CONTRIBUTING.md`](./CONTRIBUTING.md) | ✅ Готово |
 
 ---
 
 ## 🗺️ ДОРОЖНЯ КАРТА (ROADMAP)
 
-### 🏁 Фаза 1 — Фундамент (Q3 2026)
+> [!NOTE]
+> Станом на **червень 2026 року (06.2026)**, Фазу 1 (Фундамент) повністю завершено із випередженням графіку! Проєкт активно працює над реалізацією Фази 2.
+
+### 🏁 Фаза 1 — Фундамент (Q3 2026) — 🎉 Виконано достроково!
 - [x] Меморандум та філософія проєкту
 - [x] Docker-compose для Ollama + Open WebUI
-- [x] Бенчмарки RTX 3060/4060/5060 з квантизованими моделями
+- [x]  Бенчмарки RTX 3060/4060/5060 з квантизованими моделями
 - [x] Гайд: "Перша модель за 15 хвилин"
 - [x] Шаблон RAG-пайплайну на LangGraph (CRAG Agent)
 - [x] Глибока ізоляція домашньої лаби (Advanced Hardening)
-- [x] Бенчмарки енергоефективності (t/s/W)
+- [x]  Бенчмарки енергоефективності (t/s/W)
 - [x] Консольний ШІ-агент для кодування (Claude Code style CLI)
 
-### 🚀 Фаза 2 — Практика (Q4 2026)
+### 🚀 Фаза 2 — Практика (Q4 2026) — ⏳ У процесі розробки
 - [ ] Мультиагентний шаблон на CrewAI для бізнес-автоматизації
 - [x] Блекаут-гайд: налаштування лаби для роботи від EcoFlow
 - [ ] Локальний OSINT-помічник (пет-проєкт)
 - [ ] Шаблон stealth-автоматизації та веб-workflow (за досвідом CloakBrowser)
-- [ ] Інтеграція сесійної пам'яті (AgentMemory) у шаблони агента
+- [ ]  Інтеграція сесійної пам'яті (AgentMemory) у шаблони агента
 - [ ] Вебінар/стрім: "AI-HomeLab Live Setup"
 
-### 🌟 Фаза 3 — Спільнота (Q1 2027)
+### 🌟 Фаза 3 — Спільнота (Q1 2027) — 📅 Планується
 - [ ] Telegram-бот для автоматизації бенчмарків
 - [ ] CI/CD пайплайн для тестування моделей
 - [ ] Партнерства з українськими AI-спільнотами

@@ -24,6 +24,20 @@ Welcome to the central repository of the **AI-HomeLab** initiative! This project
 
 ---
 
+## 📌 TABLE OF CONTENTS
+
+* [📜 Memorandum and Project Philosophy](#-memorandum-and-project-philosophy)
+* [⚡ Quick Start](#-quick-start)
+* [💻 Minimum Requirements](#-minimum-requirements)
+* [🛠️ Repository Structure](#️-repository-structure)
+* [📚 Modules and Navigation](#-modules-and-navigation)
+* [🗺️ Roadmap](#️-roadmap)
+* [🔐 Security](#-security)
+* [🤝 Join the Community](#-join-the-community)
+* [📄 License](#-license)
+
+---
+
 ## 📜 MEMORANDUM AND PROJECT PHILOSOPHY
 
 Every AI-HomeLab community member and repository contributor shares four fundamental principles:
@@ -232,27 +246,50 @@ Open `http://localhost:3000` — your local ChatGPT is ready! 🎉
 
 ## 📚 MODULES AND NAVIGATION
 
-| Module | Description | Status |
-|---|---|---|
-| ⏱️ [**15-Min Setup**](./docs/setup/first-model-15-min.md) | Quick step-by-step guide: installing Ollama, launching Open WebUI via Docker, selecting and chatting with the first model | ✅ Done |
-| 🔋 [**Blackout Guide**](./docs/setup/blackout-guide.md) | Practical guide on minimizing energy consumption (Nvidia Power Limit, limiting CPU threads, hardware selection) during power outages | ✅ Done |
-| 🧠 [**CRAG Agent**](./templates/langgraph_rag_agent.py) | Corrective RAG agent on LangGraph + Qdrant. Cyclic graph: retrieve → evaluate → rewrite → generate | ✅ Done |
-| 🤖 [**Agent CLI**](./templates/agent-code-cli/) | Claude Code style console AI agent in a Harness shell (secure CWD, bash execution permissions, diff-preview of patches) | ✅ Done |
-| 🛡️ [**Advanced Hardening**](./docs/security/advanced_hardening.md) | VLAN isolation from IoT, nftables firewall, Docker security, Gitleaks + pre-commit | ✅ Done |
-| 🛡️ [**Model Isolation**](./docs/security/model_isolation.md) | Model isolation and sandboxing guide (gVisor, Firecracker, WASM, TEE, Zero-Trust network) | ✅ Done |
-| ⚡ [**Hardware Benchmarks**](./benchmarks/hardware_efficiency.md) | GPU vs Apple Silicon (t/s/W), Cold Start analysis, VRAM contention, tier recommendations | ✅ Done |
-| 🐳 [**Ollama + Open WebUI**](./configs/ollama/) | Docker Compose: CPU/GPU profiles, secure configuration, `.env.example` | ✅ Done |
-| 🔬 [**AI Landscape 2026**](./docs/research/ai-landscape-june-2026.md) | Research: models, APIs, frameworks, RAG, MCP, hardware, budgets, as well as autonomous local agent analysis (memory, stealth browsers, voice/video assistants) | ✅ Done |
-| 🚀 [**Free AI Tools & Hacks**](./docs/research/free-ai-tools-lifehacks_ENG.md) | Stack of the best free tools and 7 practical lifehacks to boost response quality | ✅ Done |
-| 🗺️ [**Roadmap**](./ROADMAP.md) | Project roadmap: Phase 1 (Foundation), Phase 2 (Practice), Phase 3 (Community) | ✅ Done |
-| 🔐 [**Security Policy**](./SECURITY.md) | Model hygiene, data isolation, credentials | ✅ Done |
-| 🤝 [**Contributing**](./CONTRIBUTING.md) | Contributor guide: Issues → Branch → PR → Merge | ✅ Done |
+For convenience, all learning and practical materials in the repository are divided into thematic sections:
+
+### 🚀 1. Quick Start & Basic Infrastructure
+| Module & Link | Description | Main Files | Status |
+| :--- | :--- | :--- | :--- |
+| ⏱️ [**15-Min Setup**](./docs/setup/first-model-15-min.md) | Quick step-by-step launch of Ollama, downloading your first model, and chatting via the Open WebUI Docker container. | [`first-model-15-min.md`](./docs/setup/first-model-15-min.md) | ✅ Done |
+| 🐳 [**Ollama + Open WebUI**](./configs/ollama/) | Docker Compose configuration for launching services together (CPU/GPU profiles, secure port binding). | [`docker-compose.yml`](./configs/ollama/docker-compose.yml) | ✅ Done |
+| 🚀 [**Free AI Tools & Hacks**](./docs/research/free-ai-tools-lifehacks_ENG.md) | List of free development tools and 7 practical lifehacks to improve model response quality. | [`free-ai-tools-lifehacks_ENG.md`](./docs/research/free-ai-tools-lifehacks_ENG.md) | ✅ Done |
+
+### 🧠 2. Development, Templates & Agents
+| Module & Link | Description | Main Files | Status |
+| :--- | :--- | :--- | :--- |
+| 🤖 [**Agent CLI**](./templates/agent-code-cli/) | Claude Code style console AI agent (secure working directory, bash execution with permission, interactive diff preview). | [`cli.py`](./templates/agent-code-cli/agent_code/cli.py) | ✅ Done |
+| 🧠 [**CRAG Agent**](./templates/langgraph_rag_agent.py) | Corrective RAG (CRAG) agent built with LangGraph + Qdrant using a cyclic evaluation and query reformulation graph. | [`langgraph_rag_agent.py`](./templates/langgraph_rag_agent.py) | ✅ Done |
+| 🧠 [**Agent Memory**](./templates/agent_persistent_memory.py) | Session-persistent long-term memory template (SQLite + Ollama nomic-embed-text) for saving facts and decisions between runs. | [`agent_persistent_memory.py`](./templates/agent_persistent_memory.py) | ✅ Done |
+
+### ⚡ 3. Hardware & Energy Efficiency
+| Module & Link | Description | Main Files | Status |
+| :--- | :--- | :--- | :--- |
+| 🔋 [**Blackout Guide**](./docs/setup/blackout-guide.md) | Configuring the lab to operate during power outages (Nvidia Power Limit, CPU thread limits, running from EcoFlow). | [`blackout-guide.md`](./docs/setup/blackout-guide.md) | ✅ Done |
+| ⚡ [**Hardware Benchmarks**](./benchmarks/hardware_efficiency.md) | Comprehensive analysis of GPU vs Apple Silicon (tokens/second/Watt), cold start analysis, and VRAM contention. | [`hardware_efficiency.md`](./benchmarks/hardware_efficiency.md) | ✅ Done |
+
+### 🛡️ 4. Security, Hardening & Model Isolation
+| Module & Link | Description | Main Files | Status |
+| :--- | :--- | :--- | :--- |
+| 🛡️ [**Advanced Hardening**](./docs/security/advanced_hardening.md) | VLAN isolation of the IoT segment, nftables firewall for Proxmox host, Docker daemon security, and Gitleaks pre-commit linter. | [`advanced_hardening.md`](./docs/security/advanced_hardening.md) | ✅ Done |
+| 🛡️ [**Model Isolation**](./docs/security/model_isolation.md) | Model execution isolation using gVisor, Firecracker, WASM, Trusted Execution Environments (TEE), and Zero-Trust networks. | [`model_isolation.md`](./docs/security/model_isolation.md) | ✅ Done |
+| 🔐 [**Security Policy**](./SECURITY.md) | Overall project security policies, model hygiene, sensitive data isolation, and credential management. | [`SECURITY.md`](./SECURITY.md) | ✅ Done |
+
+### 🔬 5. Strategy, Roadmap & Community
+| Module & Link | Description | Main Files | Status |
+| :--- | :--- | :--- | :--- |
+| 🔬 [**AI Landscape 2026**](./docs/research/ai-landscape-june-2026.md) | AI market analysis as of June 2026: models, APIs, frameworks, RAG, MCP, stealth browsers, and assistants. | [`ai-landscape-june-2026.md`](./docs/research/ai-landscape-june-2026.md) | ✅ Done |
+| 🗺️ [**Roadmap**](./ROADMAP.md) | Detailed project roadmap: Phase 1 (Foundation), Phase 2 (Practice), Phase 3 (Community). | [`ROADMAP.md`](./ROADMAP.md) | ✅ Done |
+| 🤝 [**Contributing**](./CONTRIBUTING.md) | Contributor guide: creating Issues, working on feature branches, and submitting Pull Requests. | [`CONTRIBUTING.md`](./CONTRIBUTING.md) | ✅ Done |
 
 ---
 
 ## 🗺️ ROADMAP
 
-### 🏁 Phase 1 — Foundation (Q3 2026)
+> [!NOTE]
+> As of **June 2026 (06.2026)**, Phase 1 (Foundation) has been fully completed ahead of schedule! The project is actively working on Phase 2 tasks.
+
+### 🏁 Phase 1 — Foundation (Q3 2026) — 🎉 Completed ahead of schedule!
 - [x] Memorandum and project philosophy
 - [x] Docker Compose for Ollama + Open WebUI
 - [x] Benchmarks of RTX 3060/4060/5060 with quantized models
@@ -262,7 +299,7 @@ Open `http://localhost:3000` — your local ChatGPT is ready! 🎉
 - [x] Energy efficiency benchmarks (t/s/W)
 - [x] Console AI coding agent (Claude Code style CLI)
 
-### 🚀 Phase 2 — Practice (Q4 2026)
+### 🚀 Phase 2 — Practice (Q4 2026) — ⏳ In Progress
 - [ ] CrewAI multi-agent template for business automation
 - [x] Blackout guide: configuring the lab to run on EcoFlow
 - [ ] Local OSINT assistant (pet project)
@@ -270,7 +307,7 @@ Open `http://localhost:3000` — your local ChatGPT is ready! 🎉
 - [ ] Session memory integration (AgentMemory) into agent templates
 - [ ] Webinar/livestream: "AI-HomeLab Live Setup"
 
-### 🌟 Phase 3 — Community (Q1 2027)
+### 🌟 Phase 3 — Community (Q1 2027) — 📅 Planned
 - [ ] Telegram bot for automated benchmarks
 - [ ] CI/CD pipeline for model testing
 - [ ] Partnerships with Ukrainian AI communities
