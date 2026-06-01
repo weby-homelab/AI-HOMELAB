@@ -305,11 +305,11 @@ For convenience, all learning and practical materials in the repository are divi
 - [x] Console AI coding agent (Claude Code style CLI)
 
 ### 🚀 Phase 2 — Practice (Q4 2026) — ⏳ In Progress
-- [ ] CrewAI multi-agent template for business automation
+- [ ] LangGraph / PydanticAI multi-agent template for business automation
 - [x] Blackout guide: configuring the lab to run on EcoFlow
 - [ ] Local OSINT assistant (pet project)
 - [ ] Stealth automation and web workflow template (based on CloakBrowser experience)
-- [ ] Session memory integration (AgentMemory) into agent templates
+- [x] Session memory integration (AgentMemory) into agent templates
 - [ ] Webinar/livestream: "AI-HomeLab Live Setup"
 
 ### 🌟 Phase 3 — Community (Q1 2027) — 📅 Planned
