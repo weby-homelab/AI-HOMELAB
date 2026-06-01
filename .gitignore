@@ -35,3 +35,7 @@ docker-compose.override.yml
 
 # Telegram exports
 result-*.json
+
+# Agent plans
+docs/plans/
+
