@@ -46,7 +46,9 @@ def main():
     files_to_check = [
         "README.md",
         "README_ENG.md",
-        "docs/security/model-vetting.md"
+        "docs/security/model-vetting.md",
+        "docs/templates.md",
+        "docs/templates_ENG.md"
     ]
     
     total_broken = 0
