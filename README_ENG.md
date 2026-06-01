@@ -246,7 +246,7 @@ Open `http://localhost:3000` — your local ChatGPT is ready! 🎉
 │&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├── 🛡️ [**`model-vetting.md`**](./docs/security/model-vetting.md) — *Model vetting criteria*<br>
 │&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;└── 🛡️ [**`threat-modeling.md`**](./docs/security/threat-modeling.md) — *Autonomous Agent Threat Modeling*<br>
 │&nbsp;&nbsp;&nbsp;├── 📄 [**`templates_ENG.md`**](./docs/templates_ENG.md) — *Code templates and examples guide*<br>
-│&nbsp;&nbsp;&nbsp;└── ⏳ **`quantization/`** — `(coming soon)` *Quantization guide (Q4/Q8/GGUF)*<br>
+│&nbsp;&nbsp;&nbsp;└── ✅ [**`quantization.md`**](./docs/setup/quantization.md) — *Quantization guide (Q4/Q8/GGUF)*<br>
 │<br>
 ├── 📄 [**`README.md`**](./README.md) — *Ukrainian version*<br>
 ├── 📄 [**`README_ENG.md`**](./README_ENG.md) — *This file (ENG)*<br>
@@ -284,6 +284,7 @@ For convenience, all learning and practical materials in the repository are divi
 | 🔋 [**Blackout Guide**](./docs/setup/blackout-guide.md) | Configuring the lab to operate during power outages (Nvidia Power Limit, CPU thread limits, running from EcoFlow, Starlink 12V PoE, Tailscale, Offline RAG). | [`blackout-guide.md`](./docs/setup/blackout-guide.md) | ✅ Done |
 | ⚡ [**Hardware Benchmarks**](./benchmarks/hardware_efficiency.md) | Comprehensive analysis of GPU vs Apple Silicon (tokens/second/Watt), cold start analysis, and VRAM contention. | [`hardware_efficiency.md`](./benchmarks/hardware_efficiency.md) | ✅ Done |
 | 📊 [**AIOps & Observability**](./docs/setup/ai-ops.md) | Monitoring hardware (GPU Power Draw), inference metrics (Ollama/vLLM /metrics), and agent tracing via Langfuse. | [`ai-ops.md`](./docs/setup/ai-ops.md) | ✅ Done |
+| 📦 [**Quantization Guide**](./docs/setup/quantization.md) | Guide to model quantization: format selection (Q4/Q8/GGUF), VRAM budgeting, quantizing with `llama.cpp`, and Ollama integration. | [`quantization.md`](./docs/setup/quantization.md) | ✅ Done |
 
 ### 🛡️ 4. Security, Hardening & Model Isolation
 | Module & Link | Description | Main Files | Status |
