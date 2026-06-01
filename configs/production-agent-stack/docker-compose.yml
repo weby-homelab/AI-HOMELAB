@@ -1,0 +1,106 @@
+version: '3.8'
+
+services:
+  # 1. Локальний інференс (Ollama)
+  ollama:
+    image: ollama/ollama:latest
+    container_name: agent-ollama
+    volumes:
+      - ollama-data:/root/.ollama
+    ports:
+      - "11434:11434"
+    environment:
+      - OLLAMA_KEEP_ALIVE=24h # Запобігає вивантаженню моделей з VRAM
+    # Розкоментуйте блок нижче, якщо на хості встановлено nvidia-container-toolkit для GPU-прискорення
+    # deploy:
+    #   resources:
+    #     reservations:
+    #       devices:
+    #         - driver: nvidia
+    #           count: all
+    #           capabilities: [gpu]
+    restart: unless-stopped
+    networks:
+      - agent-network
+
+  # 2. Векторна база даних для локального RAG (Qdrant)
+  qdrant:
+    image: qdrant/qdrant:latest
+    container_name: agent-qdrant
+    volumes:
+      - qdrant-data:/qdrant/storage
+    ports:
+      - "6333:6333"
+    restart: unless-stopped
+    networks:
+      - agent-network
+
+  # 3. Шар проксі, авторизації та роутингу (LiteLLM)
+  litellm:
+    image: ghcr.io/berriai/litellm:main-latest
+    container_name: agent-litellm
+    ports:
+      - "4000:4000"
+    volumes:
+      - ./litellm-config.yaml:/app/config.yaml
+    entrypoint:
+      - "/bin/sh"
+      - "-c"
+      - "litellm --config /app/config.yaml --port 4000 --host 0.0.0.0"
+    environment:
+      - OLLAMA_API_BASE=http://agent-ollama:11434
+    depends_on:
+      - ollama
+    restart: unless-stopped
+    networks:
+      - agent-network
+
+  # 4. Автоматизація та оркестрація агентів (n8n)
+  n8n:
+    image: docker.n8n.io/n8nio/n8n:latest
+    container_name: agent-n8n
+    ports:
+      - "5678:5678"
+    volumes:
+      - n8n-data:/home/node/.n8n
+    environment:
+      - N8N_HOST=localhost
+      - N8N_PORT=5678
+      - N8N_PROTOCOL=http
+      - GENERIC_TIMEZONE=Europe/Kyiv
+      - N8N_ENCRYPTION_KEY=super-secret-key-change-me # Змініть перед запуском!
+    depends_on:
+      - litellm
+      - qdrant
+    restart: unless-stopped
+    networks:
+      - agent-network
+
+  # 5. Веб-інтерфейс користувача (Open WebUI)
+  open-webui:
+    image: ghcr.io/open-webui/open-webui:main
+    container_name: agent-open-webui
+    ports:
+      - "3080:8080" # Порт 3080 для уникнення конфліктів із базовим Open WebUI
+    volumes:
+      - open-webui-data:/app/backend/data
+    environment:
+      - OLLAMA_BASE_URL=http://agent-ollama:11434
+      - OPENAI_API_BASE_URL=http://agent-litellm:4000/v1
+      - OPENAI_API_KEY=sk-dummy-key # LiteLLM вимагає ключ, навіть якщо це пушка в локальну заглушку
+    depends_on:
+      - litellm
+      - ollama
+    restart: unless-stopped
+    networks:
+      - agent-network
+
+networks:
+  agent-network:
+    driver: bridge
+
+volumes:
+  ollama-data:
+  qdrant-data:
+  n8n-data:
+  open-webui-data:

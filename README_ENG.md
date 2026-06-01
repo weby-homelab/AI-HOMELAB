@@ -210,6 +210,7 @@ Open `http://localhost:3000` — your local ChatGPT is ready! 🎉
 │<br>
 ├── 📁 [**`configs/`**](./configs/) — *Ready-made Docker Compose configurations*<br>
 │&nbsp;&nbsp;&nbsp;├── ✅ [**`ollama/`**](./configs/ollama/) — *One-click Ollama + Open WebUI*<br>
+│&nbsp;&nbsp;&nbsp;├── 🔌 [**`production-agent-stack/`**](./configs/production-agent-stack/) — *Comprehensive Stack (Ollama, LiteLLM, Qdrant, n8n, Open WebUI)*<br>
 │&nbsp;&nbsp;&nbsp;├── ⏳ **`vllm/`** — `(coming soon)` *vLLM for production-grade inference*<br>
 │&nbsp;&nbsp;&nbsp;└── ⏳ **`dify/`** — `(coming soon)` *Dify AI — no-code agent platform*<br>
 │<br>
@@ -230,11 +231,14 @@ Open `http://localhost:3000` — your local ChatGPT is ready! 🎉
 │&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;└── 🚀 [**`free-ai-tools-lifehacks_ENG.md`**](./docs/research/free-ai-tools-lifehacks_ENG.md) — *Free AI Tools and Lifehacks*<br>
 │&nbsp;&nbsp;&nbsp;├── 📁 [**`setup/`**](./docs/setup/) — *Step-by-step guides for each OS*<br>
 │&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├── ⏱️ [**`first-model-15-min.md`**](./docs/setup/first-model-15-min.md) — *Quick start of the first model*<br>
-│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;└── 🔋 [**`blackout-guide.md`**](./docs/setup/blackout-guide.md) — *Outage energy efficiency guide*<br>
+│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├── 🔋 [**`blackout-guide.md`**](./docs/setup/blackout-guide.md) — *Outage energy efficiency guide*<br>
+│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├── 🏗️ [**`reference-architectures.md`**](./docs/setup/reference-architectures.md) — *Reference Architectures (Tier 1/2/3)*<br>
+│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;└── 📊 [**`ai-ops.md`**](./docs/setup/ai-ops.md) — *Metrics, Monitoring & Observability (AIOps)*<br>
 │&nbsp;&nbsp;&nbsp;├── 📁 [**`security/`**](./docs/security/) — *Security policies, audits, and model isolation*<br>
 │&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├── 🛡️ [**`model_isolation.md`**](./docs/security/model_isolation.md) — *Runtime isolation & TEE*<br>
 │&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├── 🛡️ [**`advanced_hardening.md`**](./docs/security/advanced_hardening.md) — *Deep isolation (VLAN, nftables, Gitleaks)*<br>
-│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;└── 🛡️ [**`model-vetting.md`**](./docs/security/model-vetting.md) — *Model vetting criteria*<br>
+│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├── 🛡️ [**`model-vetting.md`**](./docs/security/model-vetting.md) — *Model vetting criteria*<br>
+│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;└── 🛡️ [**`threat-modeling.md`**](./docs/security/threat-modeling.md) — *Autonomous Agent Threat Modeling*<br>
 │&nbsp;&nbsp;&nbsp;├── 📄 [**`templates_ENG.md`**](./docs/templates_ENG.md) — *Code templates and examples guide*<br>
 │&nbsp;&nbsp;&nbsp;└── ⏳ **`quantization/`** — `(coming soon)` *Quantization guide (Q4/Q8/GGUF)*<br>
 │<br>
@@ -256,6 +260,8 @@ For convenience, all learning and practical materials in the repository are divi
 | :--- | :--- | :--- | :--- |
 | ⏱️ [**15-Min Setup**](./docs/setup/first-model-15-min.md) | Quick step-by-step launch of Ollama, downloading your first model, and chatting via the Open WebUI Docker container. | [`first-model-15-min.md`](./docs/setup/first-model-15-min.md) | ✅ Done |
 | 🐳 [**Ollama + Open WebUI**](./configs/ollama/) | Docker Compose configuration for launching services together (CPU/GPU profiles, secure port binding). | [`docker-compose.yml`](./configs/ollama/docker-compose.yml) | ✅ Done |
+| 🏗️ [**Reference Architectures**](./docs/setup/reference-architectures.md) | Reference hardware configurations (Tier 1/2/3) for deploying home AI labs from $300 to $3000+. | [`reference-architectures.md`](./docs/setup/reference-architectures.md) | ✅ Done |
+| 🔌 [**Production Agent Stack**](./configs/production-agent-stack/) | Configuration of the full infrastructure stack (Ollama, LiteLLM, Qdrant, n8n, Open WebUI) for multi-agent systems. | [`docker-compose.yml`](./configs/production-agent-stack/docker-compose.yml) | ✅ Done |
 | 🚀 [**Free AI Tools & Hacks**](./docs/research/free-ai-tools-lifehacks_ENG.md) | List of free development tools and 7 practical lifehacks to improve model response quality. | [`free-ai-tools-lifehacks_ENG.md`](./docs/research/free-ai-tools-lifehacks_ENG.md) | ✅ Done |
 
 ### 🧠 2. Development, Templates & Agents
@@ -269,8 +275,9 @@ For convenience, all learning and practical materials in the repository are divi
 ### ⚡ 3. Hardware & Energy Efficiency
 | Module & Link | Description | Main Files | Status |
 | :--- | :--- | :--- | :--- |
-| 🔋 [**Blackout Guide**](./docs/setup/blackout-guide.md) | Configuring the lab to operate during power outages (Nvidia Power Limit, CPU thread limits, running from EcoFlow). | [`blackout-guide.md`](./docs/setup/blackout-guide.md) | ✅ Done |
+| 🔋 [**Blackout Guide**](./docs/setup/blackout-guide.md) | Configuring the lab to operate during power outages (Nvidia Power Limit, CPU thread limits, running from EcoFlow, Starlink 12V PoE, Tailscale, Offline RAG). | [`blackout-guide.md`](./docs/setup/blackout-guide.md) | ✅ Done |
 | ⚡ [**Hardware Benchmarks**](./benchmarks/hardware_efficiency.md) | Comprehensive analysis of GPU vs Apple Silicon (tokens/second/Watt), cold start analysis, and VRAM contention. | [`hardware_efficiency.md`](./benchmarks/hardware_efficiency.md) | ✅ Done |
+| 📊 [**AIOps & Observability**](./docs/setup/ai-ops.md) | Monitoring hardware (GPU Power Draw), inference metrics (Ollama/vLLM /metrics), and agent tracing via Langfuse. | [`ai-ops.md`](./docs/setup/ai-ops.md) | ✅ Done |
 
 ### 🛡️ 4. Security, Hardening & Model Isolation
 | Module & Link | Description | Main Files | Status |
@@ -278,6 +285,7 @@ For convenience, all learning and practical materials in the repository are divi
 | 🛡️ [**Advanced Hardening**](./docs/security/advanced_hardening.md) | VLAN isolation of the IoT segment, nftables firewall for Proxmox host, Docker daemon security, and Gitleaks pre-commit linter. | [`advanced_hardening.md`](./docs/security/advanced_hardening.md) | ✅ Done |
 | 🛡️ [**Model Isolation**](./docs/security/model_isolation.md) | Model execution isolation using gVisor, Firecracker, WASM, Trusted Execution Environments (TEE), and Zero-Trust networks. | [`model_isolation.md`](./docs/security/model_isolation.md) | ✅ Done |
 | 🛡️ [**Model Vetting**](./docs/security/model-vetting.md) | Model vetting criteria (model hygiene, inference privacy, safe formats GGUF/Safetensors, and licensing compliance). | [`model-vetting.md`](./docs/security/model-vetting.md) | ✅ Done |
+| 🛡️ [**Threat Modeling**](./docs/security/threat-modeling.md) | Threat modeling for autonomous agents (Prompt Injection, Tool Poisoning, Agent Escape, Secrets Leakage). | [`threat-modeling.md`](./docs/security/threat-modeling.md) | ✅ Done |
 | 🔐 [**Security Policy**](./SECURITY.md) | Overall project security policies, model hygiene, sensitive data isolation, and credential management. | [`SECURITY.md`](./SECURITY.md) | ✅ Done |
 
 ### 🔬 5. Strategy, Roadmap & Community

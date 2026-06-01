@@ -58,6 +58,12 @@ def main():
         "docs/security/model-vetting.md",
         "docs/templates.md",
         "docs/templates_ENG.md",
+        "docs/setup/reference-architectures.md",
+        "docs/setup/ai-ops.md",
+        "docs/security/threat-modeling.md",
+        "docs/setup/blackout-guide.md",
+        "benchmarks/hardware_efficiency.md",
+        "configs/production-agent-stack/README.md",
     ]
 
     total_broken = 0
