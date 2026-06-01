@@ -55,13 +55,15 @@ def _build_compressed_block(msgs: list[dict[str, Any]]) -> dict[str, Any]:
         for ln in previous_summary.splitlines():
             lines.append("    " + ln)
         lines.append("  </previous-summary>")
-    lines.extend([
-        f"  <message-count>{total}</message-count>",
-        f"  <tool-calls>{tool_count}</tool-calls>",
-        f"  <tools-used>{', '.join(sorted(tool_names)) if tool_names else '(none)'}</tools-used>",
-        f"  <files-read>{', '.join(sorted(files_read)) if files_read else '(none)'}</files-read>",
-        f"  <files-edited>{', '.join(sorted(files_edited)) if files_edited else '(none)'}</files-edited>",
-        f"  <commands-run>{', '.join(commands[:20]) if commands else '(none)'}</commands-run>",
-        "</compacted-history>",
-    ])
+    lines.extend(
+        [
+            f"  <message-count>{total}</message-count>",
+            f"  <tool-calls>{tool_count}</tool-calls>",
+            f"  <tools-used>{', '.join(sorted(tool_names)) if tool_names else '(none)'}</tools-used>",
+            f"  <files-read>{', '.join(sorted(files_read)) if files_read else '(none)'}</files-read>",
+            f"  <files-edited>{', '.join(sorted(files_edited)) if files_edited else '(none)'}</files-edited>",
+            f"  <commands-run>{', '.join(commands[:20]) if commands else '(none)'}</commands-run>",
+            "</compacted-history>",
+        ]
+    )
     return {"role": "user", "content": "\n".join(lines)}

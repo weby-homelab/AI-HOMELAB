@@ -12,18 +12,49 @@ except ImportError:
 
 
 TEXT_SUFFIXES = {
-    ".py", ".pyi", ".md", ".rst", ".txt", ".toml", ".yaml", ".yml", ".json",
-    ".cfg", ".ini", ".env", ".sh", ".bash", ".zsh", ".js", ".ts", ".tsx",
-    ".jsx", ".html", ".css", ".sql", ".lock", ".gitignore",
+    ".py",
+    ".pyi",
+    ".md",
+    ".rst",
+    ".txt",
+    ".toml",
+    ".yaml",
+    ".yml",
+    ".json",
+    ".cfg",
+    ".ini",
+    ".env",
+    ".sh",
+    ".bash",
+    ".zsh",
+    ".js",
+    ".ts",
+    ".tsx",
+    ".jsx",
+    ".html",
+    ".css",
+    ".sql",
+    ".lock",
+    ".gitignore",
 }
 
 MAX_READ_BYTES = 256 * 1024
 DEFAULT_MAX_CHARS = 8000
 
-DEFAULT_SKIP_DIRS = frozenset({
-    ".git", ".venv", "venv", "node_modules", "dist", "build",
-    "__pycache__", ".mypy_cache", ".pytest_cache", ".ruff_cache",
-})
+DEFAULT_SKIP_DIRS = frozenset(
+    {
+        ".git",
+        ".venv",
+        "venv",
+        "node_modules",
+        "dist",
+        "build",
+        "__pycache__",
+        ".mypy_cache",
+        ".pytest_cache",
+        ".ruff_cache",
+    }
+)
 
 
 @dataclass
@@ -105,8 +136,7 @@ def load_gitignore(cwd: Path) -> Any | None:
 def ensure_read_before_edit(state: ReadFileState, path: Path) -> str | None:
     if path not in state.entries:
         return (
-            f"error: file has not been read yet. "
-            f"Read {path.name} first before editing."
+            f"error: file has not been read yet. Read {path.name} first before editing."
         )
     return None
 
