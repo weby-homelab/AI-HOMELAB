@@ -32,17 +32,18 @@
 |---|---|---|---|---|---|---|
 | **Google** | Gemini 3.1 Flash-Lite | $0.25 | $1.50 | 1M | API | 🏆 Найдешевший варіант для навчання |
 | **Google** | Gemini 3.5 Flash | $1.50 | $9.00 | 1M | API | Швидкі задачі, прототипи, агенти |
+| **Google** | Gemini 3.5 Pro | TBD | TBD | 1M | API | Анонсовано на Червень 2026, флагманське міркування |
 | **Google** | Gemini 3.1 Pro | $2.00 | $12.00 | 1M | API | Складне міркування, код, аналітика |
-| **OpenAI** | GPT-5.4 nano | $0.15 | $0.60 | 1M | API | Дешеві масові задачі |
-| **OpenAI** | GPT-5.4 mini | $0.75 | $4.50 | 1M | API | Баланс ціна/якість, швидке міркування |
+| **OpenAI** | GPT-5.4 nano | $0.20 | $1.25 | 400K | API | Дешеві масові задачі |
+| **OpenAI** | GPT-5.4 mini | $0.75 | $4.50 | 400K | API | Баланс ціна/якість, швидке міркування |
 | **OpenAI** | GPT-5.4 | $2.50 | $15.00 | 1M | API | Кодування, native computer-use, агенти |
 | **OpenAI** | GPT-5.5 | $5.00 | $30.00 | 1M | API | Флагманське міркування, складний код |
 | **Anthropic** | Claude Haiku 4.5 | $1.00 | $5.00 | 200K | API | Швидкі, дешеві задачі |
-| **Anthropic** | Claude Sonnet 4.6 | $3.00 | $15.00 | 200K | API | Код, аналіз, щоденні агенти |
-| **Anthropic** | Claude Opus 4.8 | $5.00 | $25.00 | 200K | API | Найкраща якість, складні лонг-хоризонтні задачі |
-| **Mistral** | Small 4 | $0.15 | $0.60 | 256K | API + Open | Легкі задачі, edge, агенти (Березень 2026) |
+| **Anthropic** | Claude Sonnet 4.6 | $3.00 | $15.00 | 1M | API | Код, аналіз, щоденні агенти |
+| **Anthropic** | Claude Opus 4.8 | $5.00 | $25.00 | 1M | API | Найкраща якість, складні лонг-хоризонтні задачі |
+| **Mistral** | Small 4 | $0.15 | $0.60 | 262K | API + Open | Легкі задачі, edge, агенти (Березень 2026) |
 | **Mistral** | Codestral | $0.30 | $0.90 | 256K | API + Open | Код |
-| **Mistral** | Medium 3.5 | $1.50 | $7.50 | 262K | API + Open | Фронтьєр, кодування, агенти |
+| **Mistral** | Medium 3.5 | $1.50 | $7.50 | 256K | API + Open | Фронтьєр, кодування, агенти |
 | **Mistral** | Large 3 | $0.50 | $1.50 | 262K | API + Open | Складні задачі, мультимова |
 
 ### 🆓 Безкоштовні тієри для навчання
@@ -50,8 +51,8 @@
 | Провайдер | Що безкоштовно | Обмеження |
 |---|---|---|
 | **Google AI Studio** | Gemini 3.5 Flash, 3.1 Flash-Lite | Знижені RPM/TPM, дані можуть використовуватись для навчання |
-| **OpenAI** | GPT-5.4 nano (безкоштовний тієр) | ~1000 запитів/день |
-| **Mistral** | Le Chat (чат) | Безкоштовний чат, API за $14.99/міс |
+| **OpenAI** | ChatGPT Free Tier | Обмежений доступ до GPT-5.4 mini (веб/мобільний додаток) |
+| **Mistral** | Le Chat (чат) | Безкоштовний чат (обмеження ~25 повідомлень/день), підписка Pro за $14.99/міс |
 | **Google Colab** | Безкоштовні GPU (T4) | Обмежений час, нестабільно |
 
 ### 💡 Оптимізація витрат
@@ -74,20 +75,21 @@
 | **Gemma 3** 4B | 4B | Google Open | ✅ Текст + Vision | ~3 GB | 🏆 Ідеал для початку, 128K контекст |
 | **Gemma 3** 12B | 12B | Google Open | ✅ Текст + Vision | ~7 GB | Баланс якість/розмір |
 | **Gemma 3** 27B | 27B | Google Open | ✅ Текст + Vision | ~16 GB | Найкраща якість серед SLM |
-| **Gemma 4** E2B / E4B | 2B / 4B | Apache 2.0 | ✅ Мультимодальна | ~1.5 - 3 GB | Edge-пристрої, висока швидкість (Квітень 2026) |
-| **Gemma 4** 26B (MoE) | 4B active / 26B total | Apache 2.0 | ✅ Мультимодальна | ~6 GB* | Робочі станції, 256K контекст |
-| **Gemma 4** 31B | 31B dense | Apache 2.0 | ✅ Мультимодальна | ~20 GB | Флагманська якість, 256K контекст |
+| **Gemma 4** E2B / E4B | 2B / 4B | Apache 2.0 | 🗣️ Text + Image + Audio | ~1.5 - 3 GB | Edge-пристрої, висока швидкість (Квітень 2026) |
+| **Gemma 4** 26B (MoE) | 3.8B active / 26B total | Apache 2.0 | ✅ Text + Image | ~15 - 18 GB | Робочі станції, 256K контекст |
+| **Gemma 4** 31B | 31B dense | Apache 2.0 | ✅ Text + Image | ~20 GB | Флагманська якість, 256K контекст |
 | **Phi-4 mini** | 3.8B | MIT | ❌ Текст | ~2.5 GB | Reasoning, математика, код |
 | **Phi-4** | 14B | MIT | ❌ Текст | ~8 GB | Найкраще міркування серед SLM |
 | **Phi-4 Multimodal** | 5.6B | MIT | 🗣️ Text + Audio + Image | ~4 GB | Мультимедійні інструкції |
 | **Phi-4 Reasoning** | 14B | MIT | ❌ Текст | ~8 GB | RL-міркування, покрокова логіка |
 | **Phi-4 Reasoning-Vision** | 15B | MIT | ✅ Текст + Vision | ~9 GB | Аналітика, вибірковий CoT (Березень 2026) |
-| **Mistral Small 4** | 24B | Apache 2.0 | ❌ Текст | ~14 GB | Мультимова, агенти, код (Березень 2026) |
+| **Mistral Small 4** | 119B MoE (6.5B active) | Apache 2.0 | ✅ Текст + Vision | ~70 GB | Мультимова, CoT міркування, агенти (Березень 2026) |
+| **Mistral Small 3.1** | 24B | Apache 2.0 | ✅ Текст + Vision | ~14 GB | Мультимова, низький latency, локальний чат (Березень 2025) |
 | **Mistral Medium 3.5** | 128B | Open-weight | ✅ Мультимодальна | ~70 GB | Фронтьєр-клас, кодування, агенти |
-| **Mistral Large 3** | 675B total MoE | Open-weight | ✅ Мультимодальна | ~48 GB* | Флагман для складних завдань |
-| **Ministral 3** 3B/8B/14B | 3B/8B/14B | Open-weight | ❌ Текст | ~2 - 8 GB | Edge-інференс, низька затримка |
-| **LLaMA 4 Scout** | 17B active / 109B total | Llama License | ✅ Мультимодальна | ~12 GB* | MoE, 10M контекст, енергоефективна |
-| **LLaMA 4 Maverick** | 17B active / 400B total | Llama License | ✅ Мультимодальна | ~48 GB* | MoE, найкраща якість, 1M контекст |
+| **Mistral Large 3** | 675B total MoE | Open-weight | ✅ Мультимодальна | ~380 - 400 GB* | Флагман для складних завдань |
+| **Ministral 3** 3B/8B/14B | 3B/8B/14B | Apache 2.0 | ✅ Текст + Vision | ~2 - 8 GB | Edge-інференс, низька затримка (Грудень 2025) |
+| **LLaMA 4 Scout** | 17B active / 109B total | Llama License | ✅ Мультимодальна | ~60 GB | MoE, 10M контекст, енергоефективна |
+| **LLaMA 4 Maverick** | 17B active / 400B total | Llama License | ✅ Мультимодальна | ~220 GB | MoE, найкраща якість, 1M контекст |
 
 *\*MoE-архітектура: VRAM залежить від кількості завантажених експертів*
 
@@ -97,10 +99,10 @@
 |---|---|
 | **8 GB** | Gemma 3 4B, Gemma 4 E2B/E4B, Phi-4 mini 3.8B, Phi-4 Multimodal 5.6B, Phi-4 14B (дуже тісно) |
 | **12 GB** | Phi-4 14B, Phi-4 Reasoning 14B, Gemma 3 12B, Ministral 3 (3B/8B) |
-| **16 GB** | Gemma 3 27B, Gemma 4 26B (MoE), Mistral Small 4 (24B), Phi-4 Reasoning-Vision 15B |
-| **24 GB** (M1 Max/M4 Max) | Gemma 4 31B, Gemma 3 27B у повній якості, Ministral 3 14B |
-| **32+ GB** (Mac Unified) | LLaMA 4 Scout повністю (MoE 109B), Mistral Small 4, паралельні моделі |
-| **96+ GB** (Mac Ultra / Multi-GPU) | LLaMA 4 Maverick (MoE 400B), Mistral Medium 3.5, Mistral Large 3 |
+| **16-24 GB** | Gemma 3 27B, Gemma 4 26B (MoE), Mistral Small 3.1 (24B), Phi-4 Reasoning-Vision 15B |
+| **32-48 GB** (Mac Unified) | Gemma 4 31B, Gemma 3 27B у повній якості, Ministral 3 14B |
+| **64-96 GB** (Mac Studio / Multi-GPU) | LLaMA 4 Scout (MoE 109B), Mistral Small 4 (119B MoE), Mistral Medium 3.5 (128B dense) |
+| **256+ GB** (Enterprise / Large Multi-GPU) | LLaMA 4 Maverick (MoE 400B), Mistral Large 3 (MoE 675B) |
 
 ---
 
@@ -342,7 +344,7 @@ flowchart LR
 | **M2** | 8–24 GB | 100 GB/s | 22W | ~$700 (б/у) | Хороший баланс |
 | **M3** | 8–24 GB | 100 GB/s | 22W | ~$900 | Кращий GPU |
 | **M4** | 16–32 GB | 120 GB/s | 22W | ~$1100 | Новіша архітектура |
-| **M4 Pro** | 24–48 GB | 273 GB/s | 30W | ~$1800 | 🏆 **Ідеал для блекаутів** |
+| **M4 Pro** | 24–64 GB | 273 GB/s | 30W | ~$1800 | 🏆 **Ідеал для блекаутів** |
 | **M4 Max** | 36–128 GB | 546 GB/s | 40W | ~$2800+ | Максимальна продуктивність |
 
 > [!TIP]
@@ -397,7 +399,7 @@ tokens/s ≈ memory_bandwidth / (model_size_in_bytes)
 
 | Варіант | Ціна | Що запускати |
 |---|---|---|
-| Mac Mini M4 Pro 48GB | ~$1800 | LLaMA 4 Scout (109B), Mistral Small 4 |
+| Mac Mini M4 Pro 48GB | ~$1800 | Gemma 4 31B, Mistral Small 3.1 (24B), Phi-4 Reasoning-Vision 15B |
 | RTX 5070 12GB + збірка | ~$1200 | Швидкий інференс, RAG |
 | Proxmox сервер + GPU | ~$1000 | Повна лабораторія з ізоляцією |
 
@@ -406,8 +408,8 @@ tokens/s ≈ memory_bandwidth / (model_size_in_bytes)
 
 | Варіант | Ціна | Що запускати |
 |---|---|---|
-| MacBook Pro M4 Max 128GB | ~$3500 | Будь-яка модель, production |
-| 2× RTX 3090 24GB (б/у) | ~$1600 | LLaMA 4 Scout/Maverick |
+| MacBook Pro M4 Max 128GB | ~$3500 | LLaMA 4 Scout (109B), Mistral Small 4 (119B MoE), Mistral Medium 3.5 (128B) |
+| 2× RTX 3090 24GB (б/у) | ~$1600 | LLaMA 4 Scout (109B MoE, INT3/dynamic), Mistral Small 4 (119B MoE, INT3/dynamic) |
 | Виділений сервер Hetzner | ~$50/міс | Cloud GPU на вимогу |
 
 ---
@@ -464,7 +466,7 @@ Open WebUI → щоденний робочий інтерфейс
 ### Для досвідченого інженера (бюджет: $50-200/міс)
 
 ```
-vLLM + Mistral Small 4 (24B) → production API
+vLLM + Mistral Small 3.1 (24B) → production API
         +
 Claude Sonnet 4.6 / GPT-5.4 API → код-рев'ю, складний аналіз
         +
