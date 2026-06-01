@@ -226,8 +226,8 @@ docker run -d \
 ├── 📄 [**`CONTRIBUTING.md`**](./CONTRIBUTING.md) — *Гайд для контриб'юторів*<br>
 ├── 📄 [**`SECURITY.md`**](./SECURITY.md) — *Політики безпеки*<br>
 ├── 📄 [**`LICENSE`**](./LICENSE) — *MIT ліцензія*<br>
-└── 📄 [**`ROADMAP.md`**](./ROADMAP.md) — *Дорожня карта проєкту*<br>
-<br>
+└── 📄 [**`ROADMAP.md`**](./ROADMAP.md) — *Дорожня карта проєкту*
+
 ---
 
 ## 📚 МОДУЛІ ТА НАВІГАЦІЯ

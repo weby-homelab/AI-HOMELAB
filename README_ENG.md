@@ -226,8 +226,8 @@ Open `http://localhost:3000` — your local ChatGPT is ready! 🎉
 ├── 📄 [**`CONTRIBUTING.md`**](./CONTRIBUTING.md) — *Contributor guide*<br>
 ├── 📄 [**`SECURITY.md`**](./SECURITY.md) — *Security policy*<br>
 ├── 📄 [**`LICENSE`**](./LICENSE) — *MIT License*<br>
-└── 📄 [**`ROADMAP.md`**](./ROADMAP.md) — *Project roadmap*<br>
-<br>
+└── 📄 [**`ROADMAP.md`**](./ROADMAP.md) — *Project roadmap*
+
 ---
 
 ## 📚 MODULES AND NAVIGATION
