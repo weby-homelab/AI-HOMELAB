@@ -35,7 +35,7 @@ docker compose --profile gpu up -d
 docker exec ai-ollama ollama pull gemma3:4b
 
 # Потужніша (~8GB, потрібна GPU або 16GB RAM)
-docker exec ai-ollama ollama pull llama3.3:8b
+docker exec ai-ollama ollama pull llama3.1:8b
 ```
 
 ### 4. Відкрити інтерфейс

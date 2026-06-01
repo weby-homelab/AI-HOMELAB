@@ -39,8 +39,8 @@ We **categorically do not use, test, or promote** software, AI models, or tools 
 
 | Category | Tools |
 |---|---|
-| **LLM Models** | Meta LLaMA 4 (Scout/Maverick), Google Gemma 3/4, Mistral (Large 3/Small 4), Microsoft Phi-4 |
-| **Cloud APIs** | OpenAI (GPT-5.x, GPT-5.4 mini), Anthropic (Claude 4.x), Google (Gemini 3.5/3.1) |
+| **LLM Models** | Meta LLaMA 4 (Scout/Maverick), Google Gemma 3/4, Mistral (Large 3 / Medium 3.5 / Small 4), Microsoft Phi-4 (Reasoning/Vision/Multimodal) |
+| **Cloud APIs** | OpenAI (GPT-5.5/5.4, GPT-5.4 mini/nano), Anthropic (Claude 4.x / 4.6 / 4.5), Google (Gemini 3.5/3.1) |
 | **Inference** | Ollama, vLLM, llama.cpp |
 | **Orchestration** | LangGraph, CrewAI, PydanticAI |
 
@@ -101,6 +101,35 @@ A home lab is not just a hobby, it is **the best line on your CV**. We focus not
 - **Type-safe integrations** — robust, production-ready code with validation via Pydantic
 - **Real pet projects** — that convert into job offers and successful products
 
+### 5. 🔄 Architectural Component Interaction
+
+A modern home AI lab functions as a three-tier architecture (Orchestration ↔ Inference ↔ Tools), integrated via open and standardized protocols:
+
+```mermaid
+flowchart TD
+    ORCH["🏗️ Orchestration & Logic\n(LangGraph / CrewAI / PydanticAI)"]
+    LOCAL["🧠 Local Inference\n(Ollama / vLLM / llama.cpp)"]
+    CLOUD["☁️ Cloud APIs\n(GPT-5.5 / Claude 4.6 / Gemini 3.5)"]
+    MCP["🔌 Model Context Protocol\n(MCP Servers)"]
+    RES["📁 Sources & Tools\n(Files, DBs, Web APIs)"]
+
+    ORCH -->|API requests| LOCAL
+    ORCH -->|API requests| CLOUD
+    LOCAL -->|Universal Access| MCP
+    CLOUD -->|Universal Access| MCP
+    MCP -->|Read/Execute| RES
+
+    style ORCH fill:#1f6feb,stroke:#58a6ff,color:#ffffff
+    style LOCAL fill:#8957e5,stroke:#a371f7,color:#ffffff
+    style CLOUD fill:#da3633,stroke:#f85149,color:#ffffff
+    style MCP fill:#238636,stroke:#2ea043,color:#ffffff
+    style RES fill:#d29922,stroke:#e3b341,color:#0d1117
+```
+
+* **Orchestration Layer** manages agent logic, conversation state persistence, and strict type validation at the Python level.
+* **Inference Layer** executes models locally or invokes cloud engines using compatible APIs (OpenAI/Anthropic Messages API).
+* **Tools Layer (MCP)** gives models standardized access to external resources without the need for custom connectors.
+
 ---
 
 ## ⚡ QUICK START
@@ -120,7 +149,7 @@ curl -fsSL https://ollama.com/install.sh | sh
 ollama pull gemma3:4b
 
 # Or a more powerful one (requires 16GB RAM or GPU with 8GB+ VRAM)
-ollama pull llama3.3:8b
+ollama pull llama3.1:8b
 ```
 
 ### Step 3: Run the web interface

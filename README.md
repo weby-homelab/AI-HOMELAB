@@ -39,8 +39,8 @@
 
 | Категорія | Інструменти |
 |---|---|
-| **LLM-моделі** | Meta LLaMA 4 (Scout/Maverick), Google Gemma 3/4, Mistral (Large 3/Small 4), Microsoft Phi-4 |
-| **Хмарні API** | OpenAI (GPT-5.x, GPT-5.4 mini), Anthropic (Claude 4.x), Google (Gemini 3.5/3.1) |
+| **LLM-моделі** | Meta LLaMA 4 (Scout/Maverick), Google Gemma 3/4, Mistral (Large 3 / Medium 3.5 / Small 4), Microsoft Phi-4 (Reasoning/Vision/Multimodal) |
+| **Хмарні API** | OpenAI (GPT-5.5/5.4, GPT-5.4 mini/nano), Anthropic (Claude 4.x / 4.6 / 4.5), Google (Gemini 3.5/3.1) |
 | **Інференс** | Ollama, vLLM, llama.cpp |
 | **Оркестрація** | LangGraph, CrewAI, PydanticAI |
 
@@ -101,6 +101,35 @@ flowchart LR
 - **Type-safe інтеграції** — надійний production-ready код із валідацією через Pydantic
 - **Реальні пет-проєкти** — що конвертуються у офери та успішні продукти
 
+### 5. 🔄 Архітектурна Взаємодія Компонентів
+
+Сучасна домашня ШІ-лабораторія функціонує як трирівнева архітектура (Оркестрація ↔ Інференс ↔ Інструменти), інтегрована через відкриті та стандартизовані протоколи:
+
+```mermaid
+flowchart TD
+    ORCH["🏗️ Оркестрація & Логіка\n(LangGraph / CrewAI / PydanticAI)"]
+    LOCAL["🧠 Локальний Інференс\n(Ollama / vLLM / llama.cpp)"]
+    CLOUD["☁️ Хмарні API\n(GPT-5.5 / Claude 4.6 / Gemini 3.5)"]
+    MCP["🔌 Model Context Protocol\n(MCP Servers)"]
+    RES["📁 Джерела та Інструменти\n(Files, DBs, Web APIs)"]
+
+    ORCH -->|API запити| LOCAL
+    ORCH -->|API запити| CLOUD
+    LOCAL -->|Універсальний доступ| MCP
+    CLOUD -->|Універсальний доступ| MCP
+    MCP -->|Зчитування/Виконання| RES
+
+    style ORCH fill:#1f6feb,stroke:#58a6ff,color:#ffffff
+    style LOCAL fill:#8957e5,stroke:#a371f7,color:#ffffff
+    style CLOUD fill:#da3633,stroke:#f85149,color:#ffffff
+    style MCP fill:#238636,stroke:#2ea043,color:#ffffff
+    style RES fill:#d29922,stroke:#e3b341,color:#0d1117
+```
+
+* **Шар оркестрації** керує логікою агентів, збереженням стану діалогів та суворою валідацією типів на рівні Python.
+* **Шар інференсу** виконує моделі локально або звертається до хмари, використовуючи сумісні API (OpenAI/Anthropic Messages API).
+* **Шар інструментів (MCP)** надає моделям стандартизований доступ до зовнішніх ресурсів без необхідності написання кастомних конекторів.
+
 ---
 
 ## ⚡ ШВИДКИЙ СТАРТ (Quick Start)
@@ -120,7 +149,7 @@ curl -fsSL https://ollama.com/install.sh | sh
 ollama pull gemma3:4b
 
 # Або потужніша (потрібно 16GB RAM або GPU з 8GB+ VRAM)
-ollama pull llama3.3:8b
+ollama pull llama3.1:8b
 ```
 
 ### Крок 3: Запустити веб-інтерфейс
