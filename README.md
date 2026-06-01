@@ -233,6 +233,7 @@ docker run -d \
 │&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├── 🛡️ [**`model_isolation.md`**](./docs/security/model_isolation.md) — *Ізоляція виконання та TEE*<br>
 │&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├── 🛡️ [**`advanced_hardening.md`**](./docs/security/advanced_hardening.md) — *Глибока ізоляція (VLAN, nftables, Gitleaks)*<br>
 │&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;└── 🛡️ [**`model-vetting.md`**](./docs/security/model-vetting.md) — *Критерії перевірки моделей*<br>
+│&nbsp;&nbsp;&nbsp;├── 📄 [**`templates.md`**](./docs/templates.md) — *Посібник із використання кодових шаблонів*<br>
 │&nbsp;&nbsp;&nbsp;└── ⏳ **`quantization/`** — `(coming soon)` *Гайд по квантизації (Q4/Q8/GGUF)*<br>
 │<br>
 ├── 📄 [**`README.md`**](./README.md) — *Цей файл (UA)*<br>
@@ -261,6 +262,7 @@ docker run -d \
 | 🤖 [**Agent CLI**](./templates/agent-code-cli/) | Консольний ШІ-агент у Claude Code стилі (безпечна робоча директорія, виконання bash з вашого дозволу, інтерактивний diff-перегляд). | [`cli.py`](./templates/agent-code-cli/agent_code/cli.py) | ✅ Готово |
 | 🧠 [**CRAG Agent**](./templates/langgraph_rag_agent.py) | Corrective RAG (CRAG) агент на LangGraph + Qdrant із циклічним графом оцінки та переформулювання запитів. | [`langgraph_rag_agent.py`](./templates/langgraph_rag_agent.py) | ✅ Готово |
 | 🧠 [**Agent Memory**](./templates/agent_persistent_memory.py) | Шаблон довготривалої сесійної пам'яті (SQLite + Ollama nomic-embed-text) для збереження фактів та рішень між сесіями. | [`agent_persistent_memory.py`](./templates/agent_persistent_memory.py) | ✅ Готово |
+| 📄 [**Templates Guide**](./docs/templates.md) | Загальний покроковий посібник із налаштування та запуску всіх кодових шаблонів репозиторію. | [`templates.md`](./docs/templates.md) | ✅ Готово |
 
 ### ⚡ 3. Апаратне Забезпечення та Енергоефективність
 | Модуль та Посилання | Опис | Головні Файли | Статус |

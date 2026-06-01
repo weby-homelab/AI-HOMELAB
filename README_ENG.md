@@ -233,6 +233,7 @@ Open `http://localhost:3000` — your local ChatGPT is ready! 🎉
 │&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├── 🛡️ [**`model_isolation.md`**](./docs/security/model_isolation.md) — *Runtime isolation & TEE*<br>
 │&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├── 🛡️ [**`advanced_hardening.md`**](./docs/security/advanced_hardening.md) — *Deep isolation (VLAN, nftables, Gitleaks)*<br>
 │&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;└── 🛡️ [**`model-vetting.md`**](./docs/security/model-vetting.md) — *Model vetting criteria*<br>
+│&nbsp;&nbsp;&nbsp;├── 📄 [**`templates_ENG.md`**](./docs/templates_ENG.md) — *Code templates and examples guide*<br>
 │&nbsp;&nbsp;&nbsp;└── ⏳ **`quantization/`** — `(coming soon)` *Quantization guide (Q4/Q8/GGUF)*<br>
 │<br>
 ├── 📄 [**`README.md`**](./README.md) — *Ukrainian version*<br>
@@ -261,6 +262,7 @@ For convenience, all learning and practical materials in the repository are divi
 | 🤖 [**Agent CLI**](./templates/agent-code-cli/) | Claude Code style console AI agent (secure working directory, bash execution with permission, interactive diff preview). | [`cli.py`](./templates/agent-code-cli/agent_code/cli.py) | ✅ Done |
 | 🧠 [**CRAG Agent**](./templates/langgraph_rag_agent.py) | Corrective RAG (CRAG) agent built with LangGraph + Qdrant using a cyclic evaluation and query reformulation graph. | [`langgraph_rag_agent.py`](./templates/langgraph_rag_agent.py) | ✅ Done |
 | 🧠 [**Agent Memory**](./templates/agent_persistent_memory.py) | Session-persistent long-term memory template (SQLite + Ollama nomic-embed-text) for saving facts and decisions between runs. | [`agent_persistent_memory.py`](./templates/agent_persistent_memory.py) | ✅ Done |
+| 📄 [**Templates Guide**](./docs/templates_ENG.md) | Comprehensive step-by-step guide for setting up and running all repository code templates. | [`templates_ENG.md`](./docs/templates_ENG.md) | ✅ Done |
 
 ### ⚡ 3. Hardware & Energy Efficiency
 | Module & Link | Description | Main Files | Status |
