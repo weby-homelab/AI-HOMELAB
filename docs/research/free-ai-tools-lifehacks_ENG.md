@@ -31,7 +31,7 @@ Below is a list of key tools for automation, coding, design, and media generatio
 - **Use Case:** Ideal for rapid deployment and script writing without constantly switching to a browser.
 
 #### 2. 🧪 Google AI Studio
-**Google AI Studio** is a professional environment for developers providing direct access to the Gemini family of models (including Gemini 1.5 Pro and Gemini 1.5 Flash with a massive context window of up to 2 million tokens).
+**Google AI Studio** is a professional environment for developers providing direct access to the Gemini family of models (including Gemini 3.5 Pro and Gemini 3.5 Flash with a massive context window of up to 2 million tokens).
 - **Features:** Creation of system instructions (System Prompts), temperature settings configuration, structured output testing (JSON Schema), and free API request quotas.
 - **Use Case:** An indispensable tool for quick logic testing and analysis of large document collections.
 
