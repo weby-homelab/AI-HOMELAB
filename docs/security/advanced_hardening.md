@@ -464,7 +464,7 @@ sudo systemctl restart sshd
 
 ---
 
-> **Далі:** [SECURITY.md](../SECURITY.md) — загальна політика безпеки проєкту
+> **Далі:** [SECURITY.md](../../SECURITY.md) — загальна політика безпеки проєкту
 >
 > **Шаблони:** [templates/](../templates/) — готовий код для розгортання агентів
 
