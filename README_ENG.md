@@ -215,21 +215,19 @@ Open `http://localhost:3000` — your local ChatGPT is ready! 🎉
 │&nbsp;&nbsp;&nbsp;├── 📁 [**`setup/`**](./docs/setup/) — *Step-by-step guides for each OS*<br>
 │&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├── ⏱️ [**`first-model-15-min.md`**](./docs/setup/first-model-15-min.md) — *Quick start of the first model*<br>
 │&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;└── 🔋 [**`blackout-guide.md`**](./docs/setup/blackout-guide.md) — *Outage energy efficiency guide*<br>
-│&nbsp;&nbsp;&nbsp;├── 📁 [**`security/`**](./docs/security/) — *Best practices for model isolation*<br>
-│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;└── 🛡️ [**`model_isolation.md`**](./docs/security/model_isolation.md) — *Runtime isolation & TEE*<br>
+│&nbsp;&nbsp;&nbsp;├── 📁 [**`security/`**](./docs/security/) — *Security policies, audits, and model isolation*<br>
+│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├── 🛡️ [**`model_isolation.md`**](./docs/security/model_isolation.md) — *Runtime isolation & TEE*<br>
+│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├── 🛡️ [**`advanced_hardening.md`**](./docs/security/advanced_hardening.md) — *Deep isolation (VLAN, nftables, Gitleaks)*<br>
+│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;└── ⏳ **`model-vetting.md`** — `(coming soon)` *Model vetting criteria*<br>
 │&nbsp;&nbsp;&nbsp;└── ⏳ **`quantization/`** — `(coming soon)` *Quantization guide (Q4/Q8/GGUF)*<br>
-│<br>
-├── 📁 [**`security/`**](./security/) — *Security policies and audits*<br>
-│&nbsp;&nbsp;&nbsp;├── 🛡️ [**`advanced_hardening.md`**](./security/advanced_hardening.md) — *Deep isolation (VLAN, nftables, Gitleaks)*<br>
-│&nbsp;&nbsp;&nbsp;└── ⏳ **`model-vetting.md`** — `(coming soon)` *Model vetting criteria*<br>
 │<br>
 ├── 📄 [**`README.md`**](./README.md) — *Ukrainian version*<br>
 ├── 📄 [**`README_ENG.md`**](./README_ENG.md) — *This file (ENG)*<br>
 ├── 📄 [**`CONTRIBUTING.md`**](./CONTRIBUTING.md) — *Contributor guide*<br>
 ├── 📄 [**`SECURITY.md`**](./SECURITY.md) — *Security policy*<br>
 ├── 📄 [**`LICENSE`**](./LICENSE) — *MIT License*<br>
-└── 📄 [**`ROADMAP.md`**](./ROADMAP.md) — *Project roadmap*
-
+└── 📄 [**`ROADMAP.md`**](./ROADMAP.md) — *Project roadmap*<br>
+<br>
 ---
 
 ## 📚 MODULES AND NAVIGATION
@@ -240,7 +238,7 @@ Open `http://localhost:3000` — your local ChatGPT is ready! 🎉
 | 🔋 [**Blackout Guide**](./docs/setup/blackout-guide.md) | Practical guide on minimizing energy consumption (Nvidia Power Limit, limiting CPU threads, hardware selection) during power outages | ✅ Done |
 | 🧠 [**CRAG Agent**](./templates/langgraph_rag_agent.py) | Corrective RAG agent on LangGraph + Qdrant. Cyclic graph: retrieve → evaluate → rewrite → generate | ✅ Done |
 | 🤖 [**Agent CLI**](./templates/agent-code-cli/) | Claude Code style console AI agent in a Harness shell (secure CWD, bash execution permissions, diff-preview of patches) | ✅ Done |
-| 🛡️ [**Advanced Hardening**](./security/advanced_hardening.md) | VLAN isolation from IoT, nftables firewall, Docker security, Gitleaks + pre-commit | ✅ Done |
+| 🛡️ [**Advanced Hardening**](./docs/security/advanced_hardening.md) | VLAN isolation from IoT, nftables firewall, Docker security, Gitleaks + pre-commit | ✅ Done |
 | 🛡️ [**Model Isolation**](./docs/security/model_isolation.md) | Model isolation and sandboxing guide (gVisor, Firecracker, WASM, TEE, Zero-Trust network) | ✅ Done |
 | ⚡ [**Hardware Benchmarks**](./benchmarks/hardware_efficiency.md) | GPU vs Apple Silicon (t/s/W), Cold Start analysis, VRAM contention, tier recommendations | ✅ Done |
 | 🐳 [**Ollama + Open WebUI**](./configs/ollama/) | Docker Compose: CPU/GPU profiles, secure configuration, `.env.example` | ✅ Done |
