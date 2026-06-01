@@ -258,8 +258,18 @@ def _html_to_markdown(html: str) -> str:
         return converter.handle(html)
 
     # Very simple regex-based fallback if html2text isn't installed
-    text = re.sub(r"<style[^>]*>.*?</style>", "", html, flags=re.DOTALL)
-    text = re.sub(r"<script[^>]*>.*?</script>", "", text, flags=re.DOTALL)
+    text = re.sub(
+        r"<style[^>]*>.*?</style>",
+        "",
+        html,
+        flags=re.DOTALL | re.IGNORECASE,
+    )
+    text = re.sub(
+        r"<script[^>]*>.*?</script>",
+        "",
+        text,
+        flags=re.DOTALL | re.IGNORECASE,
+    )
     text = re.sub(r"<[^>]+>", " ", text)
     text = re.sub(r"\s+", " ", text).strip()
     return text
