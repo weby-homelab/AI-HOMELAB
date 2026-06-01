@@ -189,7 +189,7 @@ ai/
 ├── 📄 CONTRIBUTING.md     # Гайд для контриб'юторів
 ├── 📄 SECURITY.md         # Політика безпеки
 ├── 📄 LICENSE             # MIT License
-└── 📄 ROADMAP.md          # (coming soon) Дорожня карта проєкту
+└── 📄 ROADMAP.md          # Дорожня карта проєкту
 ```
 
 ---
@@ -203,6 +203,7 @@ ai/
 | ⚡ [**Hardware Benchmarks**](./benchmarks/hardware_efficiency.md) | GPU vs Apple Silicon (t/s/W), Cold Start аналіз, VRAM contention, рекомендації по тієрах | ✅ Готово |
 | 🐳 [**Ollama + Open WebUI**](./configs/ollama/) | Docker Compose: CPU/GPU профілі, безпечна конфігурація, `.env.example` | ✅ Готово |
 | 🔬 [**AI Landscape 2026**](./docs/research/ai-landscape-may-2026.md) | Дослідження: моделі, API, фреймворки, RAG, MCP, залізо, бюджети | ✅ Готово |
+| 🗺️ [**Roadmap**](./ROADMAP.md) | Дорожня карта проєкту: Фаза 1 (Фундамент), Фаза 2 (Практика), Фаза 3 (Спільнота) | ✅ Готово |
 | 🔐 [**Security Policy**](./SECURITY.md) | Модельна гігієна, ізоляція даних, облікові дані | ✅ Готово |
 | 🤝 [**Contributing**](./CONTRIBUTING.md) | Гайд для контриб'юторів: Issues → Branch → PR → Merge | ✅ Готово |
 
