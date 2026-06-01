@@ -181,7 +181,8 @@ Open `http://localhost:3000` — your local ChatGPT is ready! 🎉
 │<br>
 ├── 📁 [**`docs/`**](./docs/) — *Documentation and guides*<br>
 │&nbsp;&nbsp;&nbsp;├── 📁 [**`research/`**](./docs/research/) — *AI landscape research*<br>
-│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;└── 🔬 [**`ai-landscape-june-2026.md`**](./docs/research/ai-landscape-june-2026.md) — *AI models and stack report*<br>
+│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├── 🔬 [**`ai-landscape-june-2026.md`**](./docs/research/ai-landscape-june-2026.md) — *AI models and stack report*<br>
+│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;└── 🚀 [**`free-ai-tools-lifehacks_ENG.md`**](./docs/research/free-ai-tools-lifehacks_ENG.md) — *Free AI Tools and Lifehacks*<br>
 │&nbsp;&nbsp;&nbsp;├── 📁 [**`setup/`**](./docs/setup/) — *Step-by-step guides for each OS*<br>
 │&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├── ⏱️ [**`first-model-15-min.md`**](./docs/setup/first-model-15-min.md) — *Quick start of the first model*<br>
 │&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;└── 🔋 [**`blackout-guide.md`**](./docs/setup/blackout-guide.md) — *Outage energy efficiency guide*<br>
@@ -213,6 +214,7 @@ Open `http://localhost:3000` — your local ChatGPT is ready! 🎉
 | ⚡ [**Hardware Benchmarks**](./benchmarks/hardware_efficiency.md) | GPU vs Apple Silicon (t/s/W), Cold Start analysis, VRAM contention, tier recommendations | ✅ Done |
 | 🐳 [**Ollama + Open WebUI**](./configs/ollama/) | Docker Compose: CPU/GPU profiles, secure configuration, `.env.example` | ✅ Done |
 | 🔬 [**AI Landscape 2026**](./docs/research/ai-landscape-june-2026.md) | Research: models, APIs, frameworks, RAG, MCP, hardware, budgets, as well as autonomous local agent analysis (memory, stealth browsers, voice/video assistants) | ✅ Done |
+| 🚀 [**Free AI Tools & Hacks**](./docs/research/free-ai-tools-lifehacks_ENG.md) | Stack of the best free tools and 7 practical lifehacks to boost response quality | ✅ Done |
 | 🗺️ [**Roadmap**](./ROADMAP.md) | Project roadmap: Phase 1 (Foundation), Phase 2 (Practice), Phase 3 (Community) | ✅ Done |
 | 🔐 [**Security Policy**](./SECURITY.md) | Model hygiene, data isolation, credentials | ✅ Done |
 | 🤝 [**Contributing**](./CONTRIBUTING.md) | Contributor guide: Issues → Branch → PR → Merge | ✅ Done |
