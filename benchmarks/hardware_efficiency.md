@@ -356,7 +356,7 @@ echo "📊 Звіт збережено у power_report.txt"
 
 ---
 
-> **Далі:** [docs/research/ai-landscape-may-2026.md](../docs/research/ai-landscape-may-2026.md) — повне дослідження ландшафту AI
+> **Далі:** [docs/research/ai-landscape-june-2026.md](../docs/research/ai-landscape-june-2026.md) — повне дослідження ландшафту AI
 >
 > **Конфігурації:** [configs/ollama/](../configs/ollama/) — Docker-compose для Ollama + Open WebUI
 

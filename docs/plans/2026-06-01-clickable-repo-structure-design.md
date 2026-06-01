@@ -35,7 +35,7 @@ The previous design utilized raw markdown code blocks (` ``` `) to show a folder
 │
 ├── 📁 [**`docs/`**](./docs/) — *Документація та гайди*
 │   ├── 📁 [**`research/`**](./docs/research/) — *Дослідження AI-ландшафту*
-│   │   └── 🔬 [**`ai-landscape-may-2026.md`**](./docs/research/ai-landscape-may-2026.md) — *Звіт по ШІ-моделях та стеку*
+│   │   └── 🔬 [**`ai-landscape-june-2026.md`**](./docs/research/ai-landscape-june-2026.md) — *Звіт по ШІ-моделях та стеку*
 │   ├── 📁 [**`setup/`**](./docs/setup/) — *Крок-за-кроком для кожної ОС*
 │   │   ├── ⏱️ [**`first-model-15-min.md`**](./docs/setup/first-model-15-min.md) — *Швидкий запуск першої моделі*
 │   │   └── 🔋 [**`blackout-guide.md`**](./docs/setup/blackout-guide.md) — *Гайд з енергоефективності під час блекаутів*
@@ -76,7 +76,7 @@ The previous design utilized raw markdown code blocks (` ``` `) to show a folder
 │
 ├── 📁 [**`docs/`**](./docs/) — *Documentation and guides*
 │   ├── 📁 [**`research/`**](./docs/research/) — *AI landscape research*
-│   │   └── 🔬 [**`ai-landscape-may-2026.md`**](./docs/research/ai-landscape-may-2026.md) — *AI models and stack report*
+│   │   └── 🔬 [**`ai-landscape-june-2026.md`**](./docs/research/ai-landscape-june-2026.md) — *AI models and stack report*
 │   ├── 📁 [**`setup/`**](./docs/setup/) — *Step-by-step guides for each OS*
 │   │   ├── ⏱️ [**`first-model-15-min.md`**](./docs/setup/first-model-15-min.md) — *Quick start of the first model*
 │   │   └── 🔋 [**`blackout-guide.md`**](./docs/setup/blackout-guide.md) — *Outage energy efficiency guide*

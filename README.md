@@ -39,7 +39,7 @@
 
 | Категорія | Інструменти |
 |---|---|
-| **LLM-моделі** | Meta LLaMA 4, Google Gemma 3, Mistral, Microsoft Phi-4 |
+| **LLM-моделі** | Meta LLaMA 4 (Scout/Maverick), Google Gemma 3/4, Mistral (Large 3/Small 4), Microsoft Phi-4 |
 | **Хмарні API** | OpenAI (GPT-4o), Anthropic (Claude), Google (Gemini) |
 | **Інференс** | Ollama, vLLM, llama.cpp |
 | **Оркестрація** | LangGraph, CrewAI, PydanticAI |
@@ -181,7 +181,7 @@ docker run -d \
 │<br>
 ├── 📁 [**`docs/`**](./docs/) — *Документація та гайди*<br>
 │&nbsp;&nbsp;&nbsp;├── 📁 [**`research/`**](./docs/research/) — *Дослідження AI-ландшафту*<br>
-│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;└── 🔬 [**`ai-landscape-may-2026.md`**](./docs/research/ai-landscape-may-2026.md) — *Звіт по ШІ-моделях та стеку*<br>
+│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;└── 🔬 [**`ai-landscape-june-2026.md`**](./docs/research/ai-landscape-june-2026.md) — *Звіт по ШІ-моделях та стеку*<br>
 │&nbsp;&nbsp;&nbsp;├── 📁 [**`setup/`**](./docs/setup/) — *Крок-за-кроком для кожної ОС*<br>
 │&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├── ⏱️ [**`first-model-15-min.md`**](./docs/setup/first-model-15-min.md) — *Швидкий запуск першої моделі*<br>
 │&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;└── 🔋 [**`blackout-guide.md`**](./docs/setup/blackout-guide.md) — *Гайд з енергоефективності під час блекаутів*<br>
@@ -212,7 +212,7 @@ docker run -d \
 | 🛡️ [**Advanced Hardening**](./security/advanced_hardening.md) | VLAN-ізоляція від IoT, nftables фаєрвол, Docker безпека, Gitleaks + pre-commit | ✅ Готово |
 | ⚡ [**Hardware Benchmarks**](./benchmarks/hardware_efficiency.md) | GPU vs Apple Silicon (t/s/W), Cold Start аналіз, VRAM contention, рекомендації по тієрах | ✅ Готово |
 | 🐳 [**Ollama + Open WebUI**](./configs/ollama/) | Docker Compose: CPU/GPU профілі, безпечна конфігурація, `.env.example` | ✅ Готово |
-| 🔬 [**AI Landscape 2026**](./docs/research/ai-landscape-may-2026.md) | Дослідження: моделі, API, фреймворки, RAG, MCP, залізо, бюджети, а також аналіз автономних локальних агентів (пам'ять, stealth-браузери, голосові/відео асистенти) | ✅ Готово |
+| 🔬 [**AI Landscape 2026**](./docs/research/ai-landscape-june-2026.md) | Дослідження: моделі, API, фреймворки, RAG, MCP, залізо, бюджети, а також аналіз автономних локальних агентів (пам'ять, stealth-браузери, голосові/відео асистенти) | ✅ Готово |
 | 🗺️ [**Roadmap**](./ROADMAP.md) | Дорожня карта проєкту: Фаза 1 (Фундамент), Фаза 2 (Практика), Фаза 3 (Спільнота) | ✅ Готово |
 | 🔐 [**Security Policy**](./SECURITY.md) | Модельна гігієна, ізоляція даних, облікові дані | ✅ Готово |
 | 🤝 [**Contributing**](./CONTRIBUTING.md) | Гайд для контриб'юторів: Issues → Branch → PR → Merge | ✅ Готово |
