@@ -135,7 +135,7 @@ docker run -d \
 Відкрийте `http://localhost:3000` — ваш локальний ChatGPT готовий! 🎉
 
 > [!NOTE]
-> Детальні інструкції для кожної платформи (Windows/macOS/Linux) дивіться у [`/docs/setup`](./docs/setup/).
+> Детальні інструкції для кожної платформи (Windows/macOS/Linux) дивіться у [`/docs/setup` (coming soon)](./docs/setup/).
 
 ---
 
@@ -164,32 +164,32 @@ ai/
 │
 ├── 📁 configs/            # Готові Docker-compose конфігурації
 │   ├── ollama/            # ✅ Ollama + Open WebUI в один клік
-│   ├── vllm/              # vLLM для production-grade інференсу
-│   └── dify/              # Dify AI — no-code агентна платформа
+│   ├── vllm/              # (coming soon) vLLM для production-grade інференсу
+│   └── dify/              # (coming soon) Dify AI — no-code агентна платформа
 │
 ├── 📁 templates/          # Шаблони та приклади коду
 │   └── langgraph_rag_agent.py  # 🧠 Corrective RAG Agent (LangGraph + Qdrant)
 │
-├── 📁 projects/           # Ідеї та реалізації пет-проєктів
-│   ├── local-osint/       # Локальні OSINT-помічники
-│   ├── biz-automation/    # Автоматизатори бізнес-рутини
-│   └── rag-pipeline/      # RAG-пайплайн по власним документам
+├── 📁 projects/           # (coming soon) Ідеї та реалізації пет-проєктів
+│   ├── local-osint/       # (coming soon) Локальні OSINT-помічники
+│   ├── biz-automation/    # (coming soon) Автоматизатори бізнес-рутини
+│   └── rag-pipeline/      # (coming soon) RAG-пайплайн по власним документам
 │
 ├── 📁 docs/               # Документація та гайди
 │   ├── research/          # 🔬 Дослідження AI-ландшафту
-│   ├── setup/             # Крок-за-кроком для кожної ОС
-│   ├── security/          # Best practices з ізоляції моделей
-│   └── quantization/      # Гайд по квантизації (Q4/Q8/GGUF)
+│   ├── setup/             # (coming soon) Крок-за-кроком для кожної ОС
+│   ├── security/          # (coming soon) Best practices з ізоляції моделей
+│   └── quantization/      # (coming soon) Гайд по квантизації (Q4/Q8/GGUF)
 │
 ├── 📁 security/           # Політики безпеки та аудити
 │   ├── advanced_hardening.md  # 🛡️ Глибока ізоляція (VLAN, nftables, Gitleaks)
-│   └── model-vetting.md   # Критерії перевірки моделей
+│   └── model-vetting.md   # (coming soon) Критерії перевірки моделей
 │
 ├── 📄 README.md           # Цей файл
 ├── 📄 CONTRIBUTING.md     # Гайд для контриб'юторів
 ├── 📄 SECURITY.md         # Політика безпеки
 ├── 📄 LICENSE             # MIT License
-└── 📄 ROADMAP.md          # Дорожня карта проєкту
+└── 📄 ROADMAP.md          # (coming soon) Дорожня карта проєкту
 ```
 
 ---
