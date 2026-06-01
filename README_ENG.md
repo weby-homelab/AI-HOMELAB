@@ -161,44 +161,43 @@ Open `http://localhost:3000` — your local ChatGPT is ready! 🎉
 
 ## 🛠️ REPOSITORY STRUCTURE
 
-```
-ai/
-├── 📁 [benchmarks/](./benchmarks/)               # Hardware benchmarks and energy efficiency
-│   └── [hardware_efficiency.md](./benchmarks/hardware_efficiency.md) # ⚡ GPU vs Apple Silicon (t/s/W)
+📂 [**`ai/`**](./)
+├── 📁 [**`benchmarks/`**](./benchmarks/) — *Hardware benchmarks and energy efficiency*
+│   └── ⚡ [**`hardware_efficiency.md`**](./benchmarks/hardware_efficiency.md) — *GPU vs Apple Silicon (t/s/W)*
 │
-├── 📁 [configs/](./configs/)                  # Ready-made Docker Compose configurations
-│   ├── [ollama/](./configs/ollama/)               # ✅ One-click Ollama + Open WebUI
-│   ├── vllm/                    # (coming soon) vLLM for production-grade inference
-│   └── dify/                    # (coming soon) Dify AI — no-code agent platform
+├── 📁 [**`configs/`**](./configs/) — *Ready-made Docker Compose configurations*
+│   ├── ✅ [**`ollama/`**](./configs/ollama/) — *One-click Ollama + Open WebUI*
+│   ├── ⏳ **`vllm/`** — `(coming soon)` *vLLM for production-grade inference*
+│   └── ⏳ **`dify/`** — `(coming soon)` *Dify AI — no-code agent platform*
 │
-├── 📁 [templates/](./templates/)                # Templates and code examples
-│   ├── [langgraph_rag_agent.py](./templates/langgraph_rag_agent.py) # 🧠 Corrective RAG Agent (LangGraph + Qdrant)
-│   └── [agent-code-cli/](./templates/agent-code-cli/)       # 🤖 Claude Code Style Agent CLI (Ollama + Claude)
+├── 📁 [**`templates/`**](./templates/) — *Templates and code examples*
+│   ├── 🧠 [**`langgraph_rag_agent.py`**](./templates/langgraph_rag_agent.py) — *Corrective RAG Agent (LangGraph + Qdrant)*
+│   └── 🤖 [**`agent-code-cli/`**](./templates/agent-code-cli/) — *Claude Code Style Agent CLI (Ollama + Claude)*
 │
-├── 📁 projects/                 # (coming soon) Ideas and implementations of pet projects
-│   ├── local-osint/             # (coming soon) Local OSINT assistants
-│   ├── biz-automation/          # (coming soon) Business routine automation tools
-│   └── rag-pipeline/            # (coming soon) RAG pipeline for custom documents
+├── 📁 **`projects/`** — `(coming soon)` *Ideas and implementations of pet projects*
+│   ├── ⏳ **`local-osint/`** — `(coming soon)` *Local OSINT assistants*
+│   ├── ⏳ **`biz-automation/`** — `(coming soon)` *Business routine automation tools*
+│   └── ⏳ **`rag-pipeline/`** — `(coming soon)` *RAG pipeline for custom documents*
 │
-├── 📁 [docs/](./docs/)                     # Documentation and guides
-│   ├── [research/](./docs/research/)            # 🔬 AI landscape research
-│   │   └── [ai-landscape-may-2026.md](./docs/research/ai-landscape-may-2026.md) # 🔬 AI models and stack report
-│   ├── [setup/](./docs/setup/)               # Step-by-step guides for each OS
-│   │   ├── [first-model-15-min.md](./docs/setup/first-model-15-min.md) # ⏱️ Quick start of the first model
-│   │   └── [blackout-guide.md](./docs/setup/blackout-guide.md)     # 🔋 Outage energy efficiency guide
-│   ├── security/                # (coming soon) Best practices for model isolation
-│   └── quantization/            # (coming soon) Quantization guide (Q4/Q8/GGUF)
+├── 📁 [**`docs/`**](./docs/) — *Documentation and guides*
+│   ├── 📁 [**`research/`**](./docs/research/) — *AI landscape research*
+│   │   └── 🔬 [**`ai-landscape-may-2026.md`**](./docs/research/ai-landscape-may-2026.md) — *AI models and stack report*
+│   ├── 📁 [**`setup/`**](./docs/setup/) — *Step-by-step guides for each OS*
+│   │   ├── ⏱️ [**`first-model-15-min.md`**](./docs/setup/first-model-15-min.md) — *Quick start of the first model*
+│   │   └── 🔋 [**`blackout-guide.md`**](./docs/setup/blackout-guide.md) — *Outage energy efficiency guide*
+│   ├── ⏳ **`security/`** — `(coming soon)` *Best practices for model isolation*
+│   └── ⏳ **`quantization/`** — `(coming soon)` *Quantization guide (Q4/Q8/GGUF)*
 │
-├── 📁 [security/](./security/)                 # Security policies and audits
-│   ├── [advanced_hardening.md](./security/advanced_hardening.md) # 🛡️ Deep isolation (VLAN, nftables, Gitleaks)
-│   └── model-vetting.md         # (coming soon) Model vetting criteria
+├── 📁 [**`security/`**](./security/) — *Security policies and audits*
+│   ├── 🛡️ [**`advanced_hardening.md`**](./security/advanced_hardening.md) — *Deep isolation (VLAN, nftables, Gitleaks)*
+│   └── ⏳ **`model-vetting.md`** — `(coming soon)` *Model vetting criteria*
 │
-├── 📄 [README.md](./README.md)                 # This file
-├── 📄 [CONTRIBUTING.md](./CONTRIBUTING.md)           # Contributor guide
-├── 📄 [SECURITY.md](./SECURITY.md)               # Security policy
-├── 📄 [LICENSE](./LICENSE)                   # MIT License
-└── 📄 [ROADMAP.md](./ROADMAP.md)                 # Project roadmap
-```
+├── 📄 [**`README.md`**](./README.md) — *Ukrainian version*
+├── 📄 [**`README_ENG.md`**](./README_ENG.md) — *This file (ENG)*
+├── 📄 [**`CONTRIBUTING.md`**](./CONTRIBUTING.md) — *Contributor guide*
+├── 📄 [**`SECURITY.md`**](./SECURITY.md) — *Security policy*
+├── 📄 [**`LICENSE`**](./LICENSE) — *MIT License*
+└── 📄 [**`ROADMAP.md`**](./ROADMAP.md) — *Project roadmap*
 
 ---
 
