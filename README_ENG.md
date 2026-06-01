@@ -314,15 +314,24 @@ For convenience, all learning and practical materials in the repository are divi
 
 ### 🚀 Phase 2 — Practice (Q4 2026) — ⏳ In Progress
 - [ ] LangGraph / PydanticAI multi-agent template for business automation
-- [x] Blackout guide: configuring the lab to run on EcoFlow
-- [ ] Local OSINT assistant (pet project)
+- [x] Blackout guide: configuring the lab to run on EcoFlow, Starlink 12V PoE, Tailscale, Offline RAG
+- [ ] Local OSINT assistant (pet project using local maps and offline RAG knowledge)
 - [ ] Stealth automation and web workflow template (based on CloakBrowser experience)
 - [x] Session memory integration (AgentMemory) into agent templates
+- [ ] Local Deep Research agent on LangGraph / PydanticAI (SearXNG/DuckDuckGo integration)
+- [ ] Docker Compose stack for offline knowledge base (Kiwix + Wikipedia) and RAG connector
+- [ ] Guide and compose configs for local MCP servers (Filesystem, SQLite, Fetch)
+- [ ] Production Docker Compose config for Dify (no-code orchestration & RAG platform)
+- [ ] Guide on configuring local coding tools (Continue.dev, Aider, Tabby) with SLM models (Phi-4, Gemma 3/4)
 - [ ] Webinar/livestream: "AI-HomeLab Live Setup"
 
 ### 🌟 Phase 3 — Community (Q1 2027) — 📅 Planned
 - [ ] Telegram bot for automated benchmarks
-- [ ] CI/CD pipeline for model testing
+- [ ] CI/CD pipeline for automated model vulnerability testing
+- [ ] Starter AI-HomeLab Dashboard (portal for local services integration)
+- [ ] Guide on configuring Compare Mode (split testing of models) in Open WebUI
+- [ ] Practical guide on vLLM optimization (PagedAttention, KV Cache Offloading, Multi-Token Prediction)
+- [ ] Local Speech-to-Speech voice assistant using native multimodal models (Gemma 3n, Phi-4 Multimodal)
 - [ ] Partnerships with Ukrainian AI communities
 - [ ] Monthly digest of new models and tools
 
