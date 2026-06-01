@@ -178,7 +178,8 @@ ai/
 ├── 📁 docs/               # Документація та гайди
 │   ├── research/          # 🔬 Дослідження AI-ландшафту
 │   ├── setup/             # Крок-за-кроком для кожної ОС
-│   │   └── first-model-15-min.md  # ⏱️ Швидкий запуск першої моделі
+│   │   ├── first-model-15-min.md  # ⏱️ Швидкий запуск першої моделі
+│   │   └── blackout-guide.md      # 🔋 Гайд з енергоефективності під час блекаутів
 │   ├── security/          # (coming soon) Best practices з ізоляції моделей
 │   └── quantization/      # (coming soon) Гайд по квантизації (Q4/Q8/GGUF)
 │
@@ -200,6 +201,7 @@ ai/
 | Модуль | Опис | Статус |
 |---|---|---|
 | ⏱️ [**15-Min Setup**](./docs/setup/first-model-15-min.md) | Швидкий покроковий гайд: встановлення Ollama, запуск Open WebUI через Docker, вибір та чат з першою моделлю | ✅ Готово |
+| 🔋 [**Blackout Guide**](./docs/setup/blackout-guide.md) | Практичний гайд з мінімізації споживання енергії (Nvidia Power Limit, обмеження потоків CPU, вибір заліза) під час відключень світла | ✅ Готово |
 | 🧠 [**CRAG Agent**](./templates/langgraph_rag_agent.py) | Corrective RAG агент на LangGraph + Qdrant. Циклічний граф: пошук → оцінка → переформулювання → генерація | ✅ Готово |
 | 🛡️ [**Advanced Hardening**](./security/advanced_hardening.md) | VLAN-ізоляція від IoT, nftables фаєрвол, Docker безпека, Gitleaks + pre-commit | ✅ Готово |
 | ⚡ [**Hardware Benchmarks**](./benchmarks/hardware_efficiency.md) | GPU vs Apple Silicon (t/s/W), Cold Start аналіз, VRAM contention, рекомендації по тієрах | ✅ Готово |
@@ -224,7 +226,7 @@ ai/
 
 ### 🚀 Фаза 2 — Практика (Q4 2026)
 - [ ] Мультиагентний шаблон на CrewAI для бізнес-автоматизації
-- [ ] Блекаут-гайд: налаштування лаби для роботи від EcoFlow
+- [x] Блекаут-гайд: налаштування лаби для роботи від EcoFlow
 - [ ] Локальний OSINT-помічник (пет-проєкт)
 - [ ] Вебінар/стрім: "AI-HomeLab Live Setup"
 
