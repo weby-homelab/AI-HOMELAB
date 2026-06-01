@@ -40,7 +40,7 @@ We **categorically do not use, test, or promote** software, AI models, or tools 
 | Category | Tools |
 |---|---|
 | **LLM Models** | Meta LLaMA 4 (Scout/Maverick), Google Gemma 3/4, Mistral (Large 3/Small 4), Microsoft Phi-4 |
-| **Cloud APIs** | OpenAI (GPT-4o), Anthropic (Claude), Google (Gemini) |
+| **Cloud APIs** | OpenAI (GPT-5.x, GPT-5.4 mini), Anthropic (Claude 4.x), Google (Gemini 3.5/3.1) |
 | **Inference** | Ollama, vLLM, llama.cpp |
 | **Orchestration** | LangGraph, CrewAI, PydanticAI |
 
@@ -85,7 +85,7 @@ flowchart LR
 We create solutions adapted to **Ukrainian realities**. This means:
 
 - **Maximum results on consumer hardware** — RTX 3060/4060/5060 or Apple Silicon
-- **Use of free/cheap APIs** — Gemini Flash, GPT-4o mini for hybrid systems
+- **Use of free/cheap APIs** — Gemini 3.5 Flash / 3.1 Flash-Lite, GPT-5.4 mini for hybrid systems
 - **Aggressive model quantization** — Q4/Q8 via GGUF to save VRAM
 - **🔋 Blackout Resilience** — optimizing power consumption for stable lab operation from inverters and power stations (EcoFlow, Bluetti) during power outages
 

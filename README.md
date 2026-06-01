@@ -40,7 +40,7 @@
 | Категорія | Інструменти |
 |---|---|
 | **LLM-моделі** | Meta LLaMA 4 (Scout/Maverick), Google Gemma 3/4, Mistral (Large 3/Small 4), Microsoft Phi-4 |
-| **Хмарні API** | OpenAI (GPT-4o), Anthropic (Claude), Google (Gemini) |
+| **Хмарні API** | OpenAI (GPT-5.x, GPT-5.4 mini), Anthropic (Claude 4.x), Google (Gemini 3.5/3.1) |
 | **Інференс** | Ollama, vLLM, llama.cpp |
 | **Оркестрація** | LangGraph, CrewAI, PydanticAI |
 
@@ -85,7 +85,7 @@ flowchart LR
 Ми створюємо рішення, адаптовані до **українських реалій**. Це означає:
 
 - **Максимум результату на споживчому залізі** — RTX 3060/4060/5060 або Apple Silicon
-- **Використання безкоштовних/дешевих API** — Gemini Flash, GPT-4o mini для гібридних систем
+- **Використання безкоштовних/дешевих API** — Gemini 3.5 Flash / 3.1 Flash-Lite, GPT-5.4 mini для гібридних систем
 - **Агресивна квантизація моделей** — Q4/Q8 через GGUF для економії VRAM
 - **🔋 Блекаут-резилієнтність** — оптимізація споживання для стабільної роботи лабораторії від інверторів та зарядних станцій (EcoFlow, Bluetti) під час відключень електроенергії
 
