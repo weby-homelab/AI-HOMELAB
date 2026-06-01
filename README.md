@@ -209,7 +209,7 @@ ai/
 | 🛡️ [**Advanced Hardening**](./security/advanced_hardening.md) | VLAN-ізоляція від IoT, nftables фаєрвол, Docker безпека, Gitleaks + pre-commit | ✅ Готово |
 | ⚡ [**Hardware Benchmarks**](./benchmarks/hardware_efficiency.md) | GPU vs Apple Silicon (t/s/W), Cold Start аналіз, VRAM contention, рекомендації по тієрах | ✅ Готово |
 | 🐳 [**Ollama + Open WebUI**](./configs/ollama/) | Docker Compose: CPU/GPU профілі, безпечна конфігурація, `.env.example` | ✅ Готово |
-| 🔬 [**AI Landscape 2026**](./docs/research/ai-landscape-may-2026.md) | Дослідження: моделі, API, фреймворки, RAG, MCP, залізо, бюджети | ✅ Готово |
+| 🔬 [**AI Landscape 2026**](./docs/research/ai-landscape-may-2026.md) | Дослідження: моделі, API, фреймворки, RAG, MCP, залізо, бюджети, а також аналіз автономних локальних агентів (пам'ять, stealth-браузери, голосові/відео асистенти) | ✅ Готово |
 | 🗺️ [**Roadmap**](./ROADMAP.md) | Дорожня карта проєкту: Фаза 1 (Фундамент), Фаза 2 (Практика), Фаза 3 (Спільнота) | ✅ Готово |
 | 🔐 [**Security Policy**](./SECURITY.md) | Модельна гігієна, ізоляція даних, облікові дані | ✅ Готово |
 | 🤝 [**Contributing**](./CONTRIBUTING.md) | Гайд для контриб'юторів: Issues → Branch → PR → Merge | ✅ Готово |
@@ -232,6 +232,8 @@ ai/
 - [ ] Мультиагентний шаблон на CrewAI для бізнес-автоматизації
 - [x] Блекаут-гайд: налаштування лаби для роботи від EcoFlow
 - [ ] Локальний OSINT-помічник (пет-проєкт)
+- [ ] Шаблон stealth-автоматизації та веб-workflow (за досвідом CloakBrowser)
+- [ ] Інтеграція сесійної пам'яті (AgentMemory) у шаблони агента
 - [ ] Вебінар/стрім: "AI-HomeLab Live Setup"
 
 ### 🌟 Фаза 3 — Спільнота (Q1 2027)

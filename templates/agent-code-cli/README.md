@@ -77,19 +77,13 @@ uv sync
 uv run agent-code --provider ollama --model gemma3:4b
 ```
 
-### 3. Хмарний запуск (Claude API / DeepSeek API)
+### 3. Хмарний запуск (Claude API)
 
 Для використання провайдера `anthropic` налаштуйте API ключі:
 
 ```bash
-# Для Claude
 export ANTHROPIC_API_KEY="sk-ant-..."
 uv run agent-code --provider anthropic --model claude-3-5-sonnet-latest
-
-# Або для DeepSeek API (через сумісний endpoint)
-export ANTHROPIC_AUTH_TOKEN="sk-..."
-export ANTHROPIC_BASE_URL="https://api.deepseek.com/anthropic"
-uv run agent-code --provider anthropic --model deepseek-v4-flash
 ```
 
 ---
