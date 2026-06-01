@@ -58,15 +58,29 @@ def run_once(
 
 @app.callback(invoke_without_command=True)
 def main_command(
-    prompt: str = typer.Argument("", help="Промпт для ШІ-агента. Якщо порожній, запускає REPL."),
+    prompt: str = typer.Argument(
+        "", help="Промпт для ШІ-агента. Якщо порожній, запускає REPL."
+    ),
     cwd: Path = typer.Option(Path.cwd(), "--cwd", "-C", help="Робоча директорія."),
-    provider: str = typer.Option("ollama", "--provider", help="Провайдер моделей: ollama, anthropic, mock."),
+    provider: str = typer.Option(
+        "ollama", "--provider", help="Провайдер моделей: ollama, anthropic, mock."
+    ),
     model: str = typer.Option("gemma3:4b", "--model", help="Назва моделі."),
-    base_url: str | None = typer.Option(None, "--base-url", help="Кастомна адреса хоста (напр. URL Ollama)."),
-    max_steps: int = typer.Option(10, "--max-steps", help="Максимальна кількість кроків у Agent Loop."),
-    permission_mode: str = typer.Option("default", "--permission-mode", help="Режим доступу: default, acceptEdits, plan."),
+    base_url: str | None = typer.Option(
+        None, "--base-url", help="Кастомна адреса хоста (напр. URL Ollama)."
+    ),
+    max_steps: int = typer.Option(
+        10, "--max-steps", help="Максимальна кількість кроків у Agent Loop."
+    ),
+    permission_mode: str = typer.Option(
+        "default",
+        "--permission-mode",
+        help="Режим доступу: default, acceptEdits, plan.",
+    ),
     resume: str | None = typer.Option(None, "--resume", help="Відновити сесію за ID."),
-    continue_: bool = typer.Option(False, "--continue", "-c", help="Продовжити останню сесію."),
+    continue_: bool = typer.Option(
+        False, "--continue", "-c", help="Продовжити останню сесію."
+    ),
 ) -> None:
     resolved_cwd = cwd.resolve()
     session = None
@@ -74,7 +88,9 @@ def main_command(
     if continue_:
         session = Session.load_latest(resolved_cwd)
         if session is None:
-            console.print("[red]Історія сесій не знайдена, неможливо продовжити (--continue).[/red]")
+            console.print(
+                "[red]Історія сесій не знайдена, неможливо продовжити (--continue).[/red]"
+            )
             raise typer.Exit(code=1)
     elif resume:
         session = Session.load_id(resolved_cwd, resume)
@@ -106,10 +122,12 @@ def main_command(
     render_header(resolved_cwd, provider, model, base_url)
     if session is None:
         session = Session.create(resolved_cwd)
-    
+
     console.print(f"[green]Session ID: {session.session_id}[/green]")
     console.print("Введіть ваше запитання або інструкцію для кодування.")
-    console.print("Для виходу введіть [bold red]/exit[/bold red] або натисніть Ctrl+D.\n")
+    console.print(
+        "Для виходу введіть [bold red]/exit[/bold red] або натисніть Ctrl+D.\n"
+    )
 
     while True:
         try:

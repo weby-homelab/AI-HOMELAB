@@ -38,8 +38,7 @@ class ModelProvider(Protocol):
         messages: list[dict[str, Any]],
         tools: list[Any] | None = None,
         system: str | None = None,
-    ) -> ModelResponse:
-        ...
+    ) -> ModelResponse: ...
 
 
 def _content_block_to_dict(block: Any) -> dict[str, Any]:
@@ -61,7 +60,11 @@ class AnthropicProvider:
         max_tokens: int = 4096,
         base_url: str | None = None,
     ) -> None:
-        api_key = os.environ.get("ANTHROPIC_API_KEY") or os.environ.get("ANTHROPIC_AUTH_TOKEN") or "mock-key-for-local"
+        api_key = (
+            os.environ.get("ANTHROPIC_API_KEY")
+            or os.environ.get("ANTHROPIC_AUTH_TOKEN")
+            or "mock-key-for-local"
+        )
 
         self.model = model
         self.max_tokens = max_tokens
@@ -114,7 +117,9 @@ class AnthropicProvider:
 
 
 class OllamaProvider:
-    def __init__(self, model: str = "gemma3:4b", base_url: str = "http://localhost:11434") -> None:
+    def __init__(
+        self, model: str = "gemma3:4b", base_url: str = "http://localhost:11434"
+    ) -> None:
         self.model = model
         self.base_url = base_url
 
@@ -140,14 +145,16 @@ class OllamaProvider:
                         if block["type"] == "text":
                             text_out.append(block["text"])
                         elif block["type"] == "tool_use":
-                            tool_calls_out.append({
-                                "id": block["id"],
-                                "type": "function",
-                                "function": {
-                                    "name": block["name"],
-                                    "arguments": block["input"]
+                            tool_calls_out.append(
+                                {
+                                    "id": block["id"],
+                                    "type": "function",
+                                    "function": {
+                                        "name": block["name"],
+                                        "arguments": block["input"],
+                                    },
                                 }
-                            })
+                            )
                 else:
                     text_out.append(str(content))
 
@@ -158,25 +165,27 @@ class OllamaProvider:
                     mapped_msg["tool_calls"] = tool_calls_out
                 ollama_messages.append(mapped_msg)
             elif role == "user":
-                if isinstance(content, list) and content and content[0].get("type") == "tool_result":
+                if (
+                    isinstance(content, list)
+                    and content
+                    and content[0].get("type") == "tool_result"
+                ):
                     # Maps tool results back to OpenAI/Ollama role="tool"
                     for block in content:
-                        ollama_messages.append({
-                            "role": "tool",
-                            "name": block.get("name", "tool"),
-                            "tool_call_id": block["tool_use_id"],
-                            "content": block["content"]
-                        })
+                        ollama_messages.append(
+                            {
+                                "role": "tool",
+                                "name": block.get("name", "tool"),
+                                "tool_call_id": block["tool_use_id"],
+                                "content": block["content"],
+                            }
+                        )
                 else:
                     ollama_messages.append({"role": "user", "content": str(content)})
             else:
                 ollama_messages.append({"role": role, "content": str(content)})
 
-        payload = {
-            "model": self.model,
-            "messages": ollama_messages,
-            "stream": False
-        }
+        payload = {"model": self.model, "messages": ollama_messages, "stream": False}
         if tools:
             payload["tools"] = _to_openai_tools(tools)
 
@@ -184,7 +193,7 @@ class OllamaProvider:
             f"{self.base_url}/api/chat",
             data=json.dumps(payload).encode("utf-8"),
             headers={"Content-Type": "application/json"},
-            method="POST"
+            method="POST",
         )
 
         try:
@@ -212,21 +221,20 @@ class OllamaProvider:
                         tc_args = {}
 
                 tool_calls.append(ToolCall(id=tc_id, name=tc_name, arguments=tc_args))
-                assistant_content.append({
-                    "type": "tool_use",
-                    "id": tc_id,
-                    "name": tc_name,
-                    "input": tc_args
-                })
+                assistant_content.append(
+                    {"type": "tool_use", "id": tc_id, "name": tc_name, "input": tc_args}
+                )
 
             return ModelResponse(
                 text=text,
                 tool_calls=tool_calls or None,
                 assistant_content=assistant_content or None,
-                stop_reason="tool_use" if tool_calls else "end_turn"
+                stop_reason="tool_use" if tool_calls else "end_turn",
             )
         except Exception as e:
-            raise RuntimeError(f"Failed to communicate with Ollama: {e}. Is Ollama running?")
+            raise RuntimeError(
+                f"Failed to communicate with Ollama: {e}. Is Ollama running?"
+            )
 
 
 class MockProvider:
@@ -239,8 +247,14 @@ class MockProvider:
         last = messages[-1]
         if last["role"] == "user":
             content = last["content"]
-            if isinstance(content, list) and content and content[0].get("type") == "tool_result":
-                return ModelResponse(text=f"Дякую за виконання. Результат: {content[0]['content']}")
+            if (
+                isinstance(content, list)
+                and content
+                and content[0].get("type") == "tool_result"
+            ):
+                return ModelResponse(
+                    text=f"Дякую за виконання. Результат: {content[0]['content']}"
+                )
 
             text = str(content)
             if "скажи привіт" in text.lower() or "say hi" in text.lower():
@@ -254,7 +268,9 @@ class MockProvider:
                     ],
                     stop_reason="tool_use",
                 )
-            return ModelResponse(text="Я можу відповісти вам безпосередньо. Як я можу допомогти вам сьогодні?")
+            return ModelResponse(
+                text="Я можу відповісти вам безпосередньо. Як я можу допомогти вам сьогодні?"
+            )
 
         if last["role"] == "tool":
             return ModelResponse(text=f"Результат інструменту: {last['content']}")
@@ -281,17 +297,21 @@ def _to_openai_tools(tools: list[Any]) -> list[dict[str, Any]]:
                 "name": tool.name,
                 "description": tool.description,
                 "parameters": tool.parameters,
-            }
+            },
         }
         for tool in tools
     ]
 
 
-def create_provider(name: str, model: str, base_url: str | None = None) -> ModelProvider:
+def create_provider(
+    name: str, model: str, base_url: str | None = None
+) -> ModelProvider:
     if name == "anthropic":
         return AnthropicProvider(model=model, base_url=base_url)
     if name == "ollama":
-        return OllamaProvider(model=model, base_url=base_url or "http://localhost:11434")
+        return OllamaProvider(
+            model=model, base_url=base_url or "http://localhost:11434"
+        )
     if name == "mock":
         return MockProvider()
     raise ValueError(f"Unknown provider name: {name}")

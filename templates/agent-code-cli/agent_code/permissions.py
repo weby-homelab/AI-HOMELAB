@@ -24,7 +24,10 @@ _DANGEROUS_PATTERNS: list[tuple[str, str]] = [
     (r"rm\s+-fr", "rm -fr is destructive"),
     (r"\bsudo\b", "sudo grants root access"),
     (r"chmod\s+-R", "chmod -R is recursive permission change"),
-    (r"(curl|wget).*\|.*(sh|bash|zsh)\b", "downloaded script execution may execute untrusted code"),
+    (
+        r"(curl|wget).*\|.*(sh|bash|zsh)\b",
+        "downloaded script execution may execute untrusted code",
+    ),
     (r"git\s+push\s+.*--force", "git push --force overwrites remote history"),
     (r"git\s+push\s+-f", "git push -f overwrites remote history"),
     (r"\bgit\s+push\b", "git push publishes local changes to a remote"),
@@ -39,10 +42,19 @@ def _is_dangerous(command: str) -> str | None:
     return None
 
 
-_READONLY_TOOLS = frozenset({
-    "read_file", "list_files", "glob", "grep", "project_tree",
-    "git_status", "git_diff", "system_date", "echo",
-})
+_READONLY_TOOLS = frozenset(
+    {
+        "read_file",
+        "list_files",
+        "glob",
+        "grep",
+        "project_tree",
+        "git_status",
+        "git_diff",
+        "system_date",
+        "echo",
+    }
+)
 
 _LOW_RISK_WRITES = frozenset({"memory_write", "memory_recall"})
 
@@ -75,7 +87,9 @@ def decide_permission(request: PermissionRequest) -> PermissionDecision:
         command = args.get("command", "")
         danger_reason = _is_dangerous(command)
         if danger_reason:
-            return PermissionDecision("deny", f"Dangerous command blocked: {danger_reason}")
+            return PermissionDecision(
+                "deny", f"Dangerous command blocked: {danger_reason}"
+            )
 
     if mode == "acceptEdits":
         if tool_name in ("file_write", "file_edit"):

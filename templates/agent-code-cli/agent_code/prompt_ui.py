@@ -11,8 +11,10 @@ def render_diff(old: str, new: str, path: str) -> str:
     old_lines = old.splitlines(keepends=True)
     new_lines = new.splitlines(keepends=True)
     diff_lines = difflib.unified_diff(
-        old_lines, new_lines,
-        fromfile=f"a/{path}", tofile=f"b/{path}",
+        old_lines,
+        new_lines,
+        fromfile=f"a/{path}",
+        tofile=f"b/{path}",
     )
     colored = []
     for line in diff_lines:
@@ -35,7 +37,9 @@ def confirm_edit(path: str) -> bool:
 
 
 def confirm_command(command: str) -> bool:
-    console.print(f"\n[bold yellow]! Requesting command execution:[/bold yellow] [bold cyan]{command}[/bold cyan]")
+    console.print(
+        f"\n[bold yellow]! Requesting command execution:[/bold yellow] [bold cyan]{command}[/bold cyan]"
+    )
     return typer.confirm("Do you want to run this command?", default=False)
 
 

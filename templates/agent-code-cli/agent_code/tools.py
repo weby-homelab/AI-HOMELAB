@@ -60,6 +60,7 @@ def echo(args: dict[str, Any], ctx: ToolContext) -> str:
 
 def system_date(args: dict[str, Any], ctx: ToolContext) -> str:
     import datetime
+
     return datetime.datetime.now().isoformat()
 
 
@@ -84,7 +85,7 @@ def list_files(args: dict[str, Any], ctx: ToolContext) -> str:
         base = resolve_in_cwd(ctx.cwd, path_str)
         if not base.is_dir():
             return f"error: not a directory: {path_str}"
-        
+
         lines = []
         for p in base.iterdir():
             rel = p.relative_to(ctx.cwd)
@@ -151,7 +152,7 @@ def _grep_ripgrep(
         args.extend(["--glob", glob_arg])
     args.append(pattern)
     args.append(str(base))
-    
+
     try:
         proc = subprocess.run(args, capture_output=True, text=True, timeout=30)
     except Exception as e:
@@ -159,11 +160,11 @@ def _grep_ripgrep(
 
     if proc.returncode not in (0, 1):
         return f"error: rg: {proc.stderr.strip() or proc.returncode}"
-    
+
     # relativize paths in output
     cwd_prefix = f"{ctx.cwd}/"
     lines = [
-        line[len(cwd_prefix):] if line.startswith(cwd_prefix) else line
+        line[len(cwd_prefix) :] if line.startswith(cwd_prefix) else line
         for line in proc.stdout.splitlines()
     ]
     return truncate_output("\n".join(lines).strip() or "(no matches)")
@@ -223,8 +224,11 @@ def project_tree(args: dict[str, Any], ctx: ToolContext) -> str:
             return
         try:
             children = sorted(
-                (c for c in directory.iterdir()
-                 if not should_skip(c.relative_to(ctx.cwd), ctx.skip_policy)),
+                (
+                    c
+                    for c in directory.iterdir()
+                    if not should_skip(c.relative_to(ctx.cwd), ctx.skip_policy)
+                ),
                 key=lambda p: (not p.is_dir(), p.name),
             )
         except OSError:
@@ -252,12 +256,22 @@ def _html_to_markdown(html: str) -> str:
         converter.ignore_links = False
         converter.ignore_images = True
         return converter.handle(html)
-    
+
     # Very simple regex-based fallback if html2text isn't installed
-    text = re.sub(r'<style[^>]*>.*?</style>', '', html, flags=re.DOTALL)
-    text = re.sub(r'<script[^>]*>.*?</script>', '', text, flags=re.DOTALL)
-    text = re.sub(r'<[^>]+>', ' ', text)
-    text = re.sub(r'\s+', ' ', text).strip()
+    text = re.sub(
+        r"<style[^>]*>.*?</style[^>]*>",
+        "",
+        html,
+        flags=re.DOTALL | re.IGNORECASE,
+    )
+    text = re.sub(
+        r"<script[^>]*>.*?</script[^>]*>",
+        "",
+        text,
+        flags=re.DOTALL | re.IGNORECASE,
+    )
+    text = re.sub(r"<[^>]+>", " ", text)
+    text = re.sub(r"\s+", " ", text).strip()
     return text
 
 
@@ -265,20 +279,22 @@ def web_fetch(args: dict[str, Any], ctx: ToolContext) -> str:
     url = args.get("url", "")
     if not url:
         return "error: missing required argument 'url'"
-    
+
     try:
-        headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AI-HomeLabAgent/1.0"}
+        headers = {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AI-HomeLabAgent/1.0"
+        }
         req = urllib.request.Request(url, headers=headers)
         with urllib.request.urlopen(req, timeout=15) as res:
             charset = res.headers.get_content_charset() or "utf-8"
             html_content = res.read().decode(charset, errors="replace")
             content_type = res.headers.get_content_type() or ""
-            
+
         if "html" in content_type:
             markdown = _html_to_markdown(html_content)
         else:
             markdown = html_content
-            
+
         return truncate_output(markdown)
     except Exception as e:
         return f"error: {e}"
@@ -289,7 +305,7 @@ def web_search(args: dict[str, Any], ctx: ToolContext) -> str:
     if not query:
         return "error: missing required argument 'query'"
     max_results = max(1, min(int(args.get("max_results", 5)), 10))
-    
+
     try:
         # Crawl DuckDuckGo HTML search page
         enc_query = urllib.parse.quote_plus(query)
@@ -297,7 +313,7 @@ def web_search(args: dict[str, Any], ctx: ToolContext) -> str:
         req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
         with urllib.request.urlopen(req, timeout=15) as res:
             html = res.read().decode("utf-8", errors="replace")
-            
+
         pattern = re.compile(
             r'<a[^>]+class="[^"]*result__a[^"]*"[^>]+href="([^"]+)"[^>]*>(.*?)</a>',
             re.DOTALL,
@@ -305,16 +321,18 @@ def web_search(args: dict[str, Any], ctx: ToolContext) -> str:
         results = []
         for href, title_html in pattern.findall(html):
             title = re.sub(r"<[^>]+>", "", title_html).strip()
-            
+
             # Extract target URL from DuckDuckGo wrapper
-            parsed_href = urllib.parse.urlparse(href if href.startswith("http") else f"https:{href}")
+            parsed_href = urllib.parse.urlparse(
+                href if href.startswith("http") else f"https:{href}"
+            )
             params = urllib.parse.parse_qs(parsed_href.query)
             target_url = params["uddg"][0] if "uddg" in params else href
-            
+
             results.append(f"- {title}\n  {target_url}")
             if len(results) >= max_results:
                 break
-        
+
         return truncate_output("\n".join(results) or "(no results)")
     except Exception as e:
         return f"error: {e}"
@@ -329,14 +347,14 @@ def file_write(args: dict[str, Any], ctx: ToolContext) -> str:
         path = resolve_in_cwd(ctx.cwd, path_str)
     except ValueError as exc:
         return f"error: {exc}"
-        
+
     if path.exists():
         try:
             old = path.read_text(encoding="utf-8")
             backup(ctx.cwd, path, old)
         except Exception:
             pass
-            
+
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(content, encoding="utf-8")
     ctx.read_state.record(path, content)
@@ -348,7 +366,7 @@ def file_edit(args: dict[str, Any], ctx: ToolContext) -> str:
     old_string = args.get("old_string", "")
     new_string = args.get("new_string", "")
     replace_all = bool(args.get("replace_all", False))
-    
+
     if not path_str:
         return "error: missing required argument 'file_path'"
     try:
@@ -360,9 +378,11 @@ def file_edit(args: dict[str, Any], ctx: ToolContext) -> str:
         content = path.read_text(encoding="utf-8")
     except Exception as exc:
         return f"error: {exc}"
-        
+
     backup(ctx.cwd, path, content)
-    new_content, err = apply_single_replace(content, old_string, new_string, replace_all)
+    new_content, err = apply_single_replace(
+        content, old_string, new_string, replace_all
+    )
     if err:
         return err
 
@@ -410,7 +430,9 @@ def bash(args: dict[str, Any], ctx: ToolContext) -> str:
 
 
 def _ask_user_question(args: dict[str, Any], ctx: ToolContext) -> str:
-    return "error: ask_user_question must be handled by the harness, not executed directly"
+    return (
+        "error: ask_user_question must be handled by the harness, not executed directly"
+    )
 
 
 class ToolRegistry:
@@ -438,50 +460,215 @@ class ToolRegistry:
 
 def default_tools() -> ToolRegistry:
     reg = ToolRegistry()
-    
+
     # 1. system date
-    reg.register(Tool("system_date", "Get the current system date and time.", {}, system_date))
-    
+    reg.register(
+        Tool("system_date", "Get the current system date and time.", {}, system_date)
+    )
+
     # 2. echo
-    reg.register(Tool("echo", "Echo back input text.", {"type": "object", "properties": {"text": {"type": "string"}}, "required": ["text"]}, echo))
-    
+    reg.register(
+        Tool(
+            "echo",
+            "Echo back input text.",
+            {
+                "type": "object",
+                "properties": {"text": {"type": "string"}},
+                "required": ["text"],
+            },
+            echo,
+        )
+    )
+
     # 3. read file
-    reg.register(Tool("read_file", "Read complete contents of a text file inside the workspace.", {"type": "object", "properties": {"path": {"type": "string", "description": "Relative path to file"}}, "required": ["path"]}, read_file))
-    
+    reg.register(
+        Tool(
+            "read_file",
+            "Read complete contents of a text file inside the workspace.",
+            {
+                "type": "object",
+                "properties": {
+                    "path": {"type": "string", "description": "Relative path to file"}
+                },
+                "required": ["path"],
+            },
+            read_file,
+        )
+    )
+
     # 4. list files
-    reg.register(Tool("list_files", "List files in a directory.", {"type": "object", "properties": {"path": {"type": "string", "default": "."}}, "required": []}, list_files))
-    
+    reg.register(
+        Tool(
+            "list_files",
+            "List files in a directory.",
+            {
+                "type": "object",
+                "properties": {"path": {"type": "string", "default": "."}},
+                "required": [],
+            },
+            list_files,
+        )
+    )
+
     # 5. glob
-    reg.register(Tool("glob", "Find files matching a glob pattern.", {"type": "object", "properties": {"pattern": {"type": "string", "description": "Glob pattern (e.g. *.py)"}}, "required": ["pattern"]}, glob))
-    
+    reg.register(
+        Tool(
+            "glob",
+            "Find files matching a glob pattern.",
+            {
+                "type": "object",
+                "properties": {
+                    "pattern": {
+                        "type": "string",
+                        "description": "Glob pattern (e.g. *.py)",
+                    }
+                },
+                "required": ["pattern"],
+            },
+            glob,
+        )
+    )
+
     # 6. grep
-    reg.register(Tool("grep", "Search text patterns using regex.", {"type": "object", "properties": {"pattern": {"type": "string"}, "path": {"type": "string", "default": "."}, "ignore_case": {"type": "boolean", "default": False}, "glob": {"type": "string"}}, "required": ["pattern"]}, grep))
-    
+    reg.register(
+        Tool(
+            "grep",
+            "Search text patterns using regex.",
+            {
+                "type": "object",
+                "properties": {
+                    "pattern": {"type": "string"},
+                    "path": {"type": "string", "default": "."},
+                    "ignore_case": {"type": "boolean", "default": False},
+                    "glob": {"type": "string"},
+                },
+                "required": ["pattern"],
+            },
+            grep,
+        )
+    )
+
     # 7. project tree
-    reg.register(Tool("project_tree", "View directory hierarchy tree.", {"type": "object", "properties": {"max_depth": {"type": "integer", "default": 3}}, "required": []}, project_tree))
-    
+    reg.register(
+        Tool(
+            "project_tree",
+            "View directory hierarchy tree.",
+            {
+                "type": "object",
+                "properties": {"max_depth": {"type": "integer", "default": 3}},
+                "required": [],
+            },
+            project_tree,
+        )
+    )
+
     # 8. web fetch
-    reg.register(Tool("web_fetch", "Fetch content of a web page and convert HTML to markdown.", {"type": "object", "properties": {"url": {"type": "string"}}, "required": ["url"]}, web_fetch))
-    
+    reg.register(
+        Tool(
+            "web_fetch",
+            "Fetch content of a web page and convert HTML to markdown.",
+            {
+                "type": "object",
+                "properties": {"url": {"type": "string"}},
+                "required": ["url"],
+            },
+            web_fetch,
+        )
+    )
+
     # 9. web search
-    reg.register(Tool("web_search", "Search the web via DuckDuckGo.", {"type": "object", "properties": {"query": {"type": "string"}, "max_results": {"type": "integer", "default": 5}}, "required": ["query"]}, web_search))
-    
+    reg.register(
+        Tool(
+            "web_search",
+            "Search the web via DuckDuckGo.",
+            {
+                "type": "object",
+                "properties": {
+                    "query": {"type": "string"},
+                    "max_results": {"type": "integer", "default": 5},
+                },
+                "required": ["query"],
+            },
+            web_search,
+        )
+    )
+
     # 10. file write
-    reg.register(Tool("file_write", "Write new content to a file. Overwrites existing.", {"type": "object", "properties": {"file_path": {"type": "string"}, "content": {"type": "string"}}, "required": ["file_path", "content"]}, file_write))
-    
+    reg.register(
+        Tool(
+            "file_write",
+            "Write new content to a file. Overwrites existing.",
+            {
+                "type": "object",
+                "properties": {
+                    "file_path": {"type": "string"},
+                    "content": {"type": "string"},
+                },
+                "required": ["file_path", "content"],
+            },
+            file_write,
+        )
+    )
+
     # 11. file edit
-    reg.register(Tool("file_edit", "Atomically edit file by replacing an old string with a new string.", {"type": "object", "properties": {"file_path": {"type": "string"}, "old_string": {"type": "string"}, "new_string": {"type": "string"}, "replace_all": {"type": "boolean", "default": False}}, "required": ["file_path", "old_string", "new_string"]}, file_edit))
-    
+    reg.register(
+        Tool(
+            "file_edit",
+            "Atomically edit file by replacing an old string with a new string.",
+            {
+                "type": "object",
+                "properties": {
+                    "file_path": {"type": "string"},
+                    "old_string": {"type": "string"},
+                    "new_string": {"type": "string"},
+                    "replace_all": {"type": "boolean", "default": False},
+                },
+                "required": ["file_path", "old_string", "new_string"],
+            },
+            file_edit,
+        )
+    )
+
     # 12. bash
-    reg.register(Tool("bash", "Run a bash shell command in the workspace.", {"type": "object", "properties": {"command": {"type": "string"}, "timeout": {"type": "integer", "default": 30}}, "required": ["command"]}, bash))
-    
+    reg.register(
+        Tool(
+            "bash",
+            "Run a bash shell command in the workspace.",
+            {
+                "type": "object",
+                "properties": {
+                    "command": {"type": "string"},
+                    "timeout": {"type": "integer", "default": 30},
+                },
+                "required": ["command"],
+            },
+            bash,
+        )
+    )
+
     # 13. git status
-    reg.register(Tool("git_status", "Run git status in the workspace.", {}, _git_status))
-    
+    reg.register(
+        Tool("git_status", "Run git status in the workspace.", {}, _git_status)
+    )
+
     # 14. git diff
     reg.register(Tool("git_diff", "Run git diff in the workspace.", {}, _git_diff))
-    
+
     # 15. ask user question
-    reg.register(Tool("ask_user_question", "Ask the user an interactive question.", {"type": "object", "properties": {"prompt": {"type": "string"}, "options": {"type": "array", "items": {"type": "string"}}}, "required": ["prompt", "options"]}, _ask_user_question))
+    reg.register(
+        Tool(
+            "ask_user_question",
+            "Ask the user an interactive question.",
+            {
+                "type": "object",
+                "properties": {
+                    "prompt": {"type": "string"},
+                    "options": {"type": "array", "items": {"type": "string"}},
+                },
+                "required": ["prompt", "options"],
+            },
+            _ask_user_question,
+        )
+    )
 
     return reg
