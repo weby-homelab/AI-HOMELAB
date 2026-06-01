@@ -210,6 +210,7 @@ docker run -d \
 │<br>
 ├── 📁 [**`configs/`**](./configs/) — *Готові Docker-compose конфігурації*<br>
 │&nbsp;&nbsp;&nbsp;├── ✅ [**`ollama/`**](./configs/ollama/) — *Ollama + Open WebUI в один клік*<br>
+│&nbsp;&nbsp;&nbsp;├── 🔌 [**`production-agent-stack/`**](./configs/production-agent-stack/) — *Комплексний стек (Ollama, LiteLLM, Qdrant, n8n, Open WebUI)*<br>
 │&nbsp;&nbsp;&nbsp;├── ⏳ **`vllm/`** — `(coming soon)` *vLLM для production-grade інференсу*<br>
 │&nbsp;&nbsp;&nbsp;└── ⏳ **`dify/`** — `(coming soon)` *Dify AI — no-code агентна платформа*<br>
 │<br>
@@ -230,11 +231,14 @@ docker run -d \
 │&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;└── 🚀 [**`free-ai-tools-lifehacks.md`**](./docs/research/free-ai-tools-lifehacks.md) — *Безкоштовні ШІ-інструменти та лайфхаки*<br>
 │&nbsp;&nbsp;&nbsp;├── 📁 [**`setup/`**](./docs/setup/) — *Крок-за-кроком для кожної ОС*<br>
 │&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├── ⏱️ [**`first-model-15-min.md`**](./docs/setup/first-model-15-min.md) — *Швидкий запуск першої моделі*<br>
-│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;└── 🔋 [**`blackout-guide.md`**](./docs/setup/blackout-guide.md) — *Гайд з енергоефективності під час блекаутів*<br>
+│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├── 🔋 [**`blackout-guide.md`**](./docs/setup/blackout-guide.md) — *Гайд з енергоефективності під час блекаутів*<br>
+│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├── 🏗️ [**`reference-architectures.md`**](./docs/setup/reference-architectures.md) — *Еталонні архітектури (Tier 1/2/3)*<br>
+│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;└── 📊 [**`ai-ops.md`**](./docs/setup/ai-ops.md) — *Метрики, моніторинг та обсервабільність (AI Ops)*<br>
 │&nbsp;&nbsp;&nbsp;├── 📁 [**`security/`**](./docs/security/) — *Політики, аудити та ізоляція моделей*<br>
 │&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├── 🛡️ [**`model_isolation.md`**](./docs/security/model_isolation.md) — *Ізоляція виконання та TEE*<br>
 │&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├── 🛡️ [**`advanced_hardening.md`**](./docs/security/advanced_hardening.md) — *Глибока ізоляція (VLAN, nftables, Gitleaks)*<br>
-│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;└── 🛡️ [**`model-vetting.md`**](./docs/security/model-vetting.md) — *Критерії перевірки моделей*<br>
+│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├── 🛡️ [**`model-vetting.md`**](./docs/security/model-vetting.md) — *Критерії перевірки моделей*<br>
+│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;└── 🛡️ [**`threat-modeling.md`**](./docs/security/threat-modeling.md) — *Моделювання загроз автономних агентів*<br>
 │&nbsp;&nbsp;&nbsp;├── 📄 [**`templates.md`**](./docs/templates.md) — *Посібник із використання кодових шаблонів*<br>
 │&nbsp;&nbsp;&nbsp;└── ⏳ **`quantization/`** — `(coming soon)` *Гайд по квантизації (Q4/Q8/GGUF)*<br>
 │<br>
@@ -256,6 +260,8 @@ docker run -d \
 | :--- | :--- | :--- | :--- |
 | ⏱️ [**15-Min Setup**](./docs/setup/first-model-15-min.md) | Швидкий покроковий запуск Ollama, завантаження першої моделі та чат через Docker-контейнер Open WebUI. | [`first-model-15-min.md`](./docs/setup/first-model-15-min.md) | ✅ Готово |
 | 🐳 [**Ollama + Open WebUI**](./configs/ollama/) | Конфігурація Docker Compose для спільного запуску сервісів (CPU/GPU профілі, безпечна прив'язка портів). | [`docker-compose.yml`](./configs/ollama/docker-compose.yml) | ✅ Готово |
+| 🏗️ [**Reference Architectures**](./docs/setup/reference-architectures.md) | Еталонні апаратні конфігурації (Tier 1/2/3) для розгортання домашніх AI-лабораторій від $300 до $3000+. | [`reference-architectures.md`](./docs/setup/reference-architectures.md) | ✅ Готово |
+| 🔌 [**Production Agent Stack**](./configs/production-agent-stack/) | Конфігурація повного інфраструктурного стеку (Ollama, LiteLLM, Qdrant, n8n, Open WebUI) для мультиагентних систем. | [`docker-compose.yml`](./configs/production-agent-stack/docker-compose.yml) | ✅ Готово |
 | 🚀 [**Free AI Tools & Hacks**](./docs/research/free-ai-tools-lifehacks.md) | Перелік безкоштовних інструментів розробки та 7 лайфхаків для покращення якості відповідей. | [`free-ai-tools-lifehacks.md`](./docs/research/free-ai-tools-lifehacks.md) | ✅ Готово |
 
 ### 🧠 2. Розробка, Шаблони та Агенти
@@ -269,8 +275,9 @@ docker run -d \
 ### ⚡ 3. Апаратне Забезпечення та Енергоефективність
 | Модуль та Посилання | Опис | Головні Файли | Статус |
 | :--- | :--- | :--- | :--- |
-| 🔋 [**Blackout Guide**](./docs/setup/blackout-guide.md) | Налаштування лаби для роботи під час відключень світла (Nvidia Power Limit, обмеження потоків CPU, робота від EcoFlow). | [`blackout-guide.md`](./docs/setup/blackout-guide.md) | ✅ Готово |
+| 🔋 [**Blackout Guide**](./docs/setup/blackout-guide.md) | Налаштування лаби для роботи під час відключень світла (Nvidia Power Limit, обмеження потоків CPU, робота від EcoFlow, Starlink 12V PoE, Tailscale, Offline RAG). | [`blackout-guide.md`](./docs/setup/blackout-guide.md) | ✅ Готово |
 | ⚡ [**Hardware Benchmarks**](./benchmarks/hardware_efficiency.md) | Детальний аналіз GPU vs Apple Silicon (tokens/second/Watt), аналіз холодного старту та VRAM contention. | [`hardware_efficiency.md`](./benchmarks/hardware_efficiency.md) | ✅ Готово |
+| 📊 [**AI Ops & Observability**](./docs/setup/ai-ops.md) | Моніторинг апаратного забезпечення (GPU Power Draw), метрик інференсу (Ollama/vLLM /metrics) та трейсинг агентів через Langfuse. | [`ai-ops.md`](./docs/setup/ai-ops.md) | ✅ Готово |
 
 ### 🛡️ 4. Безпека, Харденінг та Ізоляція Моделей
 | Модуль та Посилання | Опис | Головні Файли | Статус |
@@ -278,6 +285,7 @@ docker run -d \
 | 🛡️ [**Advanced Hardening**](./docs/security/advanced_hardening.md) | VLAN-ізоляція IoT-сегменту, nftables фаєрвол для хоста Proxmox, безпека Docker daemon та Gitleaks pre-commit лінтер. | [`advanced_hardening.md`](./docs/security/advanced_hardening.md) | ✅ Готово |
 | 🛡️ [**Model Isolation**](./docs/security/model_isolation.md) | Ізоляція виконання моделей: пісочниці gVisor, Firecracker, WASM, довірені середовища виконання (TEE) та Zero-Trust. | [`model_isolation.md`](./docs/security/model_isolation.md) | ✅ Готово |
 | 🛡️ [**Model Vetting**](./docs/security/model-vetting.md) | Критерії перевірки моделей (модельна гігієна, приватність інференсу, безпечні формати GGUF/Safetensors та ліцензування). | [`model-vetting.md`](./docs/security/model-vetting.md) | ✅ Готово |
+| 🛡️ [**Threat Modeling**](./docs/security/threat-modeling.md) | Моделювання загроз для автономних агентів (Prompt Injection, Tool Poisoning, Agent Escape, Secrets Leakage). | [`threat-modeling.md`](./docs/security/threat-modeling.md) | ✅ Готово |
 | 🔐 [**Security Policy**](./SECURITY.md) | Загальні політики безпеки проєкту, модельна гігієна, ізоляція чутливих даних та управління секретами. | [`SECURITY.md`](./SECURITY.md) | ✅ Готово |
 
 ### 🔬 5. Стратегія, Дорожня Карта та Спільнота
