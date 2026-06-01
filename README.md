@@ -159,20 +159,16 @@ docker run -d \
 
 ```
 ai/
-├── 📁 hardware/          # Гайди з підбору заліза
-│   ├── gpu-benchmarks/   # Тести продуктивності (t/s) GPU у реаліях 2026
-│   ├── mac-benchmarks/   # Apple Silicon: M1 vs M2 vs M3 vs M4
-│   └── power-guide/      # Енергоефективність та блекаут-резилієнтність
+├── 📁 benchmarks/         # Бенчмарки заліза та енергоефективність
+│   └── hardware_efficiency.md  # ⚡ GPU vs Apple Silicon (t/s/W)
 │
 ├── 📁 configs/            # Готові Docker-compose конфігурації
-│   ├── ollama/            # Ollama + Open WebUI в один клік
+│   ├── ollama/            # ✅ Ollama + Open WebUI в один клік
 │   ├── vllm/              # vLLM для production-grade інференсу
 │   └── dify/              # Dify AI — no-code агентна платформа
 │
 ├── 📁 templates/          # Шаблони та приклади коду
-│   ├── langgraph/         # LangGraph: виробничі графові системи
-│   ├── crewai/            # CrewAI: швидкі мультиагентні команди
-│   └── pydantic-ai/       # PydanticAI: безпечна валідація даних
+│   └── langgraph_rag_agent.py  # 🧠 Corrective RAG Agent (LangGraph + Qdrant)
 │
 ├── 📁 projects/           # Ідеї та реалізації пет-проєктів
 │   ├── local-osint/       # Локальні OSINT-помічники
@@ -186,6 +182,7 @@ ai/
 │   └── quantization/      # Гайд по квантизації (Q4/Q8/GGUF)
 │
 ├── 📁 security/           # Політики безпеки та аудити
+│   ├── advanced_hardening.md  # 🛡️ Глибока ізоляція (VLAN, nftables, Gitleaks)
 │   └── model-vetting.md   # Критерії перевірки моделей
 │
 ├── 📄 README.md           # Цей файл
@@ -197,14 +194,30 @@ ai/
 
 ---
 
+## 📚 МОДУЛІ ТА НАВІГАЦІЯ
+
+| Модуль | Опис | Статус |
+|---|---|---|
+| 🧠 [**CRAG Agent**](./templates/langgraph_rag_agent.py) | Corrective RAG агент на LangGraph + Qdrant. Циклічний граф: пошук → оцінка → переформулювання → генерація | ✅ Готово |
+| 🛡️ [**Advanced Hardening**](./security/advanced_hardening.md) | VLAN-ізоляція від IoT, nftables фаєрвол, Docker безпека, Gitleaks + pre-commit | ✅ Готово |
+| ⚡ [**Hardware Benchmarks**](./benchmarks/hardware_efficiency.md) | GPU vs Apple Silicon (t/s/W), Cold Start аналіз, VRAM contention, рекомендації по тієрах | ✅ Готово |
+| 🐳 [**Ollama + Open WebUI**](./configs/ollama/) | Docker Compose: CPU/GPU профілі, безпечна конфігурація, `.env.example` | ✅ Готово |
+| 🔬 [**AI Landscape 2026**](./docs/research/ai-landscape-may-2026.md) | Дослідження: моделі, API, фреймворки, RAG, MCP, залізо, бюджети | ✅ Готово |
+| 🔐 [**Security Policy**](./SECURITY.md) | Модельна гігієна, ізоляція даних, облікові дані | ✅ Готово |
+| 🤝 [**Contributing**](./CONTRIBUTING.md) | Гайд для контриб'юторів: Issues → Branch → PR → Merge | ✅ Готово |
+
+---
+
 ## 🗺️ ДОРОЖНЯ КАРТА (ROADMAP)
 
 ### 🏁 Фаза 1 — Фундамент (Q3 2026)
 - [x] Меморандум та філософія проєкту
-- [ ] Docker-compose для Ollama + Open WebUI
-- [ ] Бенчмарки RTX 3060/4060/5060 з квантизованими моделями
+- [x] Docker-compose для Ollama + Open WebUI
+- [x] Бенчмарки RTX 3060/4060/5060 з квантизованими моделями
 - [ ] Гайд: "Перша модель за 15 хвилин"
-- [ ] Шаблон RAG-пайплайну на LangGraph
+- [x] Шаблон RAG-пайплайну на LangGraph (CRAG Agent)
+- [x] Глибока ізоляція домашньої лаби (Advanced Hardening)
+- [x] Бенчмарки енергоефективності (t/s/W)
 
 ### 🚀 Фаза 2 — Практика (Q4 2026)
 - [ ] Мультиагентний шаблон на CrewAI для бізнес-автоматизації
