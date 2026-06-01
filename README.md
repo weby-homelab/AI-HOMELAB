@@ -232,7 +232,7 @@ docker run -d \
 │&nbsp;&nbsp;&nbsp;├── 📁 [**`security/`**](./docs/security/) — *Політики, аудити та ізоляція моделей*<br>
 │&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├── 🛡️ [**`model_isolation.md`**](./docs/security/model_isolation.md) — *Ізоляція виконання та TEE*<br>
 │&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├── 🛡️ [**`advanced_hardening.md`**](./docs/security/advanced_hardening.md) — *Глибока ізоляція (VLAN, nftables, Gitleaks)*<br>
-│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;└── ⏳ **`model-vetting.md`** — `(coming soon)` *Критерії перевірки моделей*<br>
+│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;└── 🛡️ [**`model-vetting.md`**](./docs/security/model-vetting.md) — *Критерії перевірки моделей*<br>
 │&nbsp;&nbsp;&nbsp;└── ⏳ **`quantization/`** — `(coming soon)` *Гайд по квантизації (Q4/Q8/GGUF)*<br>
 │<br>
 ├── 📄 [**`README.md`**](./README.md) — *Цей файл (UA)*<br>
@@ -273,6 +273,7 @@ docker run -d \
 | :--- | :--- | :--- | :--- |
 | 🛡️ [**Advanced Hardening**](./docs/security/advanced_hardening.md) | VLAN-ізоляція IoT-сегменту, nftables фаєрвол для хоста Proxmox, безпека Docker daemon та Gitleaks pre-commit лінтер. | [`advanced_hardening.md`](./docs/security/advanced_hardening.md) | ✅ Готово |
 | 🛡️ [**Model Isolation**](./docs/security/model_isolation.md) | Ізоляція виконання моделей: пісочниці gVisor, Firecracker, WASM, довірені середовища виконання (TEE) та Zero-Trust. | [`model_isolation.md`](./docs/security/model_isolation.md) | ✅ Готово |
+| 🛡️ [**Model Vetting**](./docs/security/model-vetting.md) | Критерії перевірки моделей (модельна гігієна, приватність інференсу, безпечні формати GGUF/Safetensors та ліцензування). | [`model-vetting.md`](./docs/security/model-vetting.md) | ✅ Готово |
 | 🔐 [**Security Policy**](./SECURITY.md) | Загальні політики безпеки проєкту, модельна гігієна, ізоляція чутливих даних та управління секретами. | [`SECURITY.md`](./SECURITY.md) | ✅ Готово |
 
 ### 🔬 5. Стратегія, Дорожня Карта та Спільнота
