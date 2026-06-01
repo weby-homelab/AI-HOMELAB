@@ -215,7 +215,8 @@ Open `http://localhost:3000` — your local ChatGPT is ready! 🎉
 │&nbsp;&nbsp;&nbsp;├── 📁 [**`setup/`**](./docs/setup/) — *Step-by-step guides for each OS*<br>
 │&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├── ⏱️ [**`first-model-15-min.md`**](./docs/setup/first-model-15-min.md) — *Quick start of the first model*<br>
 │&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;└── 🔋 [**`blackout-guide.md`**](./docs/setup/blackout-guide.md) — *Outage energy efficiency guide*<br>
-│&nbsp;&nbsp;&nbsp;├── ⏳ **`security/`** — `(coming soon)` *Best practices for model isolation*<br>
+│&nbsp;&nbsp;&nbsp;├── 📁 [**`security/`**](./docs/security/) — *Best practices for model isolation*<br>
+│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;└── 🛡️ [**`model_isolation.md`**](./docs/security/model_isolation.md) — *Runtime isolation & TEE*<br>
 │&nbsp;&nbsp;&nbsp;└── ⏳ **`quantization/`** — `(coming soon)` *Quantization guide (Q4/Q8/GGUF)*<br>
 │<br>
 ├── 📁 [**`security/`**](./security/) — *Security policies and audits*<br>
@@ -240,6 +241,7 @@ Open `http://localhost:3000` — your local ChatGPT is ready! 🎉
 | 🧠 [**CRAG Agent**](./templates/langgraph_rag_agent.py) | Corrective RAG agent on LangGraph + Qdrant. Cyclic graph: retrieve → evaluate → rewrite → generate | ✅ Done |
 | 🤖 [**Agent CLI**](./templates/agent-code-cli/) | Claude Code style console AI agent in a Harness shell (secure CWD, bash execution permissions, diff-preview of patches) | ✅ Done |
 | 🛡️ [**Advanced Hardening**](./security/advanced_hardening.md) | VLAN isolation from IoT, nftables firewall, Docker security, Gitleaks + pre-commit | ✅ Done |
+| 🛡️ [**Model Isolation**](./docs/security/model_isolation.md) | Model isolation and sandboxing guide (gVisor, Firecracker, WASM, TEE, Zero-Trust network) | ✅ Done |
 | ⚡ [**Hardware Benchmarks**](./benchmarks/hardware_efficiency.md) | GPU vs Apple Silicon (t/s/W), Cold Start analysis, VRAM contention, tier recommendations | ✅ Done |
 | 🐳 [**Ollama + Open WebUI**](./configs/ollama/) | Docker Compose: CPU/GPU profiles, secure configuration, `.env.example` | ✅ Done |
 | 🔬 [**AI Landscape 2026**](./docs/research/ai-landscape-june-2026.md) | Research: models, APIs, frameworks, RAG, MCP, hardware, budgets, as well as autonomous local agent analysis (memory, stealth browsers, voice/video assistants) | ✅ Done |
