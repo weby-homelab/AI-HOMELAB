@@ -168,7 +168,8 @@ ai/
 │   └── dify/                    # (coming soon) Dify AI — no-code агентна платформа
 │
 ├── 📁 [templates/](./templates/)                # Шаблони та приклади коду
-│   └── [langgraph_rag_agent.py](./templates/langgraph_rag_agent.py) # 🧠 Corrective RAG Agent (LangGraph + Qdrant)
+│   ├── [langgraph_rag_agent.py](./templates/langgraph_rag_agent.py) # 🧠 Corrective RAG Agent (LangGraph + Qdrant)
+│   └── [agent-code-cli/](./templates/agent-code-cli/)       # 🤖 Claude Code Style Agent CLI (Ollama + Claude)
 │
 ├── 📁 projects/                 # (coming soon) Ідеї та реалізації пет-проєктів
 │   ├── local-osint/             # (coming soon) Локальні OSINT-помічники
@@ -204,6 +205,7 @@ ai/
 | ⏱️ [**15-Min Setup**](./docs/setup/first-model-15-min.md) | Швидкий покроковий гайд: встановлення Ollama, запуск Open WebUI через Docker, вибір та чат з першою моделлю | ✅ Готово |
 | 🔋 [**Blackout Guide**](./docs/setup/blackout-guide.md) | Практичний гайд з мінімізації споживання енергії (Nvidia Power Limit, обмеження потоків CPU, вибір заліза) під час відключень світла | ✅ Готово |
 | 🧠 [**CRAG Agent**](./templates/langgraph_rag_agent.py) | Corrective RAG агент на LangGraph + Qdrant. Циклічний граф: пошук → оцінка → переформулювання → генерація | ✅ Готово |
+| 🤖 [**Agent CLI**](./templates/agent-code-cli/) | Claude Code style консольний ШІ-агент у Harness оболонці (безпечний CWD, права на запуск bash, diff-попередній перегляд латок) | ✅ Готово |
 | 🛡️ [**Advanced Hardening**](./security/advanced_hardening.md) | VLAN-ізоляція від IoT, nftables фаєрвол, Docker безпека, Gitleaks + pre-commit | ✅ Готово |
 | ⚡ [**Hardware Benchmarks**](./benchmarks/hardware_efficiency.md) | GPU vs Apple Silicon (t/s/W), Cold Start аналіз, VRAM contention, рекомендації по тієрах | ✅ Готово |
 | 🐳 [**Ollama + Open WebUI**](./configs/ollama/) | Docker Compose: CPU/GPU профілі, безпечна конфігурація, `.env.example` | ✅ Готово |
@@ -224,6 +226,7 @@ ai/
 - [x] Шаблон RAG-пайплайну на LangGraph (CRAG Agent)
 - [x] Глибока ізоляція домашньої лаби (Advanced Hardening)
 - [x] Бенчмарки енергоефективності (t/s/W)
+- [x] Консольний ШІ-агент для кодування (Claude Code style CLI)
 
 ### 🚀 Фаза 2 — Практика (Q4 2026)
 - [ ] Мультиагентний шаблон на CrewAI для бізнес-автоматизації

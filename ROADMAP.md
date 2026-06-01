@@ -13,6 +13,7 @@
 - [x] Шаблон RAG-пайплайну на LangGraph (CRAG Agent)
 - [x] Глибока ізоляція домашньої лаби (Advanced Hardening)
 - [x] Бенчмарки енергоефективності (t/s/W)
+- [x] Консольний ШІ-агент для кодування (Claude Code style CLI)
 
 ---
 
