@@ -135,7 +135,7 @@ docker run -d \
 Відкрийте `http://localhost:3000` — ваш локальний ChatGPT готовий! 🎉
 
 > [!NOTE]
-> Детальні інструкції для кожної платформи (Windows/macOS/Linux) дивіться у [`/docs/setup` (coming soon)](./docs/setup/).
+> Детальні інструкції для кожної платформи (Windows/macOS/Linux) дивіться у розділі [docs/setup/](./docs/setup/).
 
 ---
 
@@ -159,39 +159,40 @@ docker run -d \
 
 ```
 ai/
-├── 📁 benchmarks/         # Бенчмарки заліза та енергоефективність
-│   └── hardware_efficiency.md  # ⚡ GPU vs Apple Silicon (t/s/W)
+├── 📁 [benchmarks/](./benchmarks/)               # Бенчмарки заліза та енергоефективність
+│   └── [hardware_efficiency.md](./benchmarks/hardware_efficiency.md) # ⚡ GPU vs Apple Silicon (t/s/W)
 │
-├── 📁 configs/            # Готові Docker-compose конфігурації
-│   ├── ollama/            # ✅ Ollama + Open WebUI в один клік
-│   ├── vllm/              # (coming soon) vLLM для production-grade інференсу
-│   └── dify/              # (coming soon) Dify AI — no-code агентна платформа
+├── 📁 [configs/](./configs/)                  # Готові Docker-compose конфігурації
+│   ├── [ollama/](./configs/ollama/)               # ✅ Ollama + Open WebUI в один клік
+│   ├── vllm/                    # (coming soon) vLLM для production-grade інференсу
+│   └── dify/                    # (coming soon) Dify AI — no-code агентна платформа
 │
-├── 📁 templates/          # Шаблони та приклади коду
-│   └── langgraph_rag_agent.py  # 🧠 Corrective RAG Agent (LangGraph + Qdrant)
+├── 📁 [templates/](./templates/)                # Шаблони та приклади коду
+│   └── [langgraph_rag_agent.py](./templates/langgraph_rag_agent.py) # 🧠 Corrective RAG Agent (LangGraph + Qdrant)
 │
-├── 📁 projects/           # (coming soon) Ідеї та реалізації пет-проєктів
-│   ├── local-osint/       # (coming soon) Локальні OSINT-помічники
-│   ├── biz-automation/    # (coming soon) Автоматизатори бізнес-рутини
-│   └── rag-pipeline/      # (coming soon) RAG-пайплайн по власним документам
+├── 📁 projects/                 # (coming soon) Ідеї та реалізації пет-проєктів
+│   ├── local-osint/             # (coming soon) Локальні OSINT-помічники
+│   ├── biz-automation/          # (coming soon) Автоматизатори бізнес-рутини
+│   └── rag-pipeline/            # (coming soon) RAG-пайплайн по власним документам
 │
-├── 📁 docs/               # Документація та гайди
-│   ├── research/          # 🔬 Дослідження AI-ландшафту
-│   ├── setup/             # Крок-за-кроком для кожної ОС
-│   │   ├── first-model-15-min.md  # ⏱️ Швидкий запуск першої моделі
-│   │   └── blackout-guide.md      # 🔋 Гайд з енергоефективності під час блекаутів
-│   ├── security/          # (coming soon) Best practices з ізоляції моделей
-│   └── quantization/      # (coming soon) Гайд по квантизації (Q4/Q8/GGUF)
+├── 📁 [docs/](./docs/)                     # Документація та гайди
+│   ├── [research/](./docs/research/)            # 🔬 Дослідження AI-ландшафту
+│   │   └── [ai-landscape-may-2026.md](./docs/research/ai-landscape-may-2026.md) # 🔬 Звіт по ШІ-моделях та стеку
+│   ├── [setup/](./docs/setup/)               # Крок-за-кроком для кожної ОС
+│   │   ├── [first-model-15-min.md](./docs/setup/first-model-15-min.md) # ⏱️ Швидкий запуск першої моделі
+│   │   └── [blackout-guide.md](./docs/setup/blackout-guide.md)     # 🔋 Гайд з енергоефективності під час блекаутів
+│   ├── security/                # (coming soon) Best practices з ізоляції моделей
+│   └── quantization/            # (coming soon) Гайд по квантизації (Q4/Q8/GGUF)
 │
-├── 📁 security/           # Політики безпеки та аудити
-│   ├── advanced_hardening.md  # 🛡️ Глибока ізоляція (VLAN, nftables, Gitleaks)
-│   └── model-vetting.md   # (coming soon) Критерії перевірки моделей
+├── 📁 [security/](./security/)                 # Політики безпеки та аудити
+│   ├── [advanced_hardening.md](./security/advanced_hardening.md) # 🛡️ Глибока ізоляція (VLAN, nftables, Gitleaks)
+│   └── model-vetting.md         # (coming soon) Критерії перевірки моделей
 │
-├── 📄 README.md           # Цей файл
-├── 📄 CONTRIBUTING.md     # Гайд для контриб'юторів
-├── 📄 SECURITY.md         # Політика безпеки
-├── 📄 LICENSE             # MIT License
-└── 📄 ROADMAP.md          # Дорожня карта проєкту
+├── 📄 [README.md](./README.md)                 # Цей файл
+├── 📄 [CONTRIBUTING.md](./CONTRIBUTING.md)           # Гайд для контриб'юторів
+├── 📄 [SECURITY.md](./SECURITY.md)               # Політика безпеки
+├── 📄 [LICENSE](./LICENSE)                   # MIT License
+└── 📄 [ROADMAP.md](./ROADMAP.md)                 # Дорожня карта проєкту
 ```
 
 ---
