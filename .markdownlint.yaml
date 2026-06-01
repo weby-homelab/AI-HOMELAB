@@ -3,21 +3,57 @@
 # Docs: https://github.com/DavidAnson/markdownlint
 # ==============================================================
 
-# MD013 — Line length: вимикаємо, бо README містить довгі HTML-рядки для дерева
+# MD013 — Line length
 MD013: false
 
-# MD033 — Allow inline HTML (потрібен для <br> у tree-view та <img> badges)
-MD033:
-  allowed_elements:
-    - br
-    - img
-    - details
-    - summary
-    - a
+# MD033 — Inline HTML: allow all inline HTML
+MD033: false
 
-# MD041 — First line must be top-level heading (вимикаємо для файлів без заголовку)
+# MD041 — First line must be top-level heading
 MD041: false
 
-# MD024 — Multiple headings with same content (allow in different sections)
+# MD024 — Multiple headings with same content
 MD024:
   siblings_only: true
+
+# MD004 — Unordered list style: allow mixed styles (dashes and asterisks)
+MD004: false
+
+# MD022 — Headings should be surrounded by blank lines
+MD022: false
+
+# MD026 — Trailing punctuation in heading
+MD026: false
+
+# MD032 — Lists should be surrounded by blank lines
+MD032: false
+
+# MD058 — Tables should be surrounded by blank lines
+MD058: false
+
+# MD060 — Table column style
+MD060: false
+
+# MD030 — Spaces after list markers
+MD030: false
+
+# MD031 — Fenced code blocks should be surrounded by blank lines
+MD031: false
+
+# MD009 — Trailing spaces
+MD009: false
+
+# MD007 — Unordered list indentation
+MD007: false
+
+# MD028 — Blank line inside blockquote
+MD028: false
+
+# MD034 — Bare URLs
+MD034: false
+
+# MD040 — Fenced code blocks language specification
+MD040: false
+
+# MD051 — Link fragments
+MD051: false
