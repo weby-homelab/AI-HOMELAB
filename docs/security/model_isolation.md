@@ -143,5 +143,5 @@ Zero-Trust Networking (Egress filtering via vsock / proxies)
 ---
 
 > **Пов'язані матеріали:**
-> * [VLAN, nftables & Docker Hardening](../../security/advanced_hardening.md) — Практичне налаштування фаєрвола на хості
+> * [VLAN, nftables & Docker Hardening](./advanced_hardening.md) — Практичне налаштування фаєрвола на хості
 > * [SECURITY.md](../../SECURITY.md) — Глобальна політика безпеки репозиторію

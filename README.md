@@ -215,21 +215,19 @@ docker run -d \
 │&nbsp;&nbsp;&nbsp;├── 📁 [**`setup/`**](./docs/setup/) — *Крок-за-кроком для кожної ОС*<br>
 │&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├── ⏱️ [**`first-model-15-min.md`**](./docs/setup/first-model-15-min.md) — *Швидкий запуск першої моделі*<br>
 │&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;└── 🔋 [**`blackout-guide.md`**](./docs/setup/blackout-guide.md) — *Гайд з енергоефективності під час блекаутів*<br>
-│&nbsp;&nbsp;&nbsp;├── 📁 [**`security/`**](./docs/security/) — *Best practices з ізоляції моделей*<br>
-│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;└── 🛡️ [**`model_isolation.md`**](./docs/security/model_isolation.md) — *Ізоляція виконання та TEE*<br>
+│&nbsp;&nbsp;&nbsp;├── 📁 [**`security/`**](./docs/security/) — *Політики, аудити та ізоляція моделей*<br>
+│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├── 🛡️ [**`model_isolation.md`**](./docs/security/model_isolation.md) — *Ізоляція виконання та TEE*<br>
+│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├── 🛡️ [**`advanced_hardening.md`**](./docs/security/advanced_hardening.md) — *Глибока ізоляція (VLAN, nftables, Gitleaks)*<br>
+│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;└── ⏳ **`model-vetting.md`** — `(coming soon)` *Критерії перевірки моделей*<br>
 │&nbsp;&nbsp;&nbsp;└── ⏳ **`quantization/`** — `(coming soon)` *Гайд по квантизації (Q4/Q8/GGUF)*<br>
-│<br>
-├── 📁 [**`security/`**](./security/) — *Політики безпеки та аудити*<br>
-│&nbsp;&nbsp;&nbsp;├── 🛡️ [**`advanced_hardening.md`**](./security/advanced_hardening.md) — *Глибока ізоляція (VLAN, nftables, Gitleaks)*<br>
-│&nbsp;&nbsp;&nbsp;└── ⏳ **`model-vetting.md`** — `(coming soon)` *Критерії перевірки моделей*<br>
 │<br>
 ├── 📄 [**`README.md`**](./README.md) — *Цей файл (UA)*<br>
 ├── 📄 [**`README_ENG.md`**](./README_ENG.md) — *English version*<br>
 ├── 📄 [**`CONTRIBUTING.md`**](./CONTRIBUTING.md) — *Гайд для контриб'юторів*<br>
-├── 📄 [**`SECURITY.md`**](./SECURITY.md) — *Політика безпеки*<br>
+├── 📄 [**`SECURITY.md`**](./SECURITY.md) — *Політики безпеки*<br>
 ├── 📄 [**`LICENSE`**](./LICENSE) — *MIT ліцензія*<br>
-└── 📄 [**`ROADMAP.md`**](./ROADMAP.md) — *Дорожня карта проєкту*
-
+└── 📄 [**`ROADMAP.md`**](./ROADMAP.md) — *Дорожня карта проєкту*<br>
+<br>
 ---
 
 ## 📚 МОДУЛІ ТА НАВІГАЦІЯ
@@ -240,7 +238,7 @@ docker run -d \
 | 🔋 [**Blackout Guide**](./docs/setup/blackout-guide.md) | Практичний гайд з мінімізації споживання енергії (Nvidia Power Limit, обмеження потоків CPU, вибір заліза) під час відключень світла | ✅ Готово |
 | 🧠 [**CRAG Agent**](./templates/langgraph_rag_agent.py) | Corrective RAG агент на LangGraph + Qdrant. Циклічний граф: пошук → оцінка → переформулювання → генерація | ✅ Готово |
 | 🤖 [**Agent CLI**](./templates/agent-code-cli/) | Claude Code style консольний ШІ-агент у Harness оболонці (безпечний CWD, права на запуск bash, diff-попередній перегляд латок) | ✅ Готово |
-| 🛡️ [**Advanced Hardening**](./security/advanced_hardening.md) | VLAN-ізоляція від IoT, nftables фаєрвол, Docker безпека, Gitleaks + pre-commit | ✅ Готово |
+| 🛡️ [**Advanced Hardening**](./docs/security/advanced_hardening.md) | VLAN-ізоляція від IoT, nftables фаєрвол, Docker безпека, Gitleaks + pre-commit | ✅ Готово |
 | 🛡️ [**Model Isolation**](./docs/security/model_isolation.md) | Гайд по ізоляції моделей та пісочницях (gVisor, Firecracker, WASM, TEE, Zero-Trust network) | ✅ Готово |
 | ⚡ [**Hardware Benchmarks**](./benchmarks/hardware_efficiency.md) | GPU vs Apple Silicon (t/s/W), Cold Start аналіз, VRAM contention, рекомендації по тієрах | ✅ Готово |
 | 🐳 [**Ollama + Open WebUI**](./configs/ollama/) | Docker Compose: CPU/GPU профілі, безпечна конфігурація, `.env.example` | ✅ Готово |
