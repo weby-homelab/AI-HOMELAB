@@ -364,8 +364,8 @@ We take security seriously. Before using any model in your lab:
 | Platform | Link | Purpose |
 |---|---|---|
 | **Telegram** | *Coming soon* | Discussion of hardware, architecture, GPU trade |
-| **GitHub Discussions** | [Discussions](https://github.com/weby-homelab/ai/discussions) | Questions, ideas, RFCs |
-| **Issues** | [Issues](https://github.com/weby-homelab/ai/issues) | Bug reports and feature requests |
+| **GitHub Discussions** | [Discussions](https://github.com/weby-homelab/AI-HOMELAB/discussions) | Questions, ideas, RFCs |
+| **Issues** | [Issues](https://github.com/weby-homelab/AI-HOMELAB/issues) | Bug reports and feature requests |
 
 ### 🤲 How to Contribute
 

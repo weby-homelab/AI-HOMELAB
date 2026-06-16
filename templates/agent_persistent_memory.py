@@ -19,7 +19,7 @@
 Запуск:
     python templates/agent_persistent_memory.py
 
-Автор: AI-HomeLab (https://github.com/weby-homelab/ai)
+Автор: AI-HomeLab (https://github.com/weby-homelab/AI-HOMELAB)
 Ліцензія: MIT
 """
 

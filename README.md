@@ -367,8 +367,8 @@ docker run -d \
 | Платформа | Посилання | Призначення |
 | :--- | :--- | :--- |
 | **Telegram** | *Скоро* | Обговорення заліза, архітектури, купівля/продаж GPU |
-| **GitHub Discussions** | [Discussions](https://github.com/weby-homelab/ai/discussions) | Питання, ідеї, RFC |
-| **Issues** | [Issues](https://github.com/weby-homelab/ai/issues) | Баг-репорти та feature requests |
+| **GitHub Discussions** | [Discussions](https://github.com/weby-homelab/AI-HOMELAB/discussions) | Питання, ідеї, RFC |
+| **Issues** | [Issues](https://github.com/weby-homelab/AI-HOMELAB/issues) | Баг-репорти та feature requests |
 
 ### 🤲 Як контриб'ютити
 

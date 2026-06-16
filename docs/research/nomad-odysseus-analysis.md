@@ -1,7 +1,7 @@
 # 🔬 Порівняльний аналіз Project N.O.M.A.D. та Odysseus: Нові орієнтири для AI-HomeLab
 > **Червень 2026**
 
-Цей звіт містить глибокий аналіз двох провідних open-source проєктів локального ШІ станом на червень 2026 року — **Project N.O.M.A.D.** від Crosstalk Solutions та **Odysseus** від pewdiepie-archdaemon. На основі аналізу визначено ключові архітектурні та функціональні рішення, які доцільно інтегрувати або актуалізувати в репозиторії [weby-homelab/ai](file:///root/geminicli/projects/ai/README.md).
+Цей звіт містить глибокий аналіз двох провідних open-source проєктів локального ШІ станом на червень 2026 року — **Project N.O.M.A.D.** від Crosstalk Solutions та **Odysseus** від pewdiepie-archdaemon. На основі аналізу визначено ключові архітектурні та функціональні рішення, які доцільно інтегрувати або актуалізувати в репозиторії [weby-homelab/AI-HOMELAB](file:///root/geminicli/projects/ai/README.md).
 
 ---
 
@@ -54,7 +54,7 @@
 
 ## 🚀 Що найкращого додати та актуалізувати в AI-HomeLab?
 
-Для посилення репозиторію [weby-homelab/ai](file:///root/geminicli/projects/ai/README.md) пропонуються 5 конкретних напрямків розвитку, натхненних аналізованими проєктами.
+Для посилення репозиторію [weby-homelab/AI-HOMELAB](file:///root/geminicli/projects/ai/README.md) пропонуються 5 конкретних напрямків розвитку, натхненних аналізованими проєктами.
 
 ### 1. Інтеграція Offline Knowledge (з N.O.M.A.D.) у RAG-пайплайн
 **Ідея:** Додати Docker-compose конфігурацію для локального Kiwix-сервера знань та створити шаблон агента, який вміє здійснювати пошук по локальних базах Wikipedia та медичних довідниках через Kiwix API.

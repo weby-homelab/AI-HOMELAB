@@ -9,7 +9,7 @@
 # Запуск з GPU (Nvidia):
 #   docker compose --profile gpu up -d
 #
-# Документація: https://github.com/weby-homelab/ai
+# Документація: https://github.com/weby-homelab/AI-HOMELAB
 # ============================================================================
 
 services:
