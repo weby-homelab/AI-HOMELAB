@@ -148,38 +148,82 @@ flowchart TD
 
 ## ⚡ ШВИДКИЙ СТАРТ (Quick Start)
 
-Розгорніть свою першу локальну ШІ-лабораторію за **3 кроки**:
+Станом на **червень 2026 року (06.2026)**, ви можете розгорнути локальну ШІ-лабораторію за двома основними сценаріями:
 
-### Крок 1: Встановити Ollama
+### Опція А: Стандартний стек (Ollama + Open WebUI) — Рекомендовано для початківців
 
-```bash
-curl -fsSL https://ollama.com/install.sh | sh
-```
+Найпростіший шлях для ноутбуків та домашніх серверів.
 
-### Крок 2: Завантажити модель
+1. **Встановіть Ollama:**
+   ```bash
+   curl -fsSL https://ollama.com/install.sh | sh
+   ```
+2. **Завантажте сучасну модель сімейства Gemma 4 (випущено у 04.2026 / 06.2026):**
+   ```bash
+   # Надшвидка мультимодальна edge-модель для слабких ПК (до 8GB RAM):
+   ollama pull gemma4:e4b
+   
+   # Нова флагманська 12B модель (червень 2026) з нативним аудіо без енкодерів (потрібно 16GB RAM):
+   ollama pull gemma4:12b
+   
+   # Золотий стандарт для коду та RAG (потрібно 16GB RAM / GPU 8GB+ VRAM):
+   ollama pull llama3.1:8b
+   ```
+3. **Запустіть Open WebUI в один клік через Docker:**
+   ```bash
+   docker run -d \
+     --name open-webui \
+     -p 3000:8080 \
+     --add-host=host.docker.internal:host-gateway \
+     -v open-webui:/app/backend/data \
+     -e OLLAMA_BASE_URL=http://host.docker.internal:11434 \
+     --restart always \
+     ghcr.io/open-webui/open-webui:main
+   ```
+   Відкрийте `http://localhost:3000` — ваш локальний ChatGPT готовий! 🎉
 
-```bash
-# Легка модель для початку (~4GB, працює на 8GB RAM)
-ollama pull gemma3:4b
+---
 
-# Або потужніша (потрібно 16GB RAM або GPU з 8GB+ VRAM)
-ollama pull llama3.1:8b
-```
+### Опція Б: Професійний стек розробника (llama-server + OpenCode) — Конфігурація WS
 
-### Крок 3: Запустити веб-інтерфейс
+Цей стек розгорнуто на нашій виділеній робочій станції **WS (pve03, IP: 100.68.179.109)** для максимальної швидкості (MTP, Flash Attention, embedding).
 
-```bash
-docker run -d \
-  --name open-webui \
-  -p 3000:8080 \
-  --add-host=host.docker.internal:host-gateway \
-  -v open-webui:/app/backend/data \
-  -e OLLAMA_BASE_URL=http://host.docker.internal:11434 \
-  --restart always \
-  ghcr.io/open-webui/open-webui:main
-```
-
-Відкрийте `http://localhost:3000` — ваш локальний ChatGPT готовий! 🎉
+1. **Запуск обчислювального ядра (Llama.cpp Server):**
+   Створіть systemd-сервіс `/etc/systemd/system/llama-server.service` для автоматичного запуску (налаштовано під Xeon E5-2666 v3 + 10.7 GB VRAM на RTX 2080 Ti):
+   ```bash
+   # start_llama.sh
+   /root/llama.cpp/build/bin/llama-server \
+       -m /root/llama-models/gemma-4-26B-A4B-it-UD-Q4_K_M.gguf \
+       -ngl 17 -t 10 -c 65536 -fa on -np 1 -b 512 -ub 512 \
+       --host 0.0.0.0 --port 8080 --embedding
+   ```
+2. **Конфігурація клієнта OpenCode (`~/.config/opencode/opencode.jsonc`):**
+   Прив'яжіть клієнт до локального сервера з підтримкою автоматичного спадання (fallback) на хмару:
+   ```json
+   {
+     "model": "local-infrastructure/gemma-4-26b-it",
+     "provider": {
+       "local-infrastructure": {
+         "npm": "@ai-sdk/openai-compatible",
+         "name": "Local Infrastructure (WS)",
+         "options": {
+           "baseURL": "http://127.0.0.1:8080/v1",
+           "apiKey": "sk-llama-cpp-local-token"
+         },
+         "models": {
+           "gemma-4-26b-it": {
+             "name": "Gemma-4 26B Local (MoE)",
+             "limit": { "context": 65536, "output": 4096 }
+           }
+         }
+       }
+     }
+   }
+   ```
+3. **Запустіть клієнт:**
+   ```bash
+   opencode --model local-infrastructure/gemma-4-26b-it
+   ```
 
 > [!NOTE]
 > Детальні інструкції для кожної платформи (Windows/macOS/Linux) дивіться у розділі [docs/setup/](./docs/setup/).

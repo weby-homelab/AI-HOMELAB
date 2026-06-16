@@ -148,38 +148,82 @@ flowchart TD
 
 ## ⚡ QUICK START
 
-Deploy your first local AI lab in **3 steps**:
+As of **June 2026 (06.2026)**, you can deploy a local AI laboratory using two primary scenarios:
 
-### Step 1: Install Ollama
+### Option A: Standard Stack (Ollama + Open WebUI) — Recommended for Beginners
 
-```bash
-curl -fsSL https://ollama.com/install.sh | sh
-```
+The easiest path for laptops and home servers.
 
-### Step 2: Download a model
+1. **Install Ollama:**
+   ```bash
+   curl -fsSL https://ollama.com/install.sh | sh
+   ```
+2. **Download a modern model from the Gemma 4 family (released in 04.2026 / 06.2026):**
+   ```bash
+   # Ultra-fast multimodal edge model for low-spec PCs (up to 8GB RAM):
+   ollama pull gemma4:e4b
+   
+   # New flagship 12B model (June 2026) with native audio and no encoders (requires 16GB RAM):
+   ollama pull gemma4:12b
+   
+   # Gold standard for coding and RAG (requires 16GB RAM / GPU with 8GB+ VRAM):
+   ollama pull llama3.1:8b
+   ```
+3. **Run Open WebUI in one click via Docker:**
+   ```bash
+   docker run -d \
+     --name open-webui \
+     -p 3000:8080 \
+     --add-host=host.docker.internal:host-gateway \
+     -v open-webui:/app/backend/data \
+     -e OLLAMA_BASE_URL=http://host.docker.internal:11434 \
+     --restart always \
+     ghcr.io/open-webui/open-webui:main
+   ```
+   Open `http://localhost:3000` — your local ChatGPT is ready! 🎉
 
-```bash
-# Lightweight model to start with (~4GB, runs on 8GB RAM)
-ollama pull gemma3:4b
+---
 
-# Or a more powerful one (requires 16GB RAM or GPU with 8GB+ VRAM)
-ollama pull llama3.1:8b
-```
+### Option B: Professional Developer Stack (llama-server + OpenCode) — WS Configuration
 
-### Step 3: Run the web interface
+This stack is deployed on our dedicated **WS workstation (pve03, IP: 100.68.179.109)** for maximum speed (MTP, Flash Attention, embedding).
 
-```bash
-docker run -d \
-  --name open-webui \
-  -p 3000:8080 \
-  --add-host=host.docker.internal:host-gateway \
-  -v open-webui:/app/backend/data \
-  -e OLLAMA_BASE_URL=http://host.docker.internal:11434 \
-  --restart always \
-  ghcr.io/open-webui/open-webui:main
-```
-
-Open `http://localhost:3000` — your local ChatGPT is ready! 🎉
+1. **Start the compute core (Llama.cpp Server):**
+   Create a systemd service `/etc/systemd/system/llama-server.service` for automatic startup (configured for Xeon E5-2666 v3 + 10.7 GB VRAM on RTX 2080 Ti):
+   ```bash
+   # start_llama.sh
+   /root/llama.cpp/build/bin/llama-server \
+       -m /root/llama-models/gemma-4-26B-A4B-it-UD-Q4_K_M.gguf \
+       -ngl 17 -t 10 -c 65536 -fa on -np 1 -b 512 -ub 512 \
+       --host 0.0.0.0 --port 8080 --embedding
+   ```
+2. **Configure OpenCode client (`~/.config/opencode/opencode.jsonc`):**
+   Bind the client to the local server with support for automatic fallback to the cloud:
+   ```json
+   {
+     "model": "local-infrastructure/gemma-4-26b-it",
+     "provider": {
+       "local-infrastructure": {
+         "npm": "@ai-sdk/openai-compatible",
+         "name": "Local Infrastructure (WS)",
+         "options": {
+           "baseURL": "http://127.0.0.1:8080/v1",
+           "apiKey": "sk-llama-cpp-local-token"
+         },
+         "models": {
+           "gemma-4-26b-it": {
+             "name": "Gemma-4 26B Local (MoE)",
+             "limit": { "context": 65536, "output": 4096 }
+           }
+         }
+       }
+     }
+   }
+   ```
+3. **Start the client:**
+   ```bash
+   opencode --model local-infrastructure/gemma-4-26b-it
+   ```
 
 > [!NOTE]
 > Detailed instructions for each platform (Windows/macOS/Linux) can be found in the [docs/setup/](./docs/setup/) section.
