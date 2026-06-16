@@ -351,9 +351,10 @@ For convenience, all learning and practical materials in the repository are divi
 ## 🗺️ ROADMAP
 
 > [!NOTE]
-> As of **June 2026 (06.2026)**, Phase 1 (Foundation) has been fully completed ahead of schedule! The project is actively working on Phase 2 tasks.
+> As of **June 16, 2026 (16.06.2026)**, Phase 1 (Foundation) has been fully completed ahead of schedule! The project is actively working on Phase 2. Hardware benchmarks have been successfully conducted on the WS workstation using the Gemma 4 26B (MoE) model.
 
 ### 🏁 Phase 1 — Foundation (Q3 2026) — 🎉 Completed ahead of schedule!
+
 - [x] Memorandum and project philosophy
 - [x] Docker Compose for Ollama + Open WebUI
 - [x] Benchmarks of RTX 3060/4060/5060 with quantized models
@@ -364,27 +365,31 @@ For convenience, all learning and practical materials in the repository are divi
 - [x] Console AI coding agent (Claude Code style CLI)
 
 ### 🚀 Phase 2 — Practice (Q4 2026) — ⏳ In Progress
-- [ ] LangGraph / PydanticAI multi-agent template for business automation
+
+- [ ] **LangGraph / PydanticAI multi-agent template** for business automation (Stateful workflows with human-in-the-loop and durable checkpointing in PostgreSQL/SQLite)
 - [x] Blackout guide: configuring the lab to run on EcoFlow, Starlink 12V PoE, Tailscale, Offline RAG
-- [ ] Local OSINT assistant (pet project using local maps and offline RAG knowledge)
-- [ ] Stealth automation and web workflow template (based on CloakBrowser experience)
+- [ ] **Local Deep Research agent on LangGraph / PydanticAI** with SearXNG/DuckDuckGo integration and automated generative report synthesis
+- [ ] **Guide and compose configs for local MCP servers** (Filesystem, SQLite, Git, Fetch) and their native usage in Cursor/Windsurf/Claude Code
+- [ ] **Universal local AI assistant (based on OpenClaw / LangGraph)** with direct secure tool access (Bash, Browser, Filesystem) and gVisor/Docker isolation
+- [ ] **Hybrid Routing**: Smart load balancing between local SLMs (Gemma 4 12B/26B) for cheap/private steps and cloud APIs (Claude 4.x Sonnet, GPT-5) for complex logical reasoning, leveraging Prompt Caching
+- [ ] **Observability & Tracing**: Templates for integrating local stacks with OpenTelemetry and tracing services (Pydantic Logfire, Langfuse)
+- [ ] **Offline knowledge base and RAG**: Docker Compose stack for Kiwix + Wikipedia (.zim) with offline RAG embeddings configuration
+- [ ] **Configuration of local IDE tools (Continue.dev, Aider)** using Gemma 4 (12B/26B MoE) models and MTP (Multi-Token Prediction) drafting to speed up code generation
 - [x] Session memory integration (AgentMemory) into agent templates
-- [ ] Local Deep Research agent on LangGraph / PydanticAI (SearXNG/DuckDuckGo integration)
-- [ ] Docker Compose stack for offline knowledge base (Kiwix + Wikipedia) and RAG connector
-- [ ] Guide and compose configs for local MCP servers (Filesystem, SQLite, Fetch)
-- [ ] Production Docker Compose config for Dify (no-code orchestration & RAG platform)
-- [ ] Guide on configuring local coding tools (Continue.dev, Aider, Tabby) with SLM models (Phi-4, Gemma 3/4)
-- [ ] Webinar/livestream: "AI-HomeLab Live Setup"
+- [x] Reference hardware architectures (Tier 1/2/3) for local AI
+- [x] Comprehensive Docker Compose stack (Ollama, LiteLLM, Qdrant, n8n, Open WebUI) for multi-agent systems
+- [x] Threat modeling for autonomous AI agents (Threat Modeling)
+- [x] Hardware metrics gathering and request tracing configuration (AIOps & Observability)
 
 ### 🌟 Phase 3 — Community (Q1 2027) — 📅 Planned
-- [ ] Telegram bot for automated benchmarks
-- [ ] CI/CD pipeline for automated model vulnerability testing
-- [ ] Starter AI-HomeLab Dashboard (portal for local services integration)
-- [ ] Guide on configuring Compare Mode (split testing of models) in Open WebUI
-- [ ] Practical guide on vLLM optimization (PagedAttention, KV Cache Offloading, Multi-Token Prediction)
-- [ ] Local Speech-to-Speech voice assistant using native multimodal models (Gemma 3n, Phi-4 Multimodal)
-- [ ] Partnerships with Ukrainian AI communities
-- [ ] Monthly digest of new models and tools
+
+- [ ] **Continuous Benchmarking CI/CD**: Automated pipelines for regular speed (t/s/W) and accuracy testing of local models during driver updates or new version releases
+- [ ] **LLM-as-a-Judge**: Accuracy and compliance evaluation templates (validation pipelines) for local RAG systems without sending data to the cloud
+- [ ] **Native voice assistant (Direct Speech-to-Speech)**: Integration and execution of the Gemma 4 12B (encoder-free native audio) model on local hardware without additional ASR (Whisper) / TTS layers
+- [ ] **AI-HomeLab Portal**: Web dashboard for monitoring local server status, VRAM, active inferences, and agent logs
+- [ ] **Practical guide on vLLM & llama.cpp**: PagedAttention tuning, KV-cache offloading, and Speculative Decoding (MTP drafters) configuration
+- [ ] Partnerships with Ukrainian AI communities and publishing articles (DOU.ua, dev.to)
+- [ ] Monthly digest of new local models and developer tools
 
 ---
 
