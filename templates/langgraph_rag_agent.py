@@ -23,7 +23,7 @@
     3. Запустіть Qdrant:   docker run -p 6333:6333 qdrant/qdrant
     4. Запустіть агента:   python langgraph_rag_agent.py
 
-Автор: AI-HomeLab (https://github.com/weby-homelab/ai)
+Автор: AI-HomeLab (https://github.com/weby-homelab/AI-HOMELAB)
 Ліцензія: MIT
 """
 

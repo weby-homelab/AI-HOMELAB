@@ -6,7 +6,7 @@
 
 1. Прочитайте [МЕМОРАНДУМ](./README.md#-меморандум-та-філософія-проєкту) — він визначає стек та принципи проєкту
 2. Ознайомтесь з [SECURITY.md](./SECURITY.md) — безпека є пріоритетом
-3. Перевірте [Issues](https://github.com/weby-homelab/ai/issues) — можливо, ваша ідея вже обговорюється
+3. Перевірте [Issues](https://github.com/weby-homelab/AI-HOMELAB/issues) — можливо, ваша ідея вже обговорюється
 
 ## 🔄 Workflow
 
@@ -56,4 +56,4 @@
 
 ---
 
-Маєте питання? Створіть [Discussion](https://github.com/weby-homelab/ai/discussions) або напишіть у Telegram-групу!
+Маєте питання? Створіть [Discussion](https://github.com/weby-homelab/AI-HOMELAB/discussions) або напишіть у Telegram-групу!
