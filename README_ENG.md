@@ -248,7 +248,7 @@ This stack is deployed on our dedicated **WS workstation (pve03, IP: 100.68.179.
 
 ## 🛠️ REPOSITORY STRUCTURE
 
-📂 [**`AI-HOMELAB/`**](https://github.com/weby-homelab/AI-HOMELAB/blob/main)<br>
+📂 [**`ai/`**](https://github.com/weby-homelab/AI-HOMELAB/blob/main)<br>
 ├── 📁 [**`benchmarks/`**](./benchmarks/) — *Hardware benchmarks and energy efficiency*<br>
 │&nbsp;&nbsp;&nbsp;└── ⚡ [**`hardware_efficiency.md`**](./benchmarks/hardware_efficiency.md) — *GPU vs Apple Silicon (t/s/W)*<br>
 │<br>
