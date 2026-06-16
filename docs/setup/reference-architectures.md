@@ -24,7 +24,7 @@
 | **Обчислювач** | CPU (NPU якщо є) | CPU + 1x Nvidia GPU | CPU + Multi-GPU (2x-4x) |
 | **Пам'ять** | 32 GB DDR5/DDR4 | 32–64 GB DDR5 + 12-16GB VRAM | 128+ GB DDR5 + 48GB+ VRAM |
 | **Шар Інференсу** | Ollama | Ollama + LiteLLM | vLLM + LiteLLM (Load Balancing) |
-| **Базові моделі** | Gemma 3 4B, LLaMA 3.2 3B | Phi-4 14B, LLaMA 3.1 8B | LLaMA 3.1 70B, Gemma 3 27B |
+| **Базові моделі** | Gemma 4 E4B, LLaMA 3.2 3B | Phi-4 14B, LLaMA 3.1 8B | LLaMA 3.1 70B, Gemma 4 26B (MoE) |
 | **Типові юзкейси** | Чат, переклад, легкий RAG | Автономні агенти, складний RAG | Код-асистенти, distributed pipelines |
 | **Енергоспоживання** | 15–35 W | 100–250 W | 400–800 W |
 | **Блекаут-стійкість** | 🔋 Відмінна (10+ год від EcoFlow) | 🟡 Середня (3-5 год від EcoFlow) | ❌ Низька (потрібні генератори/великі батареї) |

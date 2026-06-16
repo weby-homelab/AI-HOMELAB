@@ -535,7 +535,7 @@ def main() -> None:
                 "Ollama — це інструмент для локального запуску великих мовних моделей. "
                 "Встановлення: curl -fsSL https://ollama.com/install.sh | sh. "
                 "Підтримує NVIDIA GPU, AMD та Apple Silicon. "
-                "Найпопулярніші моделі: Gemma 3, LLaMA 4, Phi-4, Mistral."
+                "Найпопулярніші моделі: Gemma 4, LLaMA 4, Phi-4, Mistral."
             ),
             metadata={"source": "ai-homelab-docs", "topic": "ollama"},
         ),
@@ -543,7 +543,7 @@ def main() -> None:
             page_content=(
                 "Квантизація Q4_K_M — золотий стандарт для домашніх лабораторій. "
                 "Зменшує розмір моделі до 25% від FP16 з мінімальною втратою якості. "
-                "RTX 3060 12GB може запустити Phi-4 14B або Gemma 3 12B у Q4_K_M. "
+                "RTX 3060 12GB може запустити Phi-4 14B або Gemma 4 12B у Q4_K_M. "
                 "Для Apple Silicon використовуйте MLX backend для +20-90% швидкості."
             ),
             metadata={"source": "ai-homelab-docs", "topic": "quantization"},
