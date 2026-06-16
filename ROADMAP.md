@@ -20,33 +20,31 @@
 
 ---
 
-## 🚀 Фаза 2 — Практика (Q4 2026)
+## 🚀 Фаза 2 — Практика (Q4 2026) — ⏳ У процесі розробки
 
-- [ ] Мультиагентний шаблон на LangGraph / PydanticAI для бізнес-автоматизації
-- [x] Блекаут-гайд: налаштування лаби для роботи від EcoFlow, Starlink 12V PoE, Tailscale, Offline RAG
-- [ ] Локальний OSINT-помічник (пет-проєкт з використанням локальних карт та офлайн RAG знань)
-- [ ] Шаблон stealth-автоматизації та веб-workflow (за досвідом CloakBrowser)
+- [ ] **Мультиагентний шаблон на LangGraph / PydanticAI** для бізнес-автоматизації (Stateful workflows з human-in-the-loop та durable checkpointing у PostgreSQL/SQLite).
+- [x] Блекаут-гайд: налаштування лаби для роботи від EcoFlow, Starlink 12V PoE, Tailscale, Offline RAG.
+- [ ] **Локальний Deep Research агент на LangGraph / PydanticAI** із інтеграцією з SearXNG/DuckDuckGo та автоматичним генеративним синтезом звітів.
+- [ ] **Посібник та compose-конфіги для локальних MCP-серверів** (Filesystem, SQLite, Git, Fetch) та їх нативного використання в Cursor/Windsurf/Claude Code.
+- [ ] **Універсальний локальний AI-асистент (на базі OpenClaw / LangGraph)** з прямим безпечним доступом до інструментів (Bash, Browser, Filesystem) та ізоляцією в gVisor/Docker.
+- [ ] **Гібридна маршрутизація запитів (Hybrid Routing)**: Розумне балансування навантаження між локальними SLM (Gemma 4 12B/26B) для дешевих/приватних кроків та хмарними API (Claude 4.x Sonnet, GPT-5) для складних логічних висновків з урахуванням Prompt Caching.
+- [ ] **Observability & Tracing**: Шаблони інтеграції локального стека з OpenTelemetry та сервісами трейсингу (Pydantic Logfire, Langfuse).
+- [ ] **Офлайн-база знань та RAG**: Docker-compose стек Kiwix + Wikipedia (.zim) із конфігурацією RAG-ембедінгів без доступу до інтернету.
+- [ ] **Конфігурація локальних IDE-інструментів (Continue.dev, Aider)** з використанням моделей Gemma 4 (12B/26B MoE) та MTP-драфтингу (Multi-Token Prediction) для прискорення генерації коду.
 - [x] Інтеграція сесійної пам'яті (AgentMemory) у шаблони агента
 - [x] Еталонні архітектури обладнання (Tier 1/2/3) для локального ШІ
 - [x] Комплексний Docker-compose стек (Ollama, LiteLLM, Qdrant, n8n, Open WebUI) для мультиагентних систем
 - [x] Моделювання загроз автономних ШІ-агентів (Threat Modeling)
 - [x] Налаштування збору апаратних метрик та трейсингу запитів (AIOps & Observability)
-- [ ] Локальний Deep Research агент на LangGraph / PydanticAI (інтеграція з SearXNG/DuckDuckGo)
-- [ ] Docker-compose стек для офлайн-бази знань (Kiwix + Wikipedia) та RAG-конектор
-- [ ] Посібник та compose-конфіги для локальних MCP-серверів (Filesystem, SQLite, Fetch)
-- [ ] Виробничий Docker-compose конфіг для Dify (no-code платформа оркестрації та RAG)
-- [ ] Керівництво з налаштування локальних інструментів кодування (Continue.dev, Aider, Tabby) з SLM-моделями (Phi-4, Gemma 3/4)
-- [ ] Вебінар/стрім: "AI-HomeLab Live Setup"
 
 ---
 
-## 🌟 Фаза 3 — Спільнота (Q1 2027)
+## 🌟 Фаза 3 — Спільнота (Q1 2027) — 📅 Планується
 
-- [ ] Telegram-бот для автоматизації бенчмарків
-- [ ] CI/CD пайплайн для автоматичного тестування моделей на вразливості
-- [ ] Стартовий AI-HomeLab Dashboard (портал об'єднання локальних сервісів)
-- [ ] Інструкція з налаштування Compare Mode (спліт-тестування моделей) в Open WebUI
-- [ ] Практичне керівництво з оптимізації vLLM (PagedAttention, KV Cache Offloading, Multi-Token Prediction)
-- [ ] Створення локального голосового помічника (Speech-to-Speech) на базі нативних мультимодальних моделей (Gemma 3n, Phi-4 Multimodal)
-- [ ] Партнерства з українськими AI-спільнотами
-- [ ] Щомісячний дайджест нових моделей та інструментів
+- [ ] **Continuous Benchmarking CI/CD**: Автоматизовані конвеєри для регулярного тестування швидкості (t/s/W) та точності локальних моделей при оновленні драйверів або релізах нових версій.
+- [ ] **LLM-as-a-Judge**: Шаблони оцінки точності та відповідності (validation pipelines) для локальних RAG-систем без надсилання даних у хмару.
+- [ ] **Нативний голосовий помічник (Direct Speech-to-Speech)**: Інтеграція та запуск моделі Gemma 4 12B (encoder-free native audio) на локальному залізі без додаткових ASR (Whisper) / TTS прошарків.
+- [ ] **AI-HomeLab Portal**: Стартовий веб-дашборд для моніторингу статусу локальних серверів, VRAM, активних інференсів та логів агентів.
+- [ ] **Практичне керівництво з vLLM & llama.cpp**: Тюнінг PagedAttention, KV-cache offloading та налаштування Speculative Decoding (MTP драфтери).
+- [ ] Партнерства з українськими AI-спільнотами та публікація матеріалів (DOU.ua, dev.to).
+- [ ] Щомісячний дайджест нових локальних моделей та інструментів розробки.
