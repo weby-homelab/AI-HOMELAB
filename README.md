@@ -248,7 +248,7 @@ flowchart TD
 
 ## 🛠️ СТРУКТУРА РЕПОЗИТОРІЮ
 
-📂 [**`ai/`**](./)<br>
+📂 [**`AI-HOMELAB/`**](https://github.com/weby-homelab/AI-HOMELAB/blob/main)<br>
 ├── 📁 [**`benchmarks/`**](./benchmarks/) — *Бенчмарки заліза та енергоефективність*<br>
 │&nbsp;&nbsp;&nbsp;└── ⚡ [**`hardware_efficiency.md`**](./benchmarks/hardware_efficiency.md) — *GPU vs Apple Silicon (t/s/W)*<br>
 │<br>
