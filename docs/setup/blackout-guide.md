@@ -52,7 +52,7 @@ nvidia-smi -pl 100
 Якщо моделі запускаються на процесорі (через CPU-інференс Ollama / llama.cpp):
 
 ### Обмеження кількості потоків (Threads Limit)
-Запуск інференсу на 100% ядер процесора викликає експоненційне зростання споживання енергії (TDP процесора зростає з 15W до 65W+). 
+Запуск інференсу на 100% ядер процесора викликає експоненційне зростання споживання енергії (TDP процесора зростає з 15W до 65W+).
 Оптимальна кількість потоків для `llama.cpp` дорівнює кількості **фізичних P-ядер** (performance cores) вашого процесора, або половині логічних потоків.
 
 **Конфігурація Ollama через змінну середовища:**
@@ -102,7 +102,7 @@ sudo cpupower frequency-set -g powersave
 
 ```
                        🔋 ЕКОСИСТЕМА BLACKOUT STACK
-                       
+
                  ┌───────────────────────────────────────┐
                  │       ДБЖ (UPS) з підтримкою NUT      │
                  └──────────────────┬────────────────────┘
@@ -177,37 +177,37 @@ POWER_SOURCE=$(cat /sys/class/power_supply/AC/online 2>/dev/null || echo "1")
 
 if [ "$POWER_SOURCE" = "0" ]; then
     echo "🔋 Робота від батареї! Перехід у режим енергозбереження..."
-    
+
     # 1. Обмеження відеокарти Nvidia (якщо є)
     if command -v nvidia-smi &> /dev/null; then
         nvidia-smi -pl 80 || true # Встановити ліміт 80W для RTX 3060
     fi
-    
+
     # 2. Переведення процесора у режим powersave
     if command -v cpupower &> /dev/null; then
         cpupower frequency-set -g powersave || true
     fi
-    
+
     # 3. Зупинка важких Docker-контейнерів (напр. моніторинг, vLLM)
     # Залишаємо лише базову Ollama та Open WebUI
     docker stop agent-litellm agent-n8n agent-qdrant || true
-    
+
     # 4. Обмеження потоків Ollama
     export OLLAMA_NUM_PARALLEL=1
-    
+
 else
     echo "🔌 Робота від мережі. Відновлення максимальної продуктивності..."
-    
+
     # 1. Скидання лімітів GPU
     if command -v nvidia-smi &> /dev/null; then
         nvidia-smi -rac || true # Відновити стандартні ліміти
     fi
-    
+
     # 2. Процесор у режим performance
     if command -v cpupower &> /dev/null; then
         cpupower frequency-set -g performance || true
     fi
-    
+
     # 3. Запуск усіх сервісів
     docker start agent-litellm agent-n8n agent-qdrant || true
 fi

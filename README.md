@@ -162,10 +162,10 @@ flowchart TD
    ```bash
    # Надшвидка мультимодальна edge-модель для слабких ПК (до 8GB RAM):
    ollama pull gemma4:e4b
-   
+
    # Нова флагманська 12B модель (червень 2026) з нативним аудіо без енкодерів (потрібно 16GB RAM):
    ollama pull gemma4:12b
-   
+
    # Золотий стандарт для коду та RAG (потрібно 16GB RAM / GPU 8GB+ VRAM):
    ollama pull llama3.1:8b
    ```

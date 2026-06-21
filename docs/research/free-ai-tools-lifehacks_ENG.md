@@ -110,8 +110,8 @@ Forces the model to correct its own coding or stylistic errors before you copy t
   ```text
   [Your initial query]
   ---
-  After writing the code, act as a strict system architect and security auditor. 
-  Find 3 potential weaknesses in your solution (performance, security, error handling). 
+  After writing the code, act as a strict system architect and security auditor.
+  Find 3 potential weaknesses in your solution (performance, security, error handling).
   Write a critique, and then provide an improved version of the code.
   ```
 

@@ -162,10 +162,10 @@ The easiest path for laptops and home servers.
    ```bash
    # Ultra-fast multimodal edge model for low-spec PCs (up to 8GB RAM):
    ollama pull gemma4:e4b
-   
+
    # New flagship 12B model (June 2026) with native audio and no encoders (requires 16GB RAM):
    ollama pull gemma4:12b
-   
+
    # Gold standard for coding and RAG (requires 16GB RAM / GPU with 8GB+ VRAM):
    ollama pull llama3.1:8b
    ```
