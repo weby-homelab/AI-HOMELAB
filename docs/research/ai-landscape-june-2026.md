@@ -586,8 +586,14 @@ MCP → інтеграція з зовнішніми системами
 
 | Ресурс | Посилання |
 |---|---|
+| Awesome Local LLM | https://github.com/rafska/Awesome-local-LLM |
 | Ollama | https://ollama.com |
 | Open WebUI | https://github.com/open-webui/open-webui |
+| Lobe Chat | https://github.com/lobehub/lobe-chat |
+| Page Assist | https://github.com/n4ze3m/page-assist |
+| Exo (AI Cluster) | https://github.com/exo-explore/exo |
+| GPUStack | https://github.com/gpustack/gpustack |
+| Distributed Llama | https://github.com/b4rtaz/distributed-llama |
 | LangGraph | https://github.com/langchain-ai/langgraph |
 | CrewAI | https://github.com/crewAIInc/crewAI |
 | PydanticAI | https://github.com/pydantic/pydantic-ai |
@@ -602,6 +608,9 @@ MCP → інтеграція з зовнішніми системами
 | ViMax | https://github.com/HKUDS/ViMax |
 | MCP Spec | https://github.com/modelcontextprotocol |
 | Google AI Studio | https://aistudio.google.com |
+| Artificial Analysis | https://artificialanalysis.ai |
+| Chatbot Arena | https://arena.ai |
+| Bartowski GGUFs | https://huggingface.co/bartowski |
 
 ---
 
