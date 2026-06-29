@@ -260,7 +260,8 @@ Thanks to the contribution of our Weby Homelab community ([Pull Request #144](ht
 
 📂 [**`AI-HOMELAB/`**](https://github.com/weby-homelab/AI-HOMELAB/blob/main)<br>
 ├── 📁 [**`benchmarks/`**](./benchmarks/) — *Hardware benchmarks and energy efficiency*<br>
-│&nbsp;&nbsp;&nbsp;└── ⚡ [**`hardware_efficiency.md`**](./benchmarks/hardware_efficiency.md) — *GPU vs Apple Silicon (t/s/W)*<br>
+│&nbsp;&nbsp;&nbsp;├── ⚡ [**`hardware_efficiency.md`**](./benchmarks/hardware_efficiency.md) — *GPU vs Apple Silicon (t/s/W)*<br>
+│&nbsp;&nbsp;&nbsp;└── 🚀 [**`large_moe_optimization.md`**](./benchmarks/large_moe_optimization.md) — *Large MoE models optimization on WS (RTX 2080 Ti)*<br>
 │<br>
 ├── 📁 [**`configs/`**](./configs/) — *Ready-made Docker Compose configurations*<br>
 │&nbsp;&nbsp;&nbsp;├── ✅ [**`ollama/`**](./configs/ollama/) — *One-click Ollama + Open WebUI*<br>
@@ -337,6 +338,7 @@ For convenience, all learning and practical materials in the repository are divi
 | :--- | :--- | :--- | :--- |
 | 🔋 [**Blackout Guide**](./docs/setup/blackout-guide.md) | Configuring the lab to operate during power outages (Nvidia Power Limit, CPU thread limits, running from EcoFlow, Starlink 12V PoE, Tailscale, Offline RAG). | [`blackout-guide.md`](./docs/setup/blackout-guide.md) | ✅ Done |
 | ⚡ [**Hardware Benchmarks**](./benchmarks/hardware_efficiency.md) | Comprehensive analysis of GPU vs Apple Silicon (tokens/second/Watt), cold start analysis, and VRAM contention. | [`hardware_efficiency.md`](./benchmarks/hardware_efficiency.md) | ✅ Done |
+| 🚀 [**MoE Optimization**](./benchmarks/large_moe_optimization.md) | Optimization and comparative benchmarking of large MoE models (Gemma 4 26B, Qwen 3.6 35B, Ornith 1.0 35B) on WS. | [`large_moe_optimization.md`](./benchmarks/large_moe_optimization.md) | ✅ Done |
 | 📊 [**AIOps & Observability**](./docs/setup/ai-ops.md) | Monitoring hardware (GPU Power Draw), inference metrics (Ollama/vLLM /metrics), and agent tracing via Langfuse. | [`ai-ops.md`](./docs/setup/ai-ops.md) | ✅ Done |
 | 📦 [**Quantization Guide**](./docs/setup/quantization.md) | Guide to model quantization: format selection (Q4/Q8/GGUF), VRAM budgeting, quantizing with `llama.cpp`, and Ollama integration. | [`quantization.md`](./docs/setup/quantization.md) | ✅ Done |
 
