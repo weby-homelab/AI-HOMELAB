@@ -10,7 +10,7 @@
 * **Оперативна пам'ять:** 128 GB DDR4 RAM
 * **Відеокарта:** NVIDIA GeForce RTX 2080 Ti 11GB VRAM (Blower)
 * **Накопичувач:** NVMe M.2 SSD
-* **Операційна система:** Proxmox VE 9.0 (Debian 13 Trixie)
+* **Операційна система:** Ubuntu 26.04 LTS (Resolute Raccoon, Linux kernel 7.0)
 * **Інференс-сервер:** `llama-server` (llama.cpp) з підтримкою CUDA 13.3
 
 ---
