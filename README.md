@@ -225,6 +225,16 @@ flowchart TD
    opencode --model local-infrastructure/gemma-4-26b-it
    ```
 
+#### 📊 Моніторинг сесій
+Для зручного моніторингу активних сесій OpenCode у реальному часі рекомендується використовувати термінальну утиліту [abtop](https://github.com/graykode/abtop) (аналог `htop` для ШІ-агентів).
+
+Завдяки внеску нашої спільноти Weby Homelab ([Pull Request #144](https://github.com/graykode/abtop/pull/144)), в `abtop` було додано повноцінну інтеграцію з OpenCode:
+* Відображення заповнення контекстного вікна (`context_percent` та `context_window`) на основі вхідних та вихідних токенів.
+* Моніторинг активних сесій та лімітів.
+
+> [!IMPORTANT]
+> На Linux переконайтеся, що у вашій системі встановлено `sqlite3` (необхідний для зчитування бази даних сесій OpenCode).
+
 > [!NOTE]
 > Детальні інструкції для кожної платформи (Windows/macOS/Linux) дивіться у розділі [docs/setup/](./docs/setup/).
 
