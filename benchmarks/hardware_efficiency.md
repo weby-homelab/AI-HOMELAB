@@ -103,6 +103,12 @@ llama-bench \
 | **RTX 3060 12GB** | ⚠️ OOM | — | — | — | — | Потребує гібридного інференсу |
 | **RTX 4060 Ti 16GB** | ~15 GB | ~160 | ~14 | 165 | 0.08 | Повний оффлоад у VRAM |
 
+### Ornith 1.0 35B (Q6_K) — Агентне кодування (MoE, MTP)
+
+| GPU / Setup | VRAM Used | pp (t/s) | tg (t/s) | TDP (W) | t/s/W | Примітка |
+|---|---|---|---|---|---|---|
+| **RTX 2080 Ti (11GB)** + CPU | ~10.4 GB | ~37.2 | ~25.2 | 71W | 0.36 | Гібридний інференс (14/64 layers on GPU, E5-2666 v3, 10 threads, grafted MTP Speculative Decoding) |
+
 ---
 
 ## 🍎 Apple Silicon Benchmarks
