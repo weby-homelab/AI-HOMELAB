@@ -260,7 +260,8 @@ flowchart TD
 
 📂 [**`AI-HOMELAB/`**](https://github.com/weby-homelab/AI-HOMELAB/blob/main)<br>
 ├── 📁 [**`benchmarks/`**](./benchmarks/) — *Бенчмарки заліза та енергоефективність*<br>
-│&nbsp;&nbsp;&nbsp;└── ⚡ [**`hardware_efficiency.md`**](./benchmarks/hardware_efficiency.md) — *GPU vs Apple Silicon (t/s/W)*<br>
+│&nbsp;&nbsp;&nbsp;├── ⚡ [**`hardware_efficiency.md`**](./benchmarks/hardware_efficiency.md) — *GPU vs Apple Silicon (t/s/W)*<br>
+│&nbsp;&nbsp;&nbsp;└── 🚀 [**`large_moe_optimization.md`**](./benchmarks/large_moe_optimization.md) — *Оптимізація MoE моделей на WS (RTX 2080 Ti)*<br>
 │<br>
 ├── 📁 [**`configs/`**](./configs/) — *Готові Docker-compose конфігурації*<br>
 │&nbsp;&nbsp;&nbsp;├── ✅ [**`ollama/`**](./configs/ollama/) — *Ollama + Open WebUI в один клік*<br>
@@ -338,6 +339,7 @@ flowchart TD
 | :--- | :--- | :--- | :--- |
 | 🔋 [**Blackout Guide**](./docs/setup/blackout-guide.md) | Налаштування лаби для роботи під час відключень світла (Nvidia Power Limit, обмеження потоків CPU, робота від EcoFlow, Starlink 12V PoE, Tailscale, Offline RAG). | [`blackout-guide.md`](./docs/setup/blackout-guide.md) | ✅ Готово |
 | ⚡ [**Hardware Benchmarks**](./benchmarks/hardware_efficiency.md) | Детальний аналіз GPU vs Apple Silicon (tokens/second/Watt), аналіз холодного старту та VRAM contention. | [`hardware_efficiency.md`](./benchmarks/hardware_efficiency.md) | ✅ Готово |
+| 🚀 [**MoE Optimization**](./benchmarks/large_moe_optimization.md) | Оптимізація та порівняльний бенчмарк великих MoE моделей (Gemma 4 26B, Qwen 3.6 35B, Ornith 1.0 35B) на робочій станції WS. | [`large_moe_optimization.md`](./benchmarks/large_moe_optimization.md) | ✅ Готово |
 | 📊 [**AI Ops & Observability**](./docs/setup/ai-ops.md) | Моніторинг апаратного забезпечення (GPU Power Draw), метрик інференсу (Ollama/vLLM /metrics) та трейсинг агентів через Langfuse. | [`ai-ops.md`](./docs/setup/ai-ops.md) | ✅ Готово |
 | 📦 [**Quantization Guide**](./docs/setup/quantization.md) | Посібник з квантизації моделей: вибір форматів (Q4/Q8/GGUF), розрахунок VRAM, квантування через `llama.cpp` та інтеграція в Ollama. | [`quantization.md`](./docs/setup/quantization.md) | ✅ Готово |
 
