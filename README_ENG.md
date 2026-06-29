@@ -225,6 +225,16 @@ This stack is deployed on our dedicated **WS workstation (pve03, IP: 100.68.179.
    opencode --model local-infrastructure/gemma-4-26b-it
    ```
 
+#### 📊 Session Monitoring
+For convenient real-time monitoring of active OpenCode sessions, it is recommended to use the terminal utility [abtop](https://github.com/graykode/abtop) (an `htop`-like tool for AI agents).
+
+Thanks to the contribution of our Weby Homelab community ([Pull Request #144](https://github.com/graykode/abtop/pull/144)), a full integration with OpenCode has been added to `abtop`:
+* Visual display of context window usage (`context_percent` and `context_window`) based on input and output tokens.
+* Monitoring of active sessions, processes, and limits.
+
+> [!IMPORTANT]
+> On Linux, make sure you have `sqlite3` installed in your system (required to read the OpenCode session database).
+
 > [!NOTE]
 > Detailed instructions for each platform (Windows/macOS/Linux) can be found in the [docs/setup/](./docs/setup/) section.
 
