@@ -233,9 +233,7 @@ This stack is deployed on our dedicated **WS workstation (IP: 100.68.179.109 / 1
    ```
 
 #### 📊 Session Monitoring
-For convenient real-time monitoring of active OpenCode sessions, it is recommended to use the terminal utility [abtop](https://github.com/graykode/abtop) (an `htop`-like tool for AI agents).
-
-Thanks to the contribution of our Weby Homelab community ([Pull Request #144](https://github.com/graykode/abtop/pull/144)), a full integration with OpenCode has been added to `abtop`:
+For convenient real-time monitoring of active OpenCode sessions, it is recommended to use the terminal utility [llmtop](https://github.com/weby-homelab/llmtop) (a professional monitoring tool for local LLM sessions and agents developed by Weby Homelab):
 * Visual display of context window usage (`context_percent` and `context_window`) based on input and output tokens.
 * Monitoring of active sessions, processes, and limits.
 
