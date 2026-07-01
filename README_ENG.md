@@ -189,22 +189,25 @@ The easiest path for laptops and home servers.
 
 ### Option B: Professional Developer Stack (llama-server + OpenCode) — WS Configuration
 
-This stack is deployed on our dedicated **WS workstation (pve03, IP: 100.68.179.109)** for maximum speed (MTP, Flash Attention, embedding).
+This stack is deployed on our dedicated **WS workstation (IP: 100.68.179.109 / 192.168.2.24)** for maximum speed (MTP, Flash Attention, 128K context).
 
 1. **Start the compute core (Llama.cpp Server):**
-   Create a systemd service `/etc/systemd/system/llama-server.service` for automatic startup (configured for Xeon E5-2666 v3 + 10.7 GB VRAM on RTX 2080 Ti):
+   Create a systemd service `/etc/systemd/system/llama-server.service` for automatic startup (configured for Xeon E5-2666 v3 + 11GB VRAM on RTX 2080 Ti using local reasoning model Ornith-1.0-35B-MTP):
    ```bash
    # start_llama.sh
    /root/llama.cpp/build/bin/llama-server \
-       -m /root/llama-models/gemma-4-26B-A4B-it-UD-Q4_K_M.gguf \
-       -ngl 17 -t 10 -c 65536 -fa on -np 1 -b 512 -ub 512 \
-       --host 0.0.0.0 --port 8080 --embedding
+       -m /root/llama-models/Ornith-1.0-35B-Q6_K-MTP.gguf \
+       -ngl 14 -t 10 -c 128000 -fa on -np 1 -b 512 -ub 512 \
+       -ctk q8_0 -ctv q8_0 -fit off \
+       --spec-type draft-mtp --spec-draft-n-max 2 \
+       --chat-template-kwargs "{\"preserve_thinking\":true}" \
+       --host 0.0.0.0 --port 8080
    ```
 2. **Configure OpenCode client (`~/.config/opencode/opencode.jsonc`):**
-   Bind the client to the local server with support for automatic fallback to the cloud:
+   Bind the client to the local server with support for automatic fallback to the cloud and preserving thinking process:
    ```json
    {
-     "model": "local-infrastructure/gemma-4-26b-it",
+     "model": "local-infrastructure/ornith-1.0-35b-it",
      "provider": {
        "local-infrastructure": {
          "npm": "@ai-sdk/openai-compatible",
@@ -214,18 +217,19 @@ This stack is deployed on our dedicated **WS workstation (pve03, IP: 100.68.179.
            "apiKey": "sk-llama-cpp-local-token"
          },
          "models": {
-           "gemma-4-26b-it": {
-             "name": "Gemma-4 26B Local (MoE)",
-             "limit": { "context": 65536, "output": 4096 }
+           "ornith-1.0-35b-it": {
+             "name": "Ornith-1.0 35B Local (MTP)",
+             "limit": { "context": 128000, "output": 4096 }
            }
          }
        }
-     }
+     },
+     "lsp": false
    }
    ```
 3. **Start the client:**
    ```bash
-   opencode --model local-infrastructure/gemma-4-26b-it
+   opencode --model local-infrastructure/ornith-1.0-35b-it
    ```
 
 #### 📊 Session Monitoring
