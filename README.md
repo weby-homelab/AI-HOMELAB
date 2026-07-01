@@ -49,14 +49,14 @@
 > [!CAUTION]
 > **Категорично заборонені моделі та інструменти:** YandexGPT, GigaChat, будь-які інші сервіси та моделі від компаній з країни-агресора РФ.
 
-**Наш стек — перевірений західний Open-Source:**
-
 | Категорія | Інструменти |
 |---|---|
-| **LLM-моделі** | Meta LLaMA 4 (Scout/Maverick), Google Gemma 4, Mistral (Large 3 / Medium 3.5 / Small 4), Microsoft Phi-4 (Reasoning/Vision/Multimodal) |
+| **LLM-моделі** | Meta LLaMA 4 (Scout/Maverick), Google Gemma 4, Mistral (Large 3 / Medium 3.5 / Small 4), Microsoft Phi-4 (Reasoning/Vision/Multimodal), Qwen 3.6 (Dense/MoE)*, DeepSeek-V4 (Flash/Pro)* |
 | **Хмарні API** | OpenAI (GPT-5.5/5.4, GPT-5.4 mini/nano), Anthropic (Claude 4.x / 4.6 / 4.5), Google (Gemini 3.5/3.1) |
 | **Інференс** | Ollama, vLLM, llama.cpp |
 | **Оркестрація** | LangGraph, CrewAI, PydanticAI |
+
+*\*Примітка: моделі з КНР (Qwen, DeepSeek) допускаються виключно для локального тестування, порівняння та підвищення продуктивності в агентному кодуванні згідно з Меморандумом.*
 
 ### 2. 🔒 Локальність та Суверенітет Даних
 
@@ -148,7 +148,7 @@ flowchart TD
 
 ## ⚡ ШВИДКИЙ СТАРТ (Quick Start)
 
-Станом на **червень 2026 року (06.2026)**, ви можете розгорнути локальну ШІ-лабораторію за двома основними сценаріями:
+Станом на **липень 2026 року (07.2026)**, ви можете розгорнути локальну ШІ-лабораторію за двома основними сценаріями:
 
 ### Опція А: Стандартний стек (Ollama + Open WebUI) — Рекомендовано для початківців
 
@@ -158,16 +158,19 @@ flowchart TD
    ```bash
    curl -fsSL https://ollama.com/install.sh | sh
    ```
-2. **Завантажте сучасну модель сімейства Gemma 4 (випущено у 04.2026 / 06.2026):**
+2. **Завантажте сучасну модель сімейства Gemma 4, Qwen 3.6 або DeepSeek V4:**
    ```bash
    # Надшвидка мультимодальна edge-модель для слабких ПК (до 8GB RAM):
    ollama pull gemma4:e4b
 
-   # Нова флагманська 12B модель (червень 2026) з нативним аудіо без енкодерів (потрібно 16GB RAM):
+   # Нова флагманська 12B модель з нативним аудіо без енкодерів (потрібно 16GB RAM):
    ollama pull gemma4:12b
 
-   # Золотий стандарт для коду та RAG (потрібно 16GB RAM / GPU 8GB+ VRAM):
-   ollama pull llama3.1:8b
+   # Лідер за точністю кодування та RAG (потрібно 16GB RAM / GPU 12GB+ VRAM):
+   ollama pull qwen3.6:14b
+
+   # Швидке міркування з CoT (потрібно 16GB RAM / GPU 8GB+ VRAM):
+   ollama pull deepseek-v4:flash
    ```
 3. **Запустіть Open WebUI в один клік через Docker:**
    ```bash
@@ -287,7 +290,7 @@ flowchart TD
 │<br>
 ├── 📁 [**`docs/`**](./docs/) — *Документація та гайди*<br>
 │&nbsp;&nbsp;&nbsp;├── 📁 [**`research/`**](./docs/research/) — *Дослідження AI-ландшафту*<br>
-│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├── 🔬 [**`ai-landscape-june-2026.md`**](./docs/research/ai-landscape-june-2026.md) — *Звіт по ШІ-моделях та стеку*<br>
+│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├── 🔬 [**`ai-landscape-july-2026.md`**](./docs/research/ai-landscape-july-2026.md) — *Звіт по ШІ-моделях та стеку*<br>
 │&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├── 🔬 [**`nomad-odysseus-analysis.md`**](./docs/research/nomad-odysseus-analysis.md) — *Порівняльний аналіз проєктів N.O.M.A.D. та Odysseus*<br>
 │&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├── 🔬 [**`local-ai-experience-june-2026.md`**](./docs/research/local-ai-experience-june-2026.md) — *Практичний досвід з Odysseus, OpenCode та Gemma 4*<br>
 │&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;└── 🚀 [**`free-ai-tools-lifehacks.md`**](./docs/research/free-ai-tools-lifehacks.md) — *Безкоштовні ШІ-інструменти та лайфхаки*<br>
@@ -355,7 +358,7 @@ flowchart TD
 ### 🔬 5. Стратегія, Дорожня Карта та Спільнота
 | Модуль та Посилання | Опис | Головні Файли | Статус |
 | :--- | :--- | :--- | :--- |
-| 🔬 [**AI Landscape 2026**](./docs/research/ai-landscape-june-2026.md) | Аналіз ринку ШІ станом на червень 2026 року: моделі, API, фреймворки, RAG, MCP, а також stealth-браузери та асистенти. | [`ai-landscape-june-2026.md`](./docs/research/ai-landscape-june-2026.md) | ✅ Готово |
+| 🔬 [**AI Landscape 2026**](./docs/research/ai-landscape-july-2026.md) | Аналіз ринку ШІ станом на липень 2026 року: моделі, API, фреймворки, RAG, MCP, а також stealth-браузери та асистенти. | [`ai-landscape-july-2026.md`](./docs/research/ai-landscape-july-2026.md) | ✅ Готово |
 | 🔬 [**Local AI Experience**](./docs/research/local-ai-experience-june-2026.md) | Практичний досвід налаштування та роботи з Odysseus UI, OpenCode TUI та моделями Gemma 4 MoE. | [`local-ai-experience-june-2026.md`](./docs/research/local-ai-experience-june-2026.md) | ✅ Готово |
 | 🗺️ [**Roadmap**](./ROADMAP.md) | Детальний план розвитку проєкту: Фаза 1 (Фундамент), Фаза 2 (Практика), Фаза 3 (Спільнота). | [`ROADMAP.md`](./ROADMAP.md) | ✅ Готово |
 | 🤝 [**Contributing**](./CONTRIBUTING.md) | Гайд для контриб'юторів: як створювати Issues, розробляти у гілках та оформлювати Pull Requests. | [`CONTRIBUTING.md`](./CONTRIBUTING.md) | ✅ Готово |

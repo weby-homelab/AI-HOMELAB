@@ -49,14 +49,14 @@ We follow safety and development hygiene principles. Previously, a complete ban 
 > [!CAUTION]
 > **Categorically Prohibited models and tools:** YandexGPT, GigaChat, or any other AI services and models from companies based in the aggressor state of the Russian Federation.
 
-**Our stack is verified Western Open-Source:**
-
 | Category | Tools |
 |---|---|
-| **LLM Models** | Meta LLaMA 4 (Scout/Maverick), Google Gemma 4, Mistral (Large 3 / Medium 3.5 / Small 4), Microsoft Phi-4 (Reasoning/Vision/Multimodal) |
+| **LLM Models** | Meta LLaMA 4 (Scout/Maverick), Google Gemma 4, Mistral (Large 3 / Medium 3.5 / Small 4), Microsoft Phi-4 (Reasoning/Vision/Multimodal), Qwen 3.6 (Dense/MoE)*, DeepSeek-V4 (Flash/Pro)* |
 | **Cloud APIs** | OpenAI (GPT-5.5/5.4, GPT-5.4 mini/nano), Anthropic (Claude 4.x / 4.6 / 4.5), Google (Gemini 3.5/3.1) |
 | **Inference** | Ollama, vLLM, llama.cpp |
 | **Orchestration** | LangGraph, CrewAI, PydanticAI |
+
+*\*Note: Chinese models (Qwen, DeepSeek) are allowed strictly for local testing, comparison, and performance enhancements in agentic coding according to the Memorandum.*
 
 ### 2. 🔒 Locality and Data Sovereignty
 
@@ -148,7 +148,7 @@ flowchart TD
 
 ## ⚡ QUICK START
 
-As of **June 2026 (06.2026)**, you can deploy a local AI laboratory using two primary scenarios:
+As of **July 2026 (07.2026)**, you can deploy a local AI laboratory using two primary scenarios:
 
 ### Option A: Standard Stack (Ollama + Open WebUI) — Recommended for Beginners
 
@@ -158,16 +158,19 @@ The easiest path for laptops and home servers.
    ```bash
    curl -fsSL https://ollama.com/install.sh | sh
    ```
-2. **Download a modern model from the Gemma 4 family (released in 04.2026 / 06.2026):**
+2. **Download a modern model from the Gemma 4, Qwen 3.6, or DeepSeek V4 family:**
    ```bash
    # Ultra-fast multimodal edge model for low-spec PCs (up to 8GB RAM):
    ollama pull gemma4:e4b
 
-   # New flagship 12B model (June 2026) with native audio and no encoders (requires 16GB RAM):
+   # New flagship 12B model with native audio and no encoders (requires 16GB RAM):
    ollama pull gemma4:12b
 
-   # Gold standard for coding and RAG (requires 16GB RAM / GPU with 8GB+ VRAM):
-   ollama pull llama3.1:8b
+   # Leader in coding accuracy and RAG (requires 16GB RAM / GPU with 12GB+ VRAM):
+   ollama pull qwen3.6:14b
+
+   # Fast reasoning with CoT (requires 16GB RAM / GPU with 8GB+ VRAM):
+   ollama pull deepseek-v4:flash
    ```
 3. **Run Open WebUI in one click via Docker:**
    ```bash
@@ -287,7 +290,7 @@ Thanks to the contribution of our Weby Homelab community ([Pull Request #144](ht
 │<br>
 ├── 📁 [**`docs/`**](./docs/) — *Documentation and guides*<br>
 │&nbsp;&nbsp;&nbsp;├── 📁 [**`research/`**](./docs/research/) — *AI landscape research*<br>
-│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├── 🔬 [**`ai-landscape-june-2026.md`**](./docs/research/ai-landscape-june-2026.md) — *AI models and stack report*<br>
+│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├── 🔬 [**`ai-landscape-july-2026.md`**](./docs/research/ai-landscape-july-2026.md) — *AI models and stack report*<br>
 │&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├── 🔬 [**`nomad-odysseus-analysis.md`**](./docs/research/nomad-odysseus-analysis.md) — *Comparative analysis of N.O.M.A.D. and Odysseus*<br>
 │&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;└── 🚀 [**`free-ai-tools-lifehacks_ENG.md`**](./docs/research/free-ai-tools-lifehacks_ENG.md) — *Free AI Tools and Lifehacks*<br>
 │&nbsp;&nbsp;&nbsp;├── 📁 [**`setup/`**](./docs/setup/) — *Step-by-step guides for each OS*<br>
@@ -354,7 +357,7 @@ For convenience, all learning and practical materials in the repository are divi
 ### 🔬 5. Strategy, Roadmap & Community
 | Module & Link | Description | Main Files | Status |
 | :--- | :--- | :--- | :--- |
-| 🔬 [**AI Landscape 2026**](./docs/research/ai-landscape-june-2026.md) | AI market analysis as of June 2026: models, APIs, frameworks, RAG, MCP, stealth browsers, and assistants. | [`ai-landscape-june-2026.md`](./docs/research/ai-landscape-june-2026.md) | ✅ Done |
+| 🔬 [**AI Landscape 2026**](./docs/research/ai-landscape-july-2026.md) | AI market analysis as of July 2026: models, APIs, frameworks, RAG, MCP, stealth browsers, and assistants. | [`ai-landscape-july-2026.md`](./docs/research/ai-landscape-july-2026.md) | ✅ Done |
 | 🗺️ [**Roadmap**](./ROADMAP.md) | Detailed project roadmap: Phase 1 (Foundation), Phase 2 (Practice), Phase 3 (Community). | [`ROADMAP.md`](./ROADMAP.md) | ✅ Done |
 | 🤝 [**Contributing**](./CONTRIBUTING.md) | Contributor guide: creating Issues, working on feature branches, and submitting Pull Requests. | [`CONTRIBUTING.md`](./CONTRIBUTING.md) | ✅ Done |
 
