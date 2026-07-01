@@ -189,22 +189,25 @@ flowchart TD
 
 ### Опція Б: Професійний стек розробника (llama-server + OpenCode) — Конфігурація WS
 
-Цей стек розгорнуто на нашій виділеній робочій станції **WS (pve03, IP: 100.68.179.109)** для максимальної швидкості (MTP, Flash Attention, embedding).
+Цей стек розгорнуто на нашій виділеній робочій станції **WS (IP: 100.68.179.109 / 192.168.2.24)** для максимальної швидкості (MTP, Flash Attention, 128K context).
 
 1. **Запуск обчислювального ядра (Llama.cpp Server):**
-   Створіть systemd-сервіс `/etc/systemd/system/llama-server.service` для автоматичного запуску (налаштовано під Xeon E5-2666 v3 + 10.7 GB VRAM на RTX 2080 Ti):
+   Створіть systemd-сервіс `/etc/systemd/system/llama-server.service` для автоматичного запуску (налаштовано під Xeon E5-2666 v3 + 11GB VRAM на RTX 2080 Ti з використанням локальної reasoning-моделі Ornith-1.0-35B-MTP):
    ```bash
    # start_llama.sh
    /root/llama.cpp/build/bin/llama-server \
-       -m /root/llama-models/gemma-4-26B-A4B-it-UD-Q4_K_M.gguf \
-       -ngl 17 -t 10 -c 65536 -fa on -np 1 -b 512 -ub 512 \
-       --host 0.0.0.0 --port 8080 --embedding
+       -m /root/llama-models/Ornith-1.0-35B-Q6_K-MTP.gguf \
+       -ngl 14 -t 10 -c 128000 -fa on -np 1 -b 512 -ub 512 \
+       -ctk q8_0 -ctv q8_0 -fit off \
+       --spec-type draft-mtp --spec-draft-n-max 2 \
+       --chat-template-kwargs "{\"preserve_thinking\":true}" \
+       --host 0.0.0.0 --port 8080
    ```
 2. **Конфігурація клієнта OpenCode (`~/.config/opencode/opencode.jsonc`):**
-   Прив'яжіть клієнт до локального сервера з підтримкою автоматичного спадання (fallback) на хмару:
+   Прив'яжіть клієнт до локального сервера з підтримкою автоматичного спадання (fallback) на хмару та збереженням думок (`preserve_thinking`):
    ```json
    {
-     "model": "local-infrastructure/gemma-4-26b-it",
+     "model": "local-infrastructure/ornith-1.0-35b-it",
      "provider": {
        "local-infrastructure": {
          "npm": "@ai-sdk/openai-compatible",
@@ -214,18 +217,19 @@ flowchart TD
            "apiKey": "sk-llama-cpp-local-token"
          },
          "models": {
-           "gemma-4-26b-it": {
-             "name": "Gemma-4 26B Local (MoE)",
-             "limit": { "context": 65536, "output": 4096 }
+           "ornith-1.0-35b-it": {
+             "name": "Ornith-1.0 35B Local (MTP)",
+             "limit": { "context": 128000, "output": 4096 }
            }
          }
        }
-     }
+     },
+     "lsp": false
    }
    ```
 3. **Запустіть клієнт:**
    ```bash
-   opencode --model local-infrastructure/gemma-4-26b-it
+   opencode --model local-infrastructure/ornith-1.0-35b-it
    ```
 
 #### 📊 Моніторинг сесій
