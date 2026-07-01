@@ -24,7 +24,7 @@
 | **Обчислювач** | CPU (NPU / APU Ryzen AI) | CPU + 1x Nvidia GPU | CPU + Multi-GPU (2x-4x) / Apple Silicon |
 | **Пам'ять** | 32 GB DDR5/DDR4 | 32–64 GB DDR5 + 12-16GB VRAM | 128-256 GB DDR5 + 48GB-96GB+ VRAM |
 | **Шар Інференсу** | Ollama | Ollama + LiteLLM | vLLM + LiteLLM (Load Balancing, MTP) |
-| **Базові моделі** | Gemma 4 E4B, Phi-4 mini | Phi-4 14B (Reasoning), Gemma 4 12B | Gemma 4 26B MoE / 31B, LLaMA 4 Scout (109B MoE) |
+| **Базові моделі** | Gemma 4 E4B, Phi-4 mini | Phi-4 14B, Gemma 4 12B, Ornith-1.0 35B (Q3) | Gemma 4 26B MoE / 31B, Ornith-1.0 35B, LLaMA 4 Scout (109B MoE) |
 | **Типові юзкейси** | Чат, переклад, нативне аудіо, легкий RAG | Автономні агенти, складний RAG, MCP | Код-асистенти, distributed pipelines, LoRA fine-tuning |
 | **Енергоспоживання** | 12–35 W | 80–220 W (із лімітом TDP) | 400–850 W (або 30-45W для Apple Silicon) |
 | **Блекаут-стійкість** | 🔋 Відмінна (10+ год від EcoFlow River) | 🟡 Середня (3-5 год від EcoFlow Delta) | ❌ Низька (потрібні збірки LiFePO4 або Mac Studio) |
@@ -81,7 +81,7 @@
 * **Інтерфейс:** **Open WebUI**, підключений до LiteLLM.
 
 ### 4. Рекомендований вибір моделей
-* **Основна LLM (Reasoning/Coding):** `phi4:14b` (Q4_K_M, Reasoning) або `gemma4:12b` (Q8_0 / Q4_K_M).
+* **Основна LLM (Reasoning/Coding):** `phi4:14b` (Q4_K_M, Reasoning) або `gemma4:12b` (Q8_0 / Q4_K_M). Для систем з 16GB VRAM або Apple Silicon як преміум-вибір для агентів та коду: `ornith-1.0:35b` (квантизація IQ3_XS / Q3_K_L).
 * **Embedding модель:** `nomic-embed-text` (виконується на GPU).
 
 ### 5. Метрики та Енергоефективність
@@ -114,8 +114,8 @@
 * **Векторна БД:** **Qdrant** (кластерний варіант з оптимізацією під NVMe).
 
 ### 4. Рекомендований вибір моделей
-* **Основна LLM:** `gemma4:26b` (MoE, Q4_K_M) або `gemma4:31b` (Dense, Q4_K_M). Для систем з 64GB+ VRAM/RAM: `llama4:scout` (109B MoE, Q3/IQ3_XS).
-* **Допоміжні LLM (агенти):** `phi4:14b` (Reasoning) або `gemma4:12b`.
+* **Основна LLM:** `gemma4:26b` (MoE, Q4_K_M), `gemma4:31b` (Dense, Q4_K_M) або новий лідер кодування й агентних задач — `ornith-1.0:35b` (Q4_K_M / Q8_0). Для систем з 64GB+ VRAM/RAM: `llama4:scout` (109B MoE, Q3/IQ3_XS).
+* **Допоміжні LLM (агенти):** `phi4:14b` (Reasoning), `gemma4:12b` або `ornith-1.0:35b` (для складного кодування).
 * **Embedding модель:** `bge-m3` або `nomic-embed-text`.
 
 ### 5. Метрики та Енергоефективність
