@@ -44,7 +44,7 @@ Every AI-HomeLab community member and repository contributor shares four fundame
 
 ### 1. 🛡️ Technological Hygiene and Security
 
-We follow safety and development hygiene principles. Previously, a complete ban on models from China was in place. Now, **the restriction on using certain Chinese local models (specifically, Qwen, DeepSeek, and Ornith series) has been lifted, strictly for local testing, comparison, and performance enhancements in agentic coding**. At the same time, any Russian AI models and tools (such as YandexGPT, GigaChat) remain under a **STRICT AND LIFETIME BAN**.
+We follow safety and development hygiene principles. Previously, a complete ban on models from China was in place. Now, **the restriction on using certain Chinese local models (specifically, Qwen and DeepSeek series) has been lifted, strictly for local testing, comparison, and performance enhancements in agentic coding**. At the same time, any Russian AI models and tools (such as YandexGPT, GigaChat) remain under a **STRICT AND LIFETIME BAN**. High-quality reasoning models of Western origin (such as the Ornith series by the US-based DeepReinforce Team) are highly recommended.
 
 > [!CAUTION]
 > **Categorically Prohibited models and tools:** YandexGPT, GigaChat, or any other AI services and models from companies based in the aggressor state of the Russian Federation.
