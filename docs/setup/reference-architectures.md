@@ -24,7 +24,7 @@
 | **Обчислювач** | CPU (NPU / APU Ryzen AI) | CPU + 1x Nvidia GPU | CPU + Multi-GPU (2x-4x) / Apple Silicon |
 | **Пам'ять** | 32 GB DDR5/DDR4 | 32–64 GB DDR5 + 12-16GB VRAM | 128-256 GB DDR5 + 48GB-96GB+ VRAM |
 | **Шар Інференсу** | Ollama | Ollama + LiteLLM | vLLM + LiteLLM (Load Balancing, MTP) |
-| **Базові моделі** | Gemma 4 E4B, Phi-4 mini, LLaMA 3.2 3B | Phi-4 14B (Reasoning), Gemma 4 12B | LLaMA 3.3 70B, Gemma 4 26B MoE / 31B, LLaMA 4 Scout (109B MoE) |
+| **Базові моделі** | Gemma 4 E4B, Phi-4 mini | Phi-4 14B (Reasoning), Gemma 4 12B | Gemma 4 26B MoE / 31B, LLaMA 4 Scout (109B MoE) |
 | **Типові юзкейси** | Чат, переклад, нативне аудіо, легкий RAG | Автономні агенти, складний RAG, MCP | Код-асистенти, distributed pipelines, LoRA fine-tuning |
 | **Енергоспоживання** | 12–35 W | 80–220 W (із лімітом TDP) | 400–850 W (або 30-45W для Apple Silicon) |
 | **Блекаут-стійкість** | 🔋 Відмінна (10+ год від EcoFlow River) | 🟡 Середня (3-5 год від EcoFlow Delta) | ❌ Низька (потрібні збірки LiFePO4 або Mac Studio) |
@@ -50,7 +50,7 @@
 * **База даних:** ChromaDB (локальна, in-memory) для RAG.
 
 ### 4. Рекомендований вибір моделей
-* **Основна LLM:** `gemma4:e4b` (Q4_K_M, нативне аудіо + Vision) або `phi4:mini` (Q4_K_M) / `llama3.2:3b` (Q4_K_M).
+* **Основна LLM:** `gemma4:e4b` (Q4_K_M, нативне аудіо + Vision) або `phi4:mini` (Q4_K_M).
 * **Embedding модель:** `nomic-embed-text` (виконується на CPU / GPU).
 
 ### 5. Метрики та Енергоефективність
@@ -114,7 +114,7 @@
 * **Векторна БД:** **Qdrant** (кластерний варіант з оптимізацією під NVMe).
 
 ### 4. Рекомендований вибір моделей
-* **Основна LLM:** `llama3.3:70b` (Q4_K_M або Q5_K_M) або `gemma4:26b` (MoE) / `gemma4:31b` (Dense). Для систем з 64GB+ VRAM/RAM: `llama4:scout` (109B MoE, Q3/IQ3_XS).
+* **Основна LLM:** `gemma4:26b` (MoE, Q4_K_M) або `gemma4:31b` (Dense, Q4_K_M). Для систем з 64GB+ VRAM/RAM: `llama4:scout` (109B MoE, Q3/IQ3_XS).
 * **Допоміжні LLM (агенти):** `phi4:14b` (Reasoning) або `gemma4:12b`.
 * **Embedding модель:** `bge-m3` або `nomic-embed-text`.
 
