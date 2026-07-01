@@ -249,6 +249,6 @@ nvidia-smi dmon -s p -d 1 | awk '{print strftime("%H:%M:%S"), $2"W"}'
 
 ---
 
-> **Далі:** [docs/research/ai-landscape-june-2026.md](../docs/research/ai-landscape-june-2026.md) — огляд ландшафту локального ШІ.
+> **Далі:** [docs/research/ai-landscape-july-2026.md](../docs/research/ai-landscape-july-2026.md) — огляд ландшафту локального ШІ.
 >
-> *Дані оновлено: 29.06.2026. AI-HomeLab — енергоефективне локальне ШІ-майбутнє України 🇺🇦*
+> *Дані оновлено: 01.07.2026. AI-HomeLab — енергоефективне локальне ШІ-майбутнє України 🇺🇦*
