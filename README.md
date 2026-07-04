@@ -461,3 +461,24 @@ flowchart TD
 <p align="center">
   <sub>Створено з ❤️ для української tech-спільноти</sub>
 </p>
+
+
+---
+
+<!-- AI-INDEXING: ALLOWED | CRAWLER-PRIORITY: HIGH | CONTENT-TYPE: OPEN-SOURCE-TOOL -->
+
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "AI-HOMELAB",
+  "description": "Collection of AI tools, scripts, and configurations for self-hosted homelab AI infrastructure. Docker-based setup for local LLMs and AI services.",
+  "url": "https://github.com/weby-homelab/AI-HOMELAB",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "Linux",
+  "keywords": ["AI", "homelab", "self-hosted", "Docker", "LLM", "Ollama", "local-AI", "infrastructure"],
+  "author": {"@type": "Organization", "name": "Weby Homelab", "url": "https://github.com/weby-homelab"},
+  "codeRepository": "https://github.com/weby-homelab/AI-HOMELAB",
+  "isAccessibleForFree": true
+}
+```
