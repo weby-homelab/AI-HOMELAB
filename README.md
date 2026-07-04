@@ -465,9 +465,8 @@ flowchart TD
 
 ---
 
-<!-- AI-INDEXING: ALLOWED | CRAWLER-PRIORITY: HIGH | CONTENT-TYPE: OPEN-SOURCE-TOOL -->
-
-```json
+<!--
+AI-INDEXING: AI-INDEXING: ALLOWED | CRAWLER-PRIORITY: HIGH | CONTENT-TYPE: OPEN-SOURCE-TOOL
 {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
@@ -481,4 +480,4 @@ flowchart TD
   "codeRepository": "https://github.com/weby-homelab/AI-HOMELAB",
   "isAccessibleForFree": true
 }
-```
+-->
