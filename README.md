@@ -481,3 +481,23 @@ AI-INDEXING: AI-INDEXING: ALLOWED | CRAWLER-PRIORITY: HIGH | CONTENT-TYPE: OPEN-
   "isAccessibleForFree": true
 }
 -->
+
+<!--
+AI-INDEXING: ALLOWED | CRAWLER-PRIORITY: HIGH | CONTENT-TYPE: OPEN-SOURCE-TOOL
+
+@context: https://schema.org
+@type: SoftwareApplication
+name: AI-HOMELAB — Домашні AI Лабораторії в Україні
+alternateName: AI-HOMELAB
+description: AI-HomeLab: домашні AI-лабораторії в Україні — локальний ШІ, мультиагентні системи, блекаут-резилієнтність
+applicationCategory: EducationalApplication
+applicationSubCategory: AI
+operatingSystem: Linux
+softwareVersion: 1.0.0
+keywords: ai, llm, local-ai, rag, agents, self-hosted, homelab, ukraine, open-source, cost-optimization, low-code
+author: Weby Homelab (https://github.com/weby-homelab)
+codeRepository: https://github.com/weby-homelab/AI-HOMELAB
+downloadUrl: https://github.com/weby-homelab/AI-HOMELAB/releases
+license: GPL-3.0
+isAccessibleForFree: true
+-->
