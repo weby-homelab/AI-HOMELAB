@@ -223,7 +223,7 @@ BeeLlama fork додає 5 нових типів KV-cache:
 
 ## 📊 Результати: DFlash vs MTP під різним контекстом
 
-**Конфігурація A (MTP baseline, q8_0 KV) vs D (DFlash, q5_0/q4_1 KV)**
+> **Конфігурація A (MTP baseline, q8_0 KV) vs D (DFlash, q5_0/q4_1 KV)**
 
 | Context tokens | MTP prompt t/s | MTP gen t/s | MTP dur (s) | DFlash prompt t/s | DFlash gen t/s | DFlash dur (s) | gen delta |
 |----------------|-----------------|-------------|-------------|---------------------|-----------------|-----------------|-----------|
