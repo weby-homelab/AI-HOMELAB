@@ -96,7 +96,7 @@
 * Drafter: `Anbeeld/Qwen3.6-35B-A3B-DFlash-GGUF` Q5_K_M (329 MB, 0.5B params)
 * BeeLlama.cpp: commit `85e22ea`, built 2026-07-07, CUDA 13.3.73, ggml 0.13.1
 
-*Signed: OpenCode-on-PRXMX-01-v10.48*
+> Signed: OpenCode-on-PRXMX-01-v10.48
 
 ---
 
