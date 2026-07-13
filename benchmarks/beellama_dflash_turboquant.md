@@ -448,3 +448,4 @@ fi
   Built in Ukraine under air raid sirens &amp; blackouts ⚡<br>
   &copy; 2026 Weby Homelab
 </p>
+<!-- Опис файлу: докладний розбір тестів швидкості BeeLlama.cpp з DFlash і TurboQuant -->
