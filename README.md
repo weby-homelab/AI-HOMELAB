@@ -13,7 +13,7 @@
 <h3 align="center">Домашні AI-Лабораторії в Україні 🇺🇦</h3>
 
 <p align="center">
-  <strong>Локальний ШІ · Мультиагентні Системи · Блекаут-Резилієнтність</strong>
+  <strong>Локальний ШІ · Мультиагентні системи · Енергоавтономність</strong>
 </p>
 
 ---
@@ -44,19 +44,19 @@
 
 ### 1. 🛡️ Технологічна Гігієна та Безпека
 
-Ми **категорично не використовуємо, не тестуємо і не популяризуємо** програмне забезпечення, моделі штучного інтелекту чи інструменти, створені в РФ або геополітично ризикованих країнах (зокрема, КНР, такі як DeepSeek, Qwen тощо).
+Ми дотримуємося принципів безпеки та гігієни розробки. Раніше діяла повна заборона на моделі з Китаю. Наразі **знято заборону на використання деяких китайських локальних моделей (зокрема, серій Qwen та DeepSeek) виключно з метою локального тестування, порівняння та підвищення продуктивності в агентному кодуванні**. Водночас будь-які російські моделі штучного інтелекту та інструменти (на кшталт YandexGPT, GigaChat) перебувають під **СУВОРОЮ ТА ДОВІЧНОЮ ЗАБОРОНОЮ**. Високоякісні моделі міркування (Reasoning) західного походження (як-от серія Ornith від американської компанії DeepReinforce Team) є вкрай рекомендованими для використання.
 
 > [!CAUTION]
-> **Заборонені моделі та інструменти:** DeepSeek, Qwen, YandexGPT, GigaChat, будь-які моделі з невідомим або непрозорим походженням датасетів.
-
-**Наш стек — перевірений західний Open-Source:**
+> **Категорично заборонені моделі та інструменти:** YandexGPT, GigaChat, будь-які інші сервіси та моделі від компаній з країни-агресора РФ.
 
 | Категорія | Інструменти |
 |---|---|
-| **LLM-моделі** | Meta LLaMA 4 (Scout/Maverick), Google Gemma 4, Mistral (Large 3 / Medium 3.5 / Small 4), Microsoft Phi-4 (Reasoning/Vision/Multimodal) |
+| **LLM-моделі** | Meta LLaMA 4 (Scout/Maverick), Google Gemma 4, Mistral (Large 3 / Medium 3.5 / Small 4), Microsoft Phi-4 (Reasoning/Vision/Multimodal), Qwen 3.6 (Dense/MoE)*, DeepSeek-V4 (Flash/Pro)* |
 | **Хмарні API** | OpenAI (GPT-5.5/5.4, GPT-5.4 mini/nano), Anthropic (Claude 4.x / 4.6 / 4.5), Google (Gemini 3.5/3.1) |
 | **Інференс** | Ollama, vLLM, llama.cpp |
 | **Оркестрація** | LangGraph, CrewAI, PydanticAI |
+
+*\*Примітка: моделі з КНР (Qwen, DeepSeek) допускаються виключно для локального тестування, порівняння та підвищення продуктивності в агентному кодуванні згідно з Меморандумом.*
 
 ### 2. 🔒 Локальність та Суверенітет Даних
 
@@ -101,7 +101,7 @@ flowchart LR
 - **Максимум результату на споживчому залізі** — RTX 3060/4060/5060 або Apple Silicon
 - **Використання безкоштовних/дешевих API** — Gemini 3.5 Flash / 3.1 Flash-Lite, GPT-5.4 mini для гібридних систем
 - **Агресивна квантизація моделей** — Q4/Q8 через GGUF для економії VRAM
-- **🔋 Блекаут-резилієнтність** — оптимізація споживання для стабільної роботи лабораторії від інверторів та зарядних станцій (EcoFlow, Bluetti) під час відключень електроенергії
+- **🔋 Енергоавтономність (стійкість до відключень)** — оптимізація споживання для стабільної роботи лабораторії від інверторів та зарядних станцій (EcoFlow, Bluetti) під час знеструмлень
 
 > [!TIP]
 > Типова домашня лабораторія споживає **80-150W** — менше за електрочайник. Одного повербанку на 2000Wh вистачить на **13-25 годин** безперервної роботи.
@@ -148,7 +148,7 @@ flowchart TD
 
 ## ⚡ ШВИДКИЙ СТАРТ (Quick Start)
 
-Станом на **червень 2026 року (06.2026)**, ви можете розгорнути локальну ШІ-лабораторію за двома основними сценаріями:
+Станом на **липень 2026 року (07.2026)**, ви можете розгорнути локальну ШІ-лабораторію за двома основними сценаріями:
 
 ### Опція А: Стандартний стек (Ollama + Open WebUI) — Рекомендовано для початківців
 
@@ -158,16 +158,19 @@ flowchart TD
    ```bash
    curl -fsSL https://ollama.com/install.sh | sh
    ```
-2. **Завантажте сучасну модель сімейства Gemma 4 (випущено у 04.2026 / 06.2026):**
+2. **Завантажте сучасну модель сімейства Gemma 4, Qwen 3.6 або DeepSeek V4:**
    ```bash
    # Надшвидка мультимодальна edge-модель для слабких ПК (до 8GB RAM):
    ollama pull gemma4:e4b
-   
-   # Нова флагманська 12B модель (червень 2026) з нативним аудіо без енкодерів (потрібно 16GB RAM):
+
+   # Нова флагманська 12B модель з нативним аудіо без енкодерів (потрібно 16GB RAM):
    ollama pull gemma4:12b
-   
-   # Золотий стандарт для коду та RAG (потрібно 16GB RAM / GPU 8GB+ VRAM):
-   ollama pull llama3.1:8b
+
+   # Лідер за точністю кодування та RAG (потрібно 16GB RAM / GPU 12GB+ VRAM):
+   ollama pull qwen3.6:14b
+
+   # Швидке міркування з CoT (потрібно 16GB RAM / GPU 8GB+ VRAM):
+   ollama pull deepseek-v4:flash
    ```
 3. **Запустіть Open WebUI в один клік через Docker:**
    ```bash
@@ -186,22 +189,25 @@ flowchart TD
 
 ### Опція Б: Професійний стек розробника (llama-server + OpenCode) — Конфігурація WS
 
-Цей стек розгорнуто на нашій виділеній робочій станції **WS (pve03, IP: 100.68.179.109)** для максимальної швидкості (MTP, Flash Attention, embedding).
+Цей стек розгорнуто на нашій виділеній робочій станції **WS (IP: 100.68.179.109 / 192.168.2.24)** для максимальної швидкості (MTP, Flash Attention, 128K context).
 
 1. **Запуск обчислювального ядра (Llama.cpp Server):**
-   Створіть systemd-сервіс `/etc/systemd/system/llama-server.service` для автоматичного запуску (налаштовано під Xeon E5-2666 v3 + 10.7 GB VRAM на RTX 2080 Ti):
+   Створіть systemd-сервіс `/etc/systemd/system/llama-server.service` для автоматичного запуску (налаштовано під Xeon E5-2666 v3 + 11GB VRAM на RTX 2080 Ti з використанням локальної reasoning-моделі Ornith-1.0-35B-MTP):
    ```bash
    # start_llama.sh
    /root/llama.cpp/build/bin/llama-server \
-       -m /root/llama-models/gemma-4-26B-A4B-it-UD-Q4_K_M.gguf \
-       -ngl 17 -t 10 -c 65536 -fa on -np 1 -b 512 -ub 512 \
-       --host 0.0.0.0 --port 8080 --embedding
+       -m /root/llama-models/Ornith-1.0-35B-Q6_K-MTP.gguf \
+       -ngl 14 -t 10 -c 128000 -fa on -np 1 -b 512 -ub 512 \
+       -ctk q8_0 -ctv q8_0 -fit off \
+       --spec-type draft-mtp --spec-draft-n-max 2 \
+       --chat-template-kwargs "{\"preserve_thinking\":true}" \
+       --host 0.0.0.0 --port 8080
    ```
 2. **Конфігурація клієнта OpenCode (`~/.config/opencode/opencode.jsonc`):**
-   Прив'яжіть клієнт до локального сервера з підтримкою автоматичного спадання (fallback) на хмару:
+   Прив'яжіть клієнт до локального сервера з підтримкою автоматичного спадання (fallback) на хмару та збереженням думок (`preserve_thinking`):
    ```json
    {
-     "model": "local-infrastructure/gemma-4-26b-it",
+     "model": "local-infrastructure/ornith-1.0-35b-it",
      "provider": {
        "local-infrastructure": {
          "npm": "@ai-sdk/openai-compatible",
@@ -211,19 +217,28 @@ flowchart TD
            "apiKey": "sk-llama-cpp-local-token"
          },
          "models": {
-           "gemma-4-26b-it": {
-             "name": "Gemma-4 26B Local (MoE)",
-             "limit": { "context": 65536, "output": 4096 }
+           "ornith-1.0-35b-it": {
+             "name": "Ornith-1.0 35B Local (MTP)",
+             "limit": { "context": 128000, "output": 4096 }
            }
          }
        }
-     }
+     },
+     "lsp": false
    }
    ```
 3. **Запустіть клієнт:**
    ```bash
-   opencode --model local-infrastructure/gemma-4-26b-it
+   opencode --model local-infrastructure/ornith-1.0-35b-it
    ```
+
+#### 📊 Моніторинг сесій
+Для зручного моніторингу активних сесій OpenCode у реальному часі рекомендується використовувати термінальну утиліту [llmtop](https://github.com/weby-homelab/llmtop) (професійний інструмент моніторингу локальних LLM-сесій та ШІ-агентів, розроблений Weby Homelab):
+* Відображення заповнення контекстного вікна (`context_percent` та `context_window`) на основі вхідних та вихідних токенів.
+* Моніторинг активних сесій, процесів та лімітів.
+
+> [!IMPORTANT]
+> На Linux переконайтеся, що у вашій системі встановлено `sqlite3` (необхідний для зчитування бази даних сесій OpenCode).
 
 > [!NOTE]
 > Детальні інструкції для кожної платформи (Windows/macOS/Linux) дивіться у розділі [docs/setup/](./docs/setup/).
@@ -250,7 +265,8 @@ flowchart TD
 
 📂 [**`ai/`**](https://github.com/weby-homelab/AI-HOMELAB/blob/main)<br>
 ├── 📁 [**`benchmarks/`**](./benchmarks/) — *Бенчмарки заліза та енергоефективність*<br>
-│&nbsp;&nbsp;&nbsp;└── ⚡ [**`hardware_efficiency.md`**](./benchmarks/hardware_efficiency.md) — *GPU vs Apple Silicon (t/s/W)*<br>
+│&nbsp;&nbsp;&nbsp;├── ⚡ [**`hardware_efficiency.md`**](./benchmarks/hardware_efficiency.md) — *GPU vs Apple Silicon (t/s/W)*<br>
+│&nbsp;&nbsp;&nbsp;└── 🚀 [**`large_moe_optimization.md`**](./benchmarks/large_moe_optimization.md) — *Оптимізація MoE моделей на WS (RTX 2080 Ti)*<br>
 │<br>
 ├── 📁 [**`configs/`**](./configs/) — *Готові Docker-compose конфігурації*<br>
 │&nbsp;&nbsp;&nbsp;├── ✅ [**`ollama/`**](./configs/ollama/) — *Ollama + Open WebUI в один клік*<br>
@@ -276,8 +292,9 @@ flowchart TD
 │<br>
 ├── 📁 [**`docs/`**](./docs/) — *Документація та гайди*<br>
 │&nbsp;&nbsp;&nbsp;├── 📁 [**`research/`**](./docs/research/) — *Дослідження AI-ландшафту*<br>
-│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├── 🔬 [**`ai-landscape-june-2026.md`**](./docs/research/ai-landscape-june-2026.md) — *Звіт по ШІ-моделях та стеку*<br>
+│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├── 🔬 [**`ai-landscape-july-2026.md`**](./docs/research/ai-landscape-july-2026.md) — *Звіт по ШІ-моделях та стеку*<br>
 │&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├── 🔬 [**`nomad-odysseus-analysis.md`**](./docs/research/nomad-odysseus-analysis.md) — *Порівняльний аналіз проєктів N.O.M.A.D. та Odysseus*<br>
+│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├── 🔬 [**`local-ai-experience-june-2026.md`**](./docs/research/local-ai-experience-june-2026.md) — *Практичний досвід з Odysseus, OpenCode та Gemma 4*<br>
 │&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;└── 🚀 [**`free-ai-tools-lifehacks.md`**](./docs/research/free-ai-tools-lifehacks.md) — *Безкоштовні ШІ-інструменти та лайфхаки*<br>
 │&nbsp;&nbsp;&nbsp;├── 📁 [**`setup/`**](./docs/setup/) — *Крок-за-кроком для кожної ОС*<br>
 │&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├── ⏱️ [**`first-model-15-min.md`**](./docs/setup/first-model-15-min.md) — *Швидкий запуск першої моделі*<br>
@@ -327,6 +344,7 @@ flowchart TD
 | :--- | :--- | :--- | :--- |
 | 🔋 [**Blackout Guide**](./docs/setup/blackout-guide.md) | Налаштування лаби для роботи під час відключень світла (Nvidia Power Limit, обмеження потоків CPU, робота від EcoFlow, Starlink 12V PoE, Tailscale, Offline RAG). | [`blackout-guide.md`](./docs/setup/blackout-guide.md) | ✅ Готово |
 | ⚡ [**Hardware Benchmarks**](./benchmarks/hardware_efficiency.md) | Детальний аналіз GPU vs Apple Silicon (tokens/second/Watt), аналіз холодного старту та VRAM contention. | [`hardware_efficiency.md`](./benchmarks/hardware_efficiency.md) | ✅ Готово |
+| 🚀 [**MoE Optimization**](./benchmarks/large_moe_optimization.md) | Оптимізація та порівняльний бенчмарк великих MoE моделей (Gemma 4 26B, Qwen 3.6 35B, Ornith 1.0 35B) на робочій станції WS. | [`large_moe_optimization.md`](./benchmarks/large_moe_optimization.md) | ✅ Готово |
 | 📊 [**AI Ops & Observability**](./docs/setup/ai-ops.md) | Моніторинг апаратного забезпечення (GPU Power Draw), метрик інференсу (Ollama/vLLM /metrics) та трейсинг агентів через Langfuse. | [`ai-ops.md`](./docs/setup/ai-ops.md) | ✅ Готово |
 | 📦 [**Quantization Guide**](./docs/setup/quantization.md) | Посібник з квантизації моделей: вибір форматів (Q4/Q8/GGUF), розрахунок VRAM, квантування через `llama.cpp` та інтеграція в Ollama. | [`quantization.md`](./docs/setup/quantization.md) | ✅ Готово |
 
@@ -342,7 +360,8 @@ flowchart TD
 ### 🔬 5. Стратегія, Дорожня Карта та Спільнота
 | Модуль та Посилання | Опис | Головні Файли | Статус |
 | :--- | :--- | :--- | :--- |
-| 🔬 [**AI Landscape 2026**](./docs/research/ai-landscape-june-2026.md) | Аналіз ринку ШІ станом на червень 2026 року: моделі, API, фреймворки, RAG, MCP, а також stealth-браузери та асистенти. | [`ai-landscape-june-2026.md`](./docs/research/ai-landscape-june-2026.md) | ✅ Готово |
+| 🔬 [**AI Landscape 2026**](./docs/research/ai-landscape-july-2026.md) | Аналіз ринку ШІ станом на липень 2026 року: моделі, API, фреймворки, RAG, MCP, а також stealth-браузери та асистенти. | [`ai-landscape-july-2026.md`](./docs/research/ai-landscape-july-2026.md) | ✅ Готово |
+| 🔬 [**Local AI Experience**](./docs/research/local-ai-experience-june-2026.md) | Практичний досвід налаштування та роботи з Odysseus UI, OpenCode TUI та моделями Gemma 4 MoE. | [`local-ai-experience-june-2026.md`](./docs/research/local-ai-experience-june-2026.md) | ✅ Готово |
 | 🗺️ [**Roadmap**](./ROADMAP.md) | Детальний план розвитку проєкту: Фаза 1 (Фундамент), Фаза 2 (Практика), Фаза 3 (Спільнота). | [`ROADMAP.md`](./ROADMAP.md) | ✅ Готово |
 | 🤝 [**Contributing**](./CONTRIBUTING.md) | Гайд для контриб'юторів: як створювати Issues, розробляти у гілках та оформлювати Pull Requests. | [`CONTRIBUTING.md`](./CONTRIBUTING.md) | ✅ Готово |
 
@@ -442,3 +461,42 @@ flowchart TD
 <p align="center">
   <sub>Створено з ❤️ для української tech-спільноти</sub>
 </p>
+
+---
+
+<!--
+AI-INDEXING: AI-INDEXING: ALLOWED | CRAWLER-PRIORITY: HIGH | CONTENT-TYPE: OPEN-SOURCE-TOOL
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "AI-HOMELAB",
+  "description": "Collection of AI tools, scripts, and configurations for self-hosted homelab AI infrastructure. Docker-based setup for local LLMs and AI services.",
+  "url": "https://github.com/weby-homelab/AI-HOMELAB",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "Linux",
+  "keywords": ["AI", "homelab", "self-hosted", "Docker", "LLM", "Ollama", "local-AI", "infrastructure"],
+  "author": {"@type": "Organization", "name": "Weby Homelab", "url": "https://github.com/weby-homelab"},
+  "codeRepository": "https://github.com/weby-homelab/AI-HOMELAB",
+  "isAccessibleForFree": true
+}
+-->
+
+<!--
+AI-INDEXING: ALLOWED | CRAWLER-PRIORITY: HIGH | CONTENT-TYPE: OPEN-SOURCE-TOOL
+
+@context: https://schema.org
+@type: SoftwareApplication
+name: AI-HOMELAB — Домашні AI Лабораторії в Україні
+alternateName: AI-HOMELAB
+description: AI-HomeLab: домашні AI-лабораторії в Україні — локальний ШІ, мультиагентні системи, блекаут-резилієнтність
+applicationCategory: EducationalApplication
+applicationSubCategory: AI
+operatingSystem: Linux
+softwareVersion: 1.0.0
+keywords: ai, llm, local-ai, rag, agents, self-hosted, homelab, ukraine, open-source, cost-optimization, low-code
+author: Weby Homelab (https://github.com/weby-homelab)
+codeRepository: https://github.com/weby-homelab/AI-HOMELAB
+downloadUrl: https://github.com/weby-homelab/AI-HOMELAB/releases
+license: GPL-3.0
+isAccessibleForFree: true
+-->
