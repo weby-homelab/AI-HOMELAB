@@ -31,6 +31,9 @@
 4. **Ornith 1.0 35B MoE** (квантування `Q4_K_M` — полегшена та швидка версія):
    * *Конфігурація:* 38 експертів на GPU, 26 експертів на CPU (`-ncmoe 26`), 32K контекст.
    * *MTP:* Grafted MTP-тензори (збірка `tashfene`).
+5. **Qwen 3.6 35B A3B Uncensored** (квантування `Q4_K_M`, BeeLlama.cpp DFlash + TurboQuant):
+   * *Конфігурація:* усі шари на GPU (`-ngl 999`), 26/32 експертів на GPU (`-ncmoe 26`), 65K контекст, KV q8_0, Native MTP draft-n-max=3.
+   * *MTP:* Native MTP-тензори (збірка `heretic`).
 
 ---
 
